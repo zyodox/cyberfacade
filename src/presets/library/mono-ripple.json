@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "id": "mono-ripple",
+  "name": "Mono Ripple",
+  "category": "LED Media Facades",
+  "tags": ["minimal", "pixels", "ripple", "monochrome", "white"],
+  "description": "A near-black field of LED pixels; soft white rings ripple outward from low on the facade and fade into the dark.",
+  "seed": 6666,
+  "architecture": { "floors": 96, "bays": 48, "facades": 1, "slab": 0.2, "mullion": 0.2, "symmetry": "none" },
+  "animation": { "duration": 10, "speed": 1 },
+  "look": { "emission": 1, "exposure": 0, "tonemap": "agx" },
+  "output": { "width": 1024, "height": 2048 },
+  "layers": [
+    {
+      "id": "field",
+      "generator": "windows",
+      "name": "Dim pixels",
+      "params": {
+        "winWidth": 1, "winHeight": 1, "sillAlign": 0.5, "panes": 1, "frame": 0, "unitWidth": 1,
+        "occupancy": 1, "floorBias": 0, "roomVariation": 0, "warmColor": "#ffffff", "coolColor": "#ffffff", "coolRatio": 0, "tempVariation": 0,
+        "intensity": 0.012, "brightnessVar": 0, "spill": 0, "unlit": 0,
+        "ceiling": 0, "lamps": 0, "fixtures": 0, "blinds": 0, "curtains": 0, "furniture": 0, "toggleRate": 0, "tvRatio": 0
+      }
+    },
+    {
+      "id": "rings",
+      "generator": "shapes",
+      "name": "Ripple",
+      "clip": true,
+      "params": {
+        "shape": "circle", "arrangement": "ripple", "size": 0.02, "centerX": 0.5, "centerY": 0.3, "rippleSpacing": 0.09, "thickness": 0.28,
+        "expand": 0.2, "quantize": "cells", "colorA": "#f5f3ee", "colorMode": "solid", "intensity": 1.5, "glow": 0, "softness": 0.002
+      }
+    },
+    {
+      "id": "falloff",
+      "generator": "gradient",
+      "name": "Falloff",
+      "blend": "multiply",
+      "params": {
+        "gtype": "radial", "centerX": 0.5, "centerY": 0.3, "repeat": 1.7, "wrap": "clamp", "quantize": "cells",
+        "colorA": "#ffffff", "colorB": "#000000", "useC": false, "intensity": 1, "scroll": 0, "output": "emit"
+      }
+    },
+    {
+      "id": "field-restore",
+      "generator": "windows",
+      "name": "Off pixels",
+      "params": {
+        "winWidth": 1, "winHeight": 1, "sillAlign": 0.5, "panes": 1, "frame": 0,
+        "occupancy": 1, "roomVariation": 0, "warmColor": "#ffffff", "coolRatio": 0, "tempVariation": 0,
+        "intensity": 0.004, "brightnessVar": 0, "spill": 0, "unlit": 0,
+        "ceiling": 0, "lamps": 0, "fixtures": 0, "blinds": 0, "curtains": 0, "furniture": 0, "toggleRate": 0, "tvRatio": 0
+      }
+    }
+  ]
+}

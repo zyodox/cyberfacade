@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "id": "cyberpunk-flicker",
+  "name": "Cyberpunk Flicker",
+  "category": "Cyberpunk",
+  "tags": ["neon", "magenta", "cyan", "glitch", "buzz", "holo signs"],
+  "description": "Rain-soaked tenement tower: magenta/cyan neon floor lines that buzz and drop out, flickering holo-sign blocks and occasional floor-tearing glitches.",
+  "seed": 2077,
+  "architecture": { "floors": 48, "bays": 14, "facades": 1, "slab": 0.18, "mullion": 0.1, "symmetry": "none" },
+  "animation": { "duration": 10, "speed": 1 },
+  "look": { "emission": 1, "exposure": 0, "tonemap": "agx-punchy" },
+  "output": { "width": 1024, "height": 2048 },
+  "layers": [
+    {
+      "id": "tenements",
+      "generator": "windows",
+      "name": "Tenements",
+      "params": {
+        "winWidth": 0.82, "winHeight": 0.7, "sillAlign": 0.4, "panes": 2, "frame": 0.05, "unitWidth": 2,
+        "occupancy": 0.55, "floorBias": 0.1, "clustering": 0.3, "roomVariation": 0.3,
+        "warmColor": "#ff9a5c", "coolColor": "#9ad8ff", "coolRatio": 0.5, "tempVariation": 0.8,
+        "intensity": 1.3, "brightnessVar": 0.6, "spill": 0.3, "unlit": 0.03, "unlitColor": "#3a2350",
+        "ceiling": 0.5, "lamps": 0.3, "blinds": 0.4, "curtains": 0.2, "furniture": 0.2,
+        "toggleRate": 0.3, "toggleAmount": 0.3, "tvRatio": 0.15, "tvColor": "#6f8bff", "flicker": 0.08
+      }
+    },
+    {
+      "id": "grade",
+      "generator": "color",
+      "name": "Night grade",
+      "params": { "saturation": 1.3, "tint": "#ff4fd8", "tintAmount": 0.25 }
+    },
+    {
+      "id": "neon",
+      "generator": "stripes",
+      "name": "Neon floor lines",
+      "params": {
+        "orientation": "horizontal", "align": "arch", "every": 6, "anchor": "slabCenter", "width": 0.09,
+        "segments": "bays", "gap": 0.12, "colorA": "#ff2bd6", "colorB": "#22f0ff", "gradient": "random",
+        "intensity": 9, "glow": 0.5, "glowWidth": 0.06, "anim": "none"
+      }
+    },
+    {
+      "id": "holo",
+      "generator": "blocks",
+      "name": "Holo signs",
+      "params": {
+        "source": "arch", "blockW": 2, "blockH": 5, "splits": 1, "gap": 0.2, "style": "gradient",
+        "colorA": "#ff2bd6", "colorB": "#22f0ff", "colorMix": 0.5, "intensity": 5,
+        "density": 0.12, "rate": 0.15, "duty": 0.8, "fade": 0.01, "output": "emit"
+      }
+    },
+    {
+      "id": "buzz",
+      "generator": "flicker",
+      "name": "Neon buzz",
+      "params": { "scope": "floors", "style": "buzz", "fraction": 0.5, "rate": 3, "depth": 0.6, "duty": 0.7, "sync": 0 }
+    },
+    {
+      "id": "tear",
+      "generator": "distort",
+      "name": "Glitch tear",
+      "params": { "mode": "floorShift", "amount": 24, "direction": "horizontal", "rate": 3, "chance": 0.12, "rgbSplit": 2 }
+    },
+    {
+      "id": "glow",
+      "generator": "blur",
+      "name": "Neon glow",
+      "params": { "mode": "glow", "radius": 8, "direction": "both", "taps": 24, "threshold": 1, "intensity": 0.5, "tint": "#ff9af0" }
+    }
+  ]
+}

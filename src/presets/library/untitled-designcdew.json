@@ -1,0 +1,171 @@
+{
+ "schema": 1,
+ "id": "untitled-designcdew",
+ "name": "Untitled designCDEW",
+ "category": "Realistic Buildings",
+ "description": "",
+ "seed": 375818665,
+ "architecture": {
+  "floors": 40,
+  "bays": 14,
+  "facades": 1,
+  "slab": 0.2,
+  "mullion": 0.1,
+  "symmetry": "none"
+ },
+ "animation": {
+  "duration": 10,
+  "speed": 1
+ },
+ "look": {
+  "emission": 1,
+  "exposure": 0,
+  "tonemap": "agx"
+ },
+ "output": {
+  "width": 2048,
+  "height": 2048
+ },
+ "layers": [
+  {
+   "id": "media-4hihb",
+   "generator": "media",
+   "name": "file_000000002608820b91ec5fee61446976",
+   "enabled": true,
+   "blend": "normal",
+   "opacity": 1,
+   "clip": false,
+   "region": {
+    "min": 0,
+    "max": 1,
+    "soft": 0,
+    "invert": false
+   },
+   "regionX": {
+    "min": 0,
+    "max": 1,
+    "soft": 0
+   },
+   "timeShift": {
+    "y": 0,
+    "x": 0,
+    "quantize": false
+   },
+   "params": {
+    "file": "i9ce3eaeeb2b91f125702",
+    "source": "file",
+    "file2": "",
+    "file3": "",
+    "file4": "",
+    "file5": "",
+    "file6": "",
+    "hold": 2.5,
+    "transition": "glitch",
+    "transTime": 0.5,
+    "slats": 18,
+    "edgeColor": "#ffffff",
+    "easing": "smooth",
+    "order": "forward",
+    "shuffleSeed": 0,
+    "hold1": 0,
+    "trans1": "default",
+    "hold2": 0,
+    "trans2": "default",
+    "hold3": 0,
+    "trans3": "default",
+    "hold4": 0,
+    "trans4": "default",
+    "hold5": 0,
+    "trans5": "default",
+    "hold6": 0,
+    "trans6": "default",
+    "fit": "cover",
+    "posX": 0.5,
+    "posY": 0.5,
+    "sizeW": 1,
+    "sizeH": 1,
+    "snap": false,
+    "scroll": 0,
+    "scrollDir": "horizontal",
+    "display": "direct",
+    "pitch": 5,
+    "dotSize": 0.62,
+    "dotShape": "round",
+    "offLevel": 0,
+    "key": "none",
+    "keyColor": "#00ff00",
+    "keyThreshold": 0.18,
+    "keySoft": 0.12,
+    "spill": 0.7,
+    "intensity": 1,
+    "contrast": 1,
+    "saturation": 1,
+    "blackCut": 0,
+    "colorMode": "original",
+    "tint": "#bfe3ff",
+    "shadow": "#030408",
+    "hue": 0,
+    "scanlines": 0.5,
+    "scanDensity": 260,
+    "flicker": 0.3,
+    "glitch": 0.2,
+    "glitchRate": 0.5,
+    "chroma": 3,
+    "rim": 0,
+    "backing": 1,
+    "bezel": 0,
+    "bezelColor": "#ffffff",
+    "bezelWidth": 1.5,
+    "videoSpeed": 1,
+    "timing": "fit",
+    "videoOffset": 0,
+    "frameRate": 0
+   }
+  },
+  {
+   "id": "photolights-1bznu",
+   "generator": "photolights",
+   "name": "Photo lights",
+   "enabled": true,
+   "blend": "replace",
+   "opacity": 1,
+   "clip": false,
+   "region": {
+    "min": 0,
+    "max": 1,
+    "soft": 0,
+    "invert": false
+   },
+   "regionX": {
+    "min": 0,
+    "max": 1,
+    "soft": 0
+   },
+   "timeShift": {
+    "y": 0,
+    "x": 0,
+    "quantize": false
+   },
+   "params": {
+    "sensitivity": 0.65,
+    "softness": 0.6,
+    "lightSize": 24,
+    "grouping": "grid",
+    "showLights": false,
+    "mode": "tv",
+    "affected": 0.45,
+    "switchRate": 2,
+    "offTime": 0.215,
+    "flickerRate": 6,
+    "depth": 0.5,
+    "sync": 0,
+    "offLevel": 0.06,
+    "gain": 1,
+    "tvColor": "#7fa6ff"
+   }
+  }
+ ],
+ "audio": {
+  "routes": []
+ }
+}

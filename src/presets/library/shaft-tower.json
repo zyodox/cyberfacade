@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "id": "shaft-tower",
+  "name": "Shaft Tower",
+  "category": "Luxury/Futuristic",
+  "tags": ["shafts", "stacked video", "ghost windows", "hairline", "warm", "minimal"],
+  "description": "Near-invisible glazing crossed by ten hairline light shafts with slow rising comets; three stacked video bands loop warm fluid, monochrome ripples and a champagne gradient.",
+  "seed": 3141,
+  "architecture": { "floors": 40, "bays": 20, "facades": 1, "slab": 0.15, "mullion": 0.06, "symmetry": "none" },
+  "animation": { "duration": 12, "speed": 1 },
+  "look": { "emission": 1, "exposure": 0, "tonemap": "agx" },
+  "output": { "width": 1024, "height": 2048 },
+  "layers": [
+    {
+      "id": "ghost",
+      "generator": "windows",
+      "name": "Ghost glazing",
+      "params": {
+        "winWidth": 0.95, "winHeight": 0.95, "sillAlign": 0, "panes": 1, "frame": 0.01, "unitWidth": 2,
+        "occupancy": 0.35, "floorBias": 0.3, "roomVariation": 0.2, "coolRatio": 0.3,
+        "intensity": 0.004, "brightnessVar": 0.3, "spill": 0, "unlit": 0.001,
+        "ceiling": 0.3, "lamps": 0, "fixtures": 0, "blinds": 0, "curtains": 0, "furniture": 0, "toggleRate": 0, "tvRatio": 0
+      }
+    },
+    {
+      "id": "video-fluid",
+      "generator": "noise",
+      "name": "Video · warm fluid",
+      "blend": "replace",
+      "region": { "min": 0.12, "max": 0.26, "soft": 0.002 },
+      "params": { "noiseType": "fbm", "scale": 3, "octaves": 4, "stretch": 2, "contrast": 1.6, "evolve": 0.083, "drift": "right", "driftRate": 0.083, "output": "emit", "colorA": "#070403", "colorB": "#ffb168", "intensity": 1.4, "amount": 1 }
+    },
+    {
+      "id": "video-ripple",
+      "generator": "shapes",
+      "name": "Video · ripples",
+      "blend": "replace",
+      "region": { "min": 0.42, "max": 0.56, "soft": 0.002 },
+      "params": { "shape": "circle", "arrangement": "ripple", "size": 0.02, "centerX": 0.5, "centerY": 0.49, "rippleSpacing": 0.035, "thickness": 0.3, "expand": 0.25, "colorA": "#e9edf2", "colorMode": "solid", "intensity": 1.2, "glow": 0, "softness": 0.002 }
+    },
+    {
+      "id": "video-gradient",
+      "generator": "gradient",
+      "name": "Video · champagne",
+      "blend": "replace",
+      "region": { "min": 0.72, "max": 0.86, "soft": 0.002 },
+      "params": { "gtype": "linear", "angle": 0, "repeat": 2, "wrap": "mirror", "colorA": "#140e06", "colorB": "#d9b77a", "colorC": "#fff4dc", "useC": true, "midpoint": 0.55, "intensity": 1.1, "scroll": 0.083, "output": "emit" }
+    },
+    {
+      "id": "shafts",
+      "generator": "stripes",
+      "name": "Light shafts",
+      "params": {
+        "orientation": "vertical", "align": "count", "count": 10, "every": 1, "anchor": "center", "width": 0.02,
+        "segments": "continuous", "colorA": "#f3ece0", "intensity": 2.4, "glow": 0.15, "glowWidth": 0.05,
+        "anim": "chase", "rate": 0.083, "sync": 0.3, "depth": 0.8, "waves": 1, "sharpness": 1.3
+      }
+    }
+  ]
+}

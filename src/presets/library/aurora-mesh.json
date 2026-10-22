@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "id": "aurora-mesh",
+  "name": "Aurora Mesh",
+  "category": "Sci-Fi",
+  "tags": ["minimal", "dot mesh", "teal", "aurora", "smooth"],
+  "description": "A fine dot mesh carrying thin, slowly folding aurora curtains in deep teal and pale mint.",
+  "seed": 1212,
+  "architecture": { "floors": 96, "bays": 48, "facades": 1, "slab": 0, "mullion": 0, "symmetry": "none" },
+  "animation": { "duration": 15, "speed": 1 },
+  "look": { "emission": 1, "exposure": 0, "tonemap": "agx" },
+  "output": { "width": 1024, "height": 2048 },
+  "layers": [
+    {
+      "id": "mesh",
+      "generator": "grid",
+      "name": "Dot mesh",
+      "params": { "source": "arch", "lines": "none", "nodes": 3, "nodeSize": 0.12, "color": "#ffffff", "intensity": 1, "edges": 0, "anim": "none" }
+    },
+    {
+      "id": "aurora",
+      "generator": "noise",
+      "name": "Aurora curtains",
+      "blend": "multiply",
+      "params": { "noiseType": "ridged", "scale": 1.5, "octaves": 3, "roughness": 0.45, "stretch": 4, "contrast": 1, "bias": 0, "threshold": 0.8, "softness": 0.14, "evolve": 0.067, "drift": "up", "driftRate": 0.067, "output": "modulate", "amount": 1 }
+    },
+    {
+      "id": "grade",
+      "generator": "color",
+      "name": "Teal map",
+      "params": { "gradientMap": true, "mapA": "#010304", "mapB": "#1b7a72", "mapC": "#dcfff6", "mapRange": 2.6, "gain": 1.1 }
+    }
+  ]
+}

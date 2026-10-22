@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "id": "residence-nocturne",
+  "name": "Residence Nocturne",
+  "category": "Residential",
+  "tags": ["interiors", "apartments", "realistic", "people", "art", "sophisticated"],
+  "description": "A residential tower where you can see into the homes: lamp-lit living rooms with sofas and art, people crossing rooms, blinds half down, a few rooms washed by projector light in muted mauve and indigo; faint shafts trace the mullions.",
+  "seed": 2626,
+  "architecture": { "floors": 30, "bays": 15, "facades": 1, "slab": 0.22, "mullion": 0.14, "symmetry": "none" },
+  "animation": { "duration": 15, "speed": 1 },
+  "look": { "emission": 1, "exposure": 0, "tonemap": "agx" },
+  "output": { "width": 1024, "height": 2048 },
+  "layers": [
+    {
+      "id": "films",
+      "generator": "noise",
+      "name": "Projector films",
+      "blend": "add",
+      "params": { "noiseType": "fbm", "scale": 2, "octaves": 3, "stretch": 2, "contrast": 1.3, "evolve": 0.067, "drift": "right", "driftRate": 0.067, "output": "emit", "colorA": "#0a0610", "colorB": "#9f86c8", "intensity": 1, "amount": 1 }
+    },
+    {
+      "id": "homes",
+      "generator": "interiors",
+      "name": "Homes",
+      "params": {
+        "winWidth": 0.85, "winHeight": 0.82, "sillAlign": 0.4, "panes": 2, "frame": 0.035, "unitWidth": 2,
+        "depth": 2, "eyeX": 0.45, "eyeY": 0.15, "eyeDist": 1.2,
+        "occupancy": 0.5, "floorBias": 0.05, "toggleRate": 0.12, "toggleAmount": 0.2,
+        "officeRatio": 0.05, "homeRatio": 0.85, "screenRatio": 0.1, "screenGain": 0.9, "screenSpill": 0.5,
+        "warmColor": "#ffb877", "coolColor": "#e6ecff", "intensity": 1.15, "brightnessVar": 0.55, "ambient": 0.012,
+        "furniture": 0.85, "people": 0.5, "peopleMotion": 0.05, "blinds": 0.3, "artwork": 0.8, "reflection": 0.03
+      }
+    },
+    {
+      "id": "glass",
+      "generator": "glass",
+      "name": "Window glass",
+      "clip": true,
+      "params": { "panesX": 2, "panesY": 1, "refraction": 2, "zoom": 0.02, "warp": 1.2, "warpScale": 10, "warpRate": 0.03, "tint": "#dfe4ea", "tintAmount": 0.08, "edgeShade": 0.4, "reflection": 0.04, "reflectColor": "#7f8cb0", "reflectAngle": 35, "streaks": 2 }
+    },
+    {
+      "id": "shafts",
+      "generator": "stripes",
+      "name": "Faint shafts",
+      "params": {
+        "orientation": "vertical", "align": "arch", "every": 3, "anchor": "edge", "width": 0.02,
+        "segments": "continuous", "colorA": "#e6dcef", "intensity": 1, "glow": 0, "anim": "wave", "rate": 0.067, "sync": 1, "depth": 0.7, "waves": 1, "sharpness": 2
+      }
+    }
+  ]
+}

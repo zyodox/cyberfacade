@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "id": "gallery-tower",
+  "name": "Gallery Tower",
+  "category": "Minimal/Soft Club",
+  "tags": ["interiors", "gallery", "monochrome", "minimal", "screens inside", "sophisticated"],
+  "description": "Bare white gallery rooms stacked up a tower; in many of them the back wall is a projection of slow white ripples, seen in deep perspective through clear glass. Everything else is dark. Ivory hairlines on the corners.",
+  "seed": 9191,
+  "architecture": { "floors": 28, "bays": 12, "facades": 1, "slab": 0.2, "mullion": 0.05, "symmetry": "none" },
+  "animation": { "duration": 12, "speed": 1 },
+  "look": { "emission": 1, "exposure": 0, "tonemap": "agx" },
+  "output": { "width": 1024, "height": 2048 },
+  "layers": [
+    {
+      "id": "ripples",
+      "generator": "shapes",
+      "name": "Projection · ripples",
+      "timeShift": { "y": 0.25, "quantize": true },
+      "params": { "shape": "circle", "arrangement": "ripple", "size": 0.02, "centerX": 0.5, "centerY": 0.5, "rippleSpacing": 0.05, "thickness": 0.18, "expand": 0.12, "colorA": "#f4f1ea", "colorMode": "solid", "intensity": 1.2, "glow": 0, "softness": 0.004 }
+    },
+    {
+      "id": "rooms",
+      "generator": "interiors",
+      "name": "Gallery rooms",
+      "params": {
+        "winWidth": 0.96, "winHeight": 0.96, "sillAlign": 0, "panes": 1, "frame": 0.01, "unitWidth": 4,
+        "depth": 1.5, "eyeX": 0.5, "eyeY": 0.45, "eyeDist": 1.8,
+        "occupancy": 0.4, "floorBias": 0.5, "toggleRate": 0, "toggleAmount": 0,
+        "officeRatio": 0, "homeRatio": 0, "screenRatio": 0.65, "screenGain": 1.3, "screenSpill": 0.6,
+        "warmColor": "#f6efe2", "coolColor": "#f6efe2", "intensity": 0.7, "brightnessVar": 0.2, "ambient": 0.008,
+        "furniture": 0, "people": 0.25, "peopleMotion": 0.03, "blinds": 0, "artwork": 0, "reflection": 0.02
+      }
+    },
+    {
+      "id": "glass",
+      "generator": "glass",
+      "name": "Clear glass",
+      "clip": true,
+      "params": { "panesX": 1, "panesY": 1, "refraction": 1.5, "zoom": 0.02, "warp": 0.8, "warpScale": 8, "warpRate": 0.03, "tint": "#e8ecef", "tintAmount": 0.05, "edgeShade": 0.2, "reflection": 0.03, "reflectColor": "#8a96b0", "reflectAngle": 30, "streaks": 2 }
+    },
+    {
+      "id": "frame",
+      "generator": "grid",
+      "name": "Corner hairlines",
+      "params": { "source": "arch", "lines": "none", "color": "#f6efe2", "intensity": 1, "edges": 0.9, "edgeWidth": 1.2, "anim": "none" }
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{"schema":1,"id":"brutalist-nocturne","name":"Brutalist Nocturne","category":"Noir Brutalist","tags":["concrete","brutalist","blade runner","uplights","slot windows","minimal"],"description":"Board-formed concrete with tie holes and rain stains, washed by small warm grazing uplights; rare slot windows glow and spill onto the surface; red beacons on the roof.","seed":4242,
+ "architecture":{"floors":44,"bays":12,"facades":1,"slab":0.2,"mullion":0.1,"symmetry":"none"},
+ "animation":{"duration":12,"speed":1},"output":{"width":1024,"height":2048},
+ "layers":[
+  {"id":"slots","generator":"windows","name":"Slot windows","params":{"occupancy":0.08,"winWidth":0.16,"winHeight":0.85,"panes":1,"frame":0.01,"intensity":1.4,"spill":0,"unlit":0.004,"curtains":0,"blinds":0,"clustering":0.2,"warmColor":"#ffc48a","coolRatio":0.1}},
+  {"id":"beacons","generator":"lights","name":"Beacons","params":{"mode":"beacons","color":"#ff2a1c","size":2.2,"intensity":14,"halo":0.8,"haloSize":7,"rate":0.5,"duty":0.1,"cellY":0.4}},
+  {"id":"concrete","generator":"concrete","name":"Concrete","params":{"fixture":"uplight","fixEveryX":3,"fixEveryY":7,"reach":1.3,"beam":0.4,"fixIntensity":2.6,"fixKelvin":2800,"fixDensity":0.75,"tieHoles":3,"stains":0.55,"spill":1.5}}
+ ]}

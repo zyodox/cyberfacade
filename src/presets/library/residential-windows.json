@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "id": "residential-windows",
+  "name": "Residential Windows",
+  "category": "Residential",
+  "tags": ["apartments", "realistic", "warm", "curtains", "tv"],
+  "description": "Punched windows in a concrete apartment block: warm lamps, curtains and blinds, TV flicker and residents switching lights on and off.",
+  "seed": 7781,
+  "architecture": { "floors": 22, "bays": 9, "facades": 1, "slab": 0.26, "mullion": 0.3, "symmetry": "none" },
+  "animation": { "duration": 12, "speed": 1 },
+  "look": { "emission": 1, "exposure": 0, "tonemap": "agx" },
+  "output": { "width": 1024, "height": 2048 },
+  "layers": [
+    {
+      "id": "apartments",
+      "generator": "windows",
+      "name": "Apartments",
+      "params": {
+        "winWidth": 0.78, "winHeight": 0.72, "sillAlign": 0.55, "panes": 2, "frame": 0.05, "unitWidth": 2,
+        "occupancy": 0.45, "floorBias": 0.05, "clustering": 0.2, "clusterScale": 5, "heightBias": -0.1, "roomVariation": 0.35,
+        "warmColor": "#ffb877", "coolColor": "#dde8ff", "coolRatio": 0.18, "tempVariation": 0.6,
+        "intensity": 1.7, "brightnessVar": 0.6, "spill": 0.3, "unlit": 0.03, "unlitColor": "#2e3b52",
+        "ceiling": 0.5, "lamps": 0.45, "fixtures": 0, "blinds": 0.3, "curtains": 0.45, "furniture": 0.4,
+        "toggleRate": 0.15, "toggleAmount": 0.25, "tvRatio": 0.14, "tvColor": "#7aa2ff", "flicker": 0.01
+      }
+    },
+    {
+      "id": "glass",
+      "generator": "noise",
+      "name": "Glass variation",
+      "blend": "multiply",
+      "clip": true,
+      "params": { "noiseType": "fbm", "scale": 6, "octaves": 4, "roughness": 0.55, "contrast": 1.2, "evolve": 0, "output": "modulate", "amount": 0.3 }
+    }
+  ]
+}

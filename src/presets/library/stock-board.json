@@ -1,0 +1,117 @@
+{
+ "schema": 1,
+ "id": "stock-board",
+ "name": "Exchange Board",
+ "category": "Ad Screens",
+ "tags": [
+  "ticker",
+  "led",
+  "numbers",
+  "live"
+ ],
+ "description": "A trading-floor facade: live prices wandering up and down on an LED board, a running clock and a ticker — every digit rolls like an odometer.",
+ "seed": 21,
+ "architecture": {
+  "floors": 48,
+  "bays": 12,
+  "facades": 1,
+  "slab": 0.2,
+  "mullion": 0.06,
+  "symmetry": "none"
+ },
+ "animation": {
+  "duration": 12,
+  "speed": 1
+ },
+ "look": {
+  "emission": 1,
+  "exposure": 0,
+  "tonemap": "agx"
+ },
+ "output": {
+  "width": 1024,
+  "height": 2048
+ },
+ "layers": [
+  {
+   "id": "win",
+   "generator": "windows",
+   "name": "Few windows",
+   "params": {
+    "occupancy": 0.04,
+    "clustering": 0.15,
+    "winWidth": 0.55,
+    "winHeight": 0.6,
+    "intensity": 1,
+    "spill": 0.03,
+    "unlit": 0.008,
+    "toggleRate": 0
+   }
+  },
+  {
+   "id": "clock",
+   "generator": "sign",
+   "name": "Clock",
+   "params": {
+    "text": "{time 21:47:05}",
+    "font": "Consolas",
+    "weight": "bold",
+    "style": "led",
+    "ledPitch": 2.4,
+    "size": 0.085,
+    "posY": 0.9,
+    "color": "#ff5a36",
+    "intensity": 4,
+    "glow": 0.45,
+    "plate": 1,
+    "plateColor": "#050303",
+    "padding": 0.3
+   }
+  },
+  {
+   "id": "board",
+   "generator": "sign",
+   "name": "Prices",
+   "params": {
+    "text": "VOLTA     {price 4.20 0.15}\nKAZEMI    {price 812.40 9.50}\nORBITAL   {price 1,204.10 22.00}\nAURELIA   {price 66.35 2.10}\nNOVAKINE  {price 9.87 0.45}",
+    "font": "Consolas",
+    "weight": "bold",
+    "style": "led",
+    "ledPitch": 2,
+    "size": 0.045,
+    "lineHeight": 1.45,
+    "posY": 0.62,
+    "color": "#9dff7a",
+    "intensity": 3.2,
+    "glow": 0.4,
+    "plate": 1,
+    "plateColor": "#030503",
+    "padding": 0.5
+   }
+  },
+  {
+   "id": "tick",
+   "generator": "sign",
+   "name": "Ticker",
+   "params": {
+    "text": "VLT +1.2% · KZM −0.4% · ORB +3.1% · AUR +0.7% · NVK −2.2% · ",
+    "font": "Consolas",
+    "weight": "bold",
+    "style": "led",
+    "ledPitch": 2,
+    "size": 0.04,
+    "posY": 0.34,
+    "anim": "scroll",
+    "tickerWidth": 1,
+    "scrollSpeed": 4,
+    "tickerGap": 1,
+    "color": "#ffb347",
+    "intensity": 3.5,
+    "glow": 0.4,
+    "plate": 1,
+    "plateColor": "#050403",
+    "padding": 0.35
+   }
+  }
+ ]
+}

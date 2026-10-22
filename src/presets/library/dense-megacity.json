@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "id": "dense-megacity",
+  "name": "Dense Megacity",
+  "category": "Chinese/Asian Megacity",
+  "tags": ["hong kong", "tenement", "dense", "neon signs", "fluorescent"],
+  "description": "A packed high-rise block: hundreds of small windows in warm tungsten and cool fluorescent, buzzing neon sign columns at street level and cyan edge lighting.",
+  "seed": 88216,
+  "architecture": { "floors": 56, "bays": 22, "facades": 1, "slab": 0.2, "mullion": 0.16, "symmetry": "none" },
+  "animation": { "duration": 12, "speed": 1 },
+  "look": { "emission": 1, "exposure": 0, "tonemap": "agx" },
+  "output": { "width": 1024, "height": 2048 },
+  "layers": [
+    {
+      "id": "apartments",
+      "generator": "windows",
+      "name": "Apartments",
+      "params": {
+        "winWidth": 0.8, "winHeight": 0.62, "sillAlign": 0.45, "panes": 2, "frame": 0.06, "unitWidth": 2,
+        "occupancy": 0.62, "floorBias": 0.1, "clustering": 0.25, "clusterScale": 6, "heightBias": -0.1, "roomVariation": 0.3,
+        "warmColor": "#ffb46e", "coolColor": "#d6f5ef", "coolRatio": 0.45, "tempVariation": 0.7,
+        "intensity": 1.5, "brightnessVar": 0.65, "spill": 0.35, "unlit": 0.03, "unlitColor": "#2a3348",
+        "ceiling": 0.6, "lamps": 0.25, "fixtures": 0, "blinds": 0.35, "curtains": 0.35, "furniture": 0.25,
+        "toggleRate": 0.2, "toggleAmount": 0.2, "tvRatio": 0.1, "flicker": 0.04
+      }
+    },
+    {
+      "id": "smog",
+      "generator": "noise",
+      "name": "Haze variation",
+      "blend": "multiply",
+      "clip": true,
+      "params": { "noiseType": "fbm", "scale": 3, "octaves": 3, "contrast": 1.3, "evolve": 0.05, "output": "modulate", "amount": 0.35 }
+    },
+    {
+      "id": "bands",
+      "generator": "stripes",
+      "name": "Floor bands",
+      "params": {
+        "orientation": "horizontal", "align": "arch", "every": 8, "anchor": "slabCenter", "width": 0.1,
+        "segments": "bays", "gap": 0.1, "colorA": "#e9f6ff", "intensity": 2, "glow": 0.2, "glowWidth": 0.05, "anim": "none"
+      }
+    },
+    {
+      "id": "signs",
+      "generator": "blocks",
+      "name": "Neon sign columns",
+      "region": { "min": 0.02, "max": 0.45, "soft": 0.02 },
+      "params": {
+        "source": "arch", "blockW": 1, "blockH": 6, "splits": 0, "gap": 0.12, "style": "solid",
+        "colorA": "#ff1040", "colorB": "#00d0ff", "colorMix": 0.45, "brightnessVar": 0.3, "intensity": 2.2,
+        "density": 0.09, "rate": 0.1, "duty": 0.85, "fade": 0.02, "sync": 0, "output": "emit"
+      }
+    },
+    {
+      "id": "buzz",
+      "generator": "flicker",
+      "name": "Sign buzz",
+      "region": { "min": 0, "max": 0.46, "soft": 0.02 },
+      "params": { "scope": "windows", "style": "buzz", "fraction": 0.15, "rate": 2, "depth": 0.5, "duty": 0.7, "sync": 0 }
+    },
+    {
+      "id": "edges",
+      "generator": "grid",
+      "name": "Edge LEDs",
+      "params": { "source": "arch", "lines": "none", "color": "#7fe8ff", "intensity": 1, "edges": 2.5, "edgeWidth": 2, "anim": "none" }
+    }
+  ]
+}

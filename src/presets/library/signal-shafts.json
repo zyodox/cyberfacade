@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "id": "signal-shafts",
+  "name": "Signal Shafts",
+  "category": "Sci-Fi",
+  "tags": ["shafts", "stacked video", "ice blue", "data", "ghost windows"],
+  "description": "Thirty-two ice-blue hairline shafts with comets at staggered speeds over ghost glazing; a tall data stream and a scanning light band are stacked through the middle of the tower.",
+  "seed": 3232,
+  "architecture": { "floors": 48, "bays": 32, "facades": 1, "slab": 0.14, "mullion": 0.1, "symmetry": "none" },
+  "animation": { "duration": 8, "speed": 1 },
+  "look": { "emission": 1, "exposure": 0, "tonemap": "agx" },
+  "output": { "width": 1024, "height": 2048 },
+  "layers": [
+    {
+      "id": "ghost",
+      "generator": "windows",
+      "name": "Ghost glazing",
+      "params": {
+        "winWidth": 0.9, "winHeight": 0.9, "sillAlign": 0.2, "panes": 1, "frame": 0.01, "unitWidth": 2,
+        "occupancy": 0.3, "floorBias": 0.4, "coolColor": "#dbe8ff", "coolRatio": 0.8, "intensity": 0.004, "brightnessVar": 0.3, "spill": 0, "unlit": 0.001,
+        "ceiling": 0.3, "lamps": 0, "fixtures": 0, "blinds": 0, "curtains": 0, "furniture": 0, "toggleRate": 0, "tvRatio": 0
+      }
+    },
+    {
+      "id": "data",
+      "generator": "noise",
+      "name": "Video · data stream",
+      "blend": "replace",
+      "region": { "min": 0.3, "max": 0.52, "soft": 0 },
+      "params": { "noiseType": "fbm", "scale": 14, "octaves": 1, "stretch": 0.2, "quantize": "cells", "contrast": 1.2, "threshold": 0.6, "softness": 0.001, "evolve": 0.25, "drift": "down", "driftRate": 0.25, "output": "emit", "colorA": "#000000", "colorB": "#9fd4ff", "intensity": 1.2, "amount": 1 }
+    },
+    {
+      "id": "scan",
+      "generator": "wave",
+      "name": "Video · scan band",
+      "blend": "replace",
+      "region": { "min": 0.6, "max": 0.7, "soft": 0 },
+      "params": { "shape": "linear", "direction": "left", "profile": "saw", "waves": 2, "rate": 0.25, "sharpness": 6, "depth": 1, "output": "emit", "colorA": "#01040a", "colorB": "#dff0ff", "intensity": 2 }
+    },
+    {
+      "id": "shafts",
+      "generator": "stripes",
+      "name": "Signal shafts",
+      "params": {
+        "orientation": "vertical", "align": "count", "count": 32, "every": 1, "anchor": "center", "width": 0.03,
+        "segments": "continuous", "colorA": "#9fd4ff", "colorB": "#ffffff", "gradient": "along", "intensity": 2.4, "glow": 0.1, "glowWidth": 0.08,
+        "anim": "chase", "rate": 0.25, "sync": 0, "depth": 0.9, "waves": 1, "sharpness": 2.2
+      }
+    }
+  ]
+}

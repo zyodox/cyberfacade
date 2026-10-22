@@ -1,0 +1,144 @@
+{
+ "schema": 1,
+ "id": "market-2049",
+ "name": "Market 2049",
+ "category": "Ad Screens",
+ "tags": [
+  "blade runner",
+  "market",
+  "multilingual",
+  "neon"
+ ],
+ "description": "Warm market signs in five scripts — Latin, kanji, Cyrillic, Arabic, Hangul — flickering between names in the haze. Best with Lit haze and Rain in the 3D view.",
+ "seed": 21,
+ "architecture": {
+  "floors": 48,
+  "bays": 12,
+  "facades": 1,
+  "slab": 0.2,
+  "mullion": 0.06,
+  "symmetry": "none"
+ },
+ "animation": {
+  "duration": 12,
+  "speed": 1
+ },
+ "look": {
+  "emission": 1,
+  "exposure": 0,
+  "tonemap": "agx"
+ },
+ "output": {
+  "width": 1024,
+  "height": 2048
+ },
+ "layers": [
+  {
+   "id": "conc",
+   "generator": "concrete",
+   "name": "Concrete",
+   "params": {
+    "fixture": "none",
+    "spill": 1.4,
+    "ambient": 0.006
+   }
+  },
+  {
+   "id": "win",
+   "generator": "windows",
+   "name": "Few windows",
+   "params": {
+    "occupancy": 0.08,
+    "clustering": 0.15,
+    "winWidth": 0.55,
+    "winHeight": 0.6,
+    "intensity": 1,
+    "spill": 0.03,
+    "unlit": 0.008,
+    "toggleRate": 0
+   }
+  },
+  {
+   "id": "m1",
+   "generator": "sign",
+   "name": "Market A",
+   "params": {
+    "text": "{#ffb35c} NOODLE BAR\n{Yu Gothic, #ff5a5a} 屋台 ラーメン\n{#7fe8ff} РЫНОК",
+    "messages": true,
+    "hold": 2.6,
+    "transition": "flicker",
+    "transTime": 0.5,
+    "style": "neon",
+    "size": 0.06,
+    "posX": 0.3,
+    "posY": 0.3,
+    "intensity": 5,
+    "glow": 0.8,
+    "plate": 0.8,
+    "plateColor": "#08070a",
+    "padding": 0.35
+   }
+  },
+  {
+   "id": "m2",
+   "generator": "sign",
+   "name": "Market B",
+   "params": {
+    "text": "{Segoe UI, #ffd27a} سوق الليل\n{Malgun Gothic, #c9a0ff} 야시장\n{Georgia, #ffd9a0} Café",
+    "messages": true,
+    "hold": 3.1,
+    "transition": "fade",
+    "transTime": 0.8,
+    "style": "neon",
+    "size": 0.055,
+    "posX": 0.72,
+    "posY": 0.18,
+    "intensity": 5,
+    "glow": 0.8,
+    "plate": 0.8,
+    "plateColor": "#08070a",
+    "padding": 0.35
+   }
+  },
+  {
+   "id": "m3",
+   "generator": "sign",
+   "name": "Kanji",
+   "params": {
+    "text": "起源",
+    "font": "Yu Gothic",
+    "weight": "bold",
+    "vertical": true,
+    "style": "neon",
+    "size": 0.16,
+    "posX": 0.85,
+    "posY": 0.6,
+    "color": "#ff4fa3",
+    "intensity": 5,
+    "glow": 1,
+    "anim": "flicker",
+    "flickerAmt": 0.15
+   }
+  },
+  {
+   "id": "m4",
+   "generator": "sign",
+   "name": "Brand",
+   "params": {
+    "text": "ORBITAL",
+    "font": "Segoe UI Light",
+    "weight": "light",
+    "spacing": 0.4,
+    "style": "solid",
+    "size": 0.09,
+    "posX": 0.42,
+    "posY": 0.9,
+    "color": "#ff3a2a",
+    "intensity": 3,
+    "glow": 0.8,
+    "anim": "pulse",
+    "rate": 0.08
+   }
+  }
+ ]
+}

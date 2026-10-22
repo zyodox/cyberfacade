@@ -1,0 +1,83 @@
+{
+ "schema": 1,
+ "id": "ember-rise",
+ "name": "Ember Rise",
+ "category": "Living Light",
+ "tags": [
+  "particles",
+  "sparks",
+  "embers",
+  "fire"
+ ],
+ "description": "Sparks lifting off the podium on a warm updraft, over a low bed of flames.",
+ "seed": 11,
+ "architecture": {
+  "floors": 48,
+  "bays": 12,
+  "facades": 1,
+  "slab": 0.2,
+  "mullion": 0.06,
+  "symmetry": "none"
+ },
+ "animation": {
+  "duration": 12,
+  "speed": 1
+ },
+ "look": {
+  "emission": 1,
+  "exposure": 0,
+  "tonemap": "agx"
+ },
+ "output": {
+  "width": 1024,
+  "height": 2048
+ },
+ "layers": [
+  {
+   "id": "fl",
+   "generator": "living",
+   "name": "Flames",
+   "params": {
+    "pattern": "sway",
+    "count": 12,
+    "reach": 0.12,
+    "rate": 0.1,
+    "softness": 0.5,
+    "detail": 0.8,
+    "colorA": "#ff9a4a",
+    "colorB": "#3a0800",
+    "intensity": 1.1,
+    "base": 0
+   }
+  },
+  {
+   "id": "em",
+   "generator": "particles",
+   "name": "Embers",
+   "params": {
+    "sprite": "spark",
+    "emitter": "line",
+    "posY": 0.03,
+    "emitW": 0.9,
+    "count": 700,
+    "life": 5,
+    "speed": 0.12,
+    "speedVar": 0.6,
+    "spread": 40,
+    "gravity": 0.01,
+    "drag": 0.3,
+    "turbulence": 0.5,
+    "turbScale": 5,
+    "size": 2.4,
+    "sizeEnd": 0.3,
+    "stretch": 2.5,
+    "glow": 0.8,
+    "colorA": "#ffd9a0",
+    "colorB": "#ff4a10",
+    "colorMode": "life",
+    "intensity": 6,
+    "fadeOut": 0.5
+   }
+  }
+ ]
+}

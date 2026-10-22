@@ -1,0 +1,64 @@
+{
+ "schema": 1,
+ "id": "particle-type",
+ "name": "Particle Type",
+ "category": "Kinetic Type",
+ "tags": [
+  "particles",
+  "assemble",
+  "text",
+  "burst"
+ ],
+ "description": "Thousands of points gather into a word, hold, and burst apart — then form the next word.",
+ "seed": 11,
+ "architecture": {
+  "floors": 48,
+  "bays": 12,
+  "facades": 1,
+  "slab": 0.2,
+  "mullion": 0.06,
+  "symmetry": "none"
+ },
+ "animation": {
+  "duration": 12,
+  "speed": 1
+ },
+ "look": {
+  "emission": 1,
+  "exposure": 0,
+  "tonemap": "agx"
+ },
+ "output": {
+  "width": 1024,
+  "height": 2048
+ },
+ "layers": [
+  {
+   "id": "pt",
+   "generator": "particles",
+   "name": "Particle words",
+   "params": {
+    "sprite": "dot",
+    "motion": "form",
+    "text": "LUMEN\nNOIR\nAURA",
+    "font": "Segoe UI",
+    "weight": "bold",
+    "emitter": "facade",
+    "textSize": 0.16,
+    "posY": 0.55,
+    "count": 4000,
+    "life": 4,
+    "speed": 0.12,
+    "spread": 360,
+    "turbulence": 0.3,
+    "size": 2.6,
+    "sizeEnd": 1,
+    "glow": 0.6,
+    "colorA": "#cfe9ff",
+    "colorB": "#ffffff",
+    "intensity": 3.5,
+    "fadeOut": 0.3
+   }
+  }
+ ]
+}

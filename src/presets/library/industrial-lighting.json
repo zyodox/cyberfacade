@@ -1,0 +1,71 @@
+{
+  "schema": 1,
+  "id": "industrial-lighting",
+  "name": "Industrial Lighting",
+  "category": "Industrial",
+  "tags": ["factory", "sodium", "metal halide", "wall packs", "beacons"],
+  "description": "A wide industrial hall at night: high clerestory windows in sodium orange and metal-halide white, wall-pack lights, a lit stair core and blinking red roof beacons.",
+  "seed": 4600,
+  "architecture": { "floors": 6, "bays": 16, "facades": 1, "slab": 0.3, "mullion": 0.35, "symmetry": "none" },
+  "animation": { "duration": 8, "speed": 1 },
+  "look": { "emission": 1, "exposure": 0, "tonemap": "agx" },
+  "output": { "width": 2048, "height": 1024 },
+  "layers": [
+    {
+      "id": "clerestory",
+      "generator": "windows",
+      "name": "Clerestory windows",
+      "params": {
+        "winWidth": 0.88, "winHeight": 0.45, "sillAlign": 1, "panes": 4, "frame": 0.035, "unitWidth": 4,
+        "occupancy": 0.55, "floorBias": 0.6, "clustering": 0.3, "roomVariation": 0.1,
+        "warmColor": "#ff9a3c", "coolColor": "#e3f0ff", "coolRatio": 0.35, "tempVariation": 0.2,
+        "intensity": 1.4, "brightnessVar": 0.3, "spill": 0.2, "unlit": 0.025,
+        "ceiling": 0.9, "lamps": 0, "fixtures": 0.6, "fixtureCount": 1, "blinds": 0, "curtains": 0, "furniture": 0,
+        "toggleRate": 0, "tvRatio": 0, "flicker": 0.06
+      }
+    },
+    {
+      "id": "grime",
+      "generator": "noise",
+      "name": "Dirty glass",
+      "blend": "multiply",
+      "clip": true,
+      "params": { "noiseType": "turbulence", "scale": 8, "octaves": 4, "contrast": 1.4, "evolve": 0, "output": "modulate", "amount": 0.35 }
+    },
+    {
+      "id": "stair",
+      "generator": "stripes",
+      "name": "Stair core",
+      "params": {
+        "orientation": "vertical", "align": "count", "count": 1, "every": 1, "anchor": "center", "offset": 0.1, "width": 0.028,
+        "segments": "continuous", "colorA": "#dff2ff", "intensity": 1.1, "glow": 0, "anim": "none"
+      }
+    },
+    {
+      "id": "wallpacks",
+      "generator": "grid",
+      "name": "Wall packs",
+      "params": {
+        "source": "custom", "countX": 6, "countY": 3, "lines": "none", "offsetY": 0.55,
+        "color": "#ffb15c", "intensity": 1, "nodes": 3, "nodeSize": 0.035, "edges": 0, "anim": "none"
+      }
+    },
+    {
+      "id": "sodium-flicker",
+      "generator": "flicker",
+      "name": "Sodium flicker",
+      "params": { "scope": "bays", "style": "fluorescent", "fraction": 0.12, "rate": 1, "depth": 0.8, "duty": 0.6 }
+    },
+    {
+      "id": "beacons",
+      "generator": "grid",
+      "name": "Roof beacons",
+      "region": { "min": 0.92, "max": 1, "soft": 0 },
+      "params": {
+        "source": "custom", "countX": 2, "countY": 1, "lines": "none", "offsetY": 0.96,
+        "color": "#ff1a1a", "intensity": 1, "nodes": 14, "nodeSize": 0.03, "edges": 0,
+        "anim": "pulse", "rate": 0.5, "sync": 1, "depth": 1
+      }
+    }
+  ]
+}

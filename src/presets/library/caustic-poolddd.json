@@ -1,0 +1,79 @@
+{
+ "schema": 1,
+ "id": "caustic-poolddd",
+ "name": "Caustic Poolddd",
+ "category": "Living Light",
+ "description": "Water caustics rippling over the whole facade, as if the tower stood at the bottom of a pool.",
+ "seed": 513509911,
+ "architecture": {
+  "floors": 52,
+  "bays": 13,
+  "facades": 1,
+  "slab": 0.2,
+  "mullion": 0.06,
+  "symmetry": "none"
+ },
+ "animation": {
+  "duration": 12,
+  "speed": 1
+ },
+ "look": {
+  "emission": 1,
+  "exposure": 0,
+  "tonemap": "agx"
+ },
+ "output": {
+  "width": 1024,
+  "height": 2048
+ },
+ "layers": [
+  {
+   "id": "ca",
+   "generator": "living",
+   "name": "Caustics",
+   "enabled": true,
+   "blend": "add",
+   "opacity": 1,
+   "clip": false,
+   "region": {
+    "min": 0,
+    "max": 1,
+    "soft": 0,
+    "invert": false
+   },
+   "regionX": {
+    "min": 0,
+    "max": 1,
+    "soft": 0
+   },
+   "timeShift": {
+    "y": 0,
+    "x": 0,
+    "quantize": false
+   },
+   "params": {
+    "pattern": "caustics",
+    "bpm": 78.35907468642108,
+    "rate": 0.21445197371765973,
+    "scale": 0.2,
+    "count": 24,
+    "originX": 0.5,
+    "originY": 0.5,
+    "reach": 0.5592467215424404,
+    "softness": 0.39360390775837006,
+    "sharpness": 2.8712078530457803,
+    "detail": 0.4769072016235441,
+    "flip": false,
+    "segments": 0,
+    "colorA": "#9ce3ff",
+    "colorB": "#010e1a",
+    "intensity": 1.6478394102305174,
+    "base": 0.03242655871436,
+    "quantize": "none"
+   }
+  }
+ ],
+ "audio": {
+  "routes": []
+ }
+}

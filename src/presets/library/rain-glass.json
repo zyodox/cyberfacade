@@ -1,0 +1,72 @@
+{
+ "schema": 1,
+ "id": "rain-glass",
+ "name": "Rain on Glass",
+ "category": "Living Light",
+ "tags": [
+  "rain",
+  "ripples",
+  "cool",
+  "calm"
+ ],
+ "description": "Drops landing on a dark glass skin, each sending out a faint ring.",
+ "seed": 11,
+ "architecture": {
+  "floors": 48,
+  "bays": 12,
+  "facades": 1,
+  "slab": 0.2,
+  "mullion": 0.06,
+  "symmetry": "none"
+ },
+ "animation": {
+  "duration": 12,
+  "speed": 1
+ },
+ "look": {
+  "emission": 1,
+  "exposure": 0,
+  "tonemap": "agx"
+ },
+ "output": {
+  "width": 1024,
+  "height": 2048
+ },
+ "layers": [
+  {
+   "id": "glass",
+   "generator": "windows",
+   "name": "Dark glass",
+   "params": {
+    "lightMode": "none",
+    "winWidth": 0.96,
+    "winHeight": 0.9,
+    "panes": 1,
+    "frame": 0.01,
+    "unlit": 0.025,
+    "unlitColor": "#1a2233",
+    "spill": 0,
+    "toggleRate": 0,
+    "toggleAmount": 0,
+    "tvRatio": 0
+   }
+  },
+  {
+   "id": "rp",
+   "generator": "living",
+   "name": "Ripples",
+   "params": {
+    "pattern": "ripples",
+    "scale": 5,
+    "rate": 0.2,
+    "softness": 0.3,
+    "sharpness": 2,
+    "detail": 0.5,
+    "colorA": "#dfeaff",
+    "colorB": "#0a1426",
+    "intensity": 0.45,
+    "base": 0
+   }
+  }
+ ]
+}

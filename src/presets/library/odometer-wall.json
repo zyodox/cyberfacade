@@ -1,0 +1,86 @@
+{
+ "schema": 1,
+ "id": "odometer-wall",
+ "name": "Odometer Wall",
+ "category": "Ad Screens",
+ "tags": [
+  "numbers",
+  "live",
+  "counter"
+ ],
+ "description": "A lobby counter the size of the building: visitors rolling up digit by digit, with a smaller live clock and total.",
+ "seed": 21,
+ "architecture": {
+  "floors": 48,
+  "bays": 12,
+  "facades": 1,
+  "slab": 0.2,
+  "mullion": 0.06,
+  "symmetry": "none"
+ },
+ "animation": {
+  "duration": 12,
+  "speed": 1
+ },
+ "look": {
+  "emission": 1,
+  "exposure": 0,
+  "tonemap": "agx"
+ },
+ "output": {
+  "width": 1024,
+  "height": 2048
+ },
+ "layers": [
+  {
+   "id": "big",
+   "generator": "sign",
+   "name": "Counter",
+   "params": {
+    "text": "{count 0-2,450,000}",
+    "font": "Segoe UI",
+    "weight": "bold",
+    "style": "solid",
+    "size": 0.11,
+    "posY": 0.6,
+    "color": "#7fe8ff",
+    "intensity": 4,
+    "glow": 0.6
+   }
+  },
+  {
+   "id": "cap",
+   "generator": "sign",
+   "name": "Caption",
+   "params": {
+    "text": "VISITORS TODAY",
+    "font": "Segoe UI Light",
+    "weight": "light",
+    "spacing": 0.5,
+    "style": "solid",
+    "size": 0.035,
+    "posY": 0.53,
+    "color": "#cfe3ff",
+    "intensity": 2,
+    "glow": 0.3
+   }
+  },
+  {
+   "id": "clk",
+   "generator": "sign",
+   "name": "Clock",
+   "params": {
+    "text": "{time 09:00:00}",
+    "font": "Consolas",
+    "weight": "bold",
+    "style": "led",
+    "ledPitch": 2,
+    "size": 0.05,
+    "posY": 0.4,
+    "color": "#ffb347",
+    "intensity": 3,
+    "glow": 0.4
+   }
+  }
+ ]
+}

@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "id": "champagne-lattice",
+  "name": "Champagne Lattice",
+  "category": "Luxury/Futuristic",
+  "tags": ["minimal", "lattice", "champagne", "gold", "trace", "luxury"],
+  "description": "A fine champagne lattice with soft nodes; slow threads of light trace along it while the whole facade breathes.",
+  "seed": 3333,
+  "architecture": { "floors": 36, "bays": 12, "facades": 1, "slab": 0, "mullion": 0, "symmetry": "none" },
+  "animation": { "duration": 12, "speed": 1 },
+  "look": { "emission": 1, "exposure": 0, "tonemap": "agx" },
+  "output": { "width": 1024, "height": 2048 },
+  "layers": [
+    {
+      "id": "lattice",
+      "generator": "grid",
+      "name": "Lattice",
+      "params": {
+        "source": "arch", "lines": "both", "everyX": 2, "everyY": 3, "widthX": 0.018, "widthY": 0.018,
+        "color": "#f2dcb3", "intensity": 1.8, "glow": 0.25, "glowWidth": 0.03, "nodes": 1.2, "nodeSize": 0.045, "edges": 0,
+        "anim": "trace", "rate": 0.07, "sync": 0.3, "depth": 0.94, "traceLength": 0.28
+      }
+    },
+    {
+      "id": "breath",
+      "generator": "wave",
+      "name": "Breath",
+      "blend": "multiply",
+      "params": { "shape": "linear", "direction": "up", "profile": "sine", "waves": 0.5, "rate": 0.083, "sharpness": 1, "depth": 0.3, "output": "modulate" }
+    }
+  ]
+}

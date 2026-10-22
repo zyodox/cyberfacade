@@ -1,0 +1,168 @@
+{
+ "schema": 1,
+ "id": "aurora-mesh-custom",
+ "name": "Aurora Mesh",
+ "category": "Sci-Fi",
+ "description": "A fine dot mesh carrying thin, slowly folding aurora curtains in deep teal and pale mint.",
+ "seed": 1323840195,
+ "architecture": {
+  "floors": 99,
+  "bays": 42,
+  "facades": 1,
+  "slab": 0,
+  "mullion": 0,
+  "symmetry": "none"
+ },
+ "animation": {
+  "duration": 6.5,
+  "speed": 1
+ },
+ "look": {
+  "emission": 1,
+  "exposure": 0,
+  "tonemap": "agx"
+ },
+ "output": {
+  "width": 509,
+  "height": 1900
+ },
+ "layers": [
+  {
+   "id": "mesh",
+   "generator": "grid",
+   "name": "Dot mesh",
+   "enabled": true,
+   "blend": "add",
+   "opacity": 1,
+   "clip": false,
+   "region": {
+    "min": 0,
+    "max": 1,
+    "soft": 0,
+    "invert": false
+   },
+   "regionX": {
+    "min": 0,
+    "max": 1,
+    "soft": 0
+   },
+   "timeShift": {
+    "y": 0,
+    "x": 0,
+    "quantize": false
+   },
+   "params": {
+    "source": "arch",
+    "countX": 8,
+    "countY": 32,
+    "lines": "none",
+    "everyX": 1,
+    "everyY": 1,
+    "offsetY": 0,
+    "widthX": 0.015370436631841587,
+    "widthY": 0.06853996866391972,
+    "color": "#fffefe",
+    "intensity": 1.450442928262055,
+    "glow": 0.11618256326764823,
+    "glowWidth": 0.046451434259070085,
+    "nodes": 3.973608747124672,
+    "nodeSize": 0.09610763232689351,
+    "edges": 0.27079443661496044,
+    "edgeWidth": 3.5227660345146434,
+    "anim": "none",
+    "rate": 0.40298459827899935,
+    "sync": 0.5428579594939947,
+    "depth": 0.715697163157165,
+    "traceLength": 0.2037626407672651
+   }
+  },
+  {
+   "id": "aurora",
+   "generator": "noise",
+   "name": "Aurora curtains",
+   "enabled": true,
+   "blend": "multiply",
+   "opacity": 1,
+   "clip": false,
+   "region": {
+    "min": 0,
+    "max": 1,
+    "soft": 0,
+    "invert": false
+   },
+   "regionX": {
+    "min": 0,
+    "max": 1,
+    "soft": 0
+   },
+   "timeShift": {
+    "y": 0,
+    "x": 0,
+    "quantize": false
+   },
+   "params": {
+    "noiseType": "ridged",
+    "scale": 0.5,
+    "octaves": 3,
+    "roughness": 0.41353654500097037,
+    "stretch": 4.873546670423821,
+    "quantize": "none",
+    "contrast": 1.0624775551259518,
+    "bias": -0.06291253585368395,
+    "threshold": 0.8446702868118883,
+    "softness": 0.11023910789969378,
+    "invert": false,
+    "evolve": 0.38543997817486525,
+    "drift": "up",
+    "driftRate": 0.047463538318872456,
+    "output": "modulate",
+    "amount": 0.9429535127710551,
+    "colorA": "#141d3a",
+    "colorB": "#94bfff",
+    "intensity": 2.0952764386311173
+   }
+  },
+  {
+   "id": "grade",
+   "generator": "color",
+   "name": "Teal map",
+   "enabled": true,
+   "blend": "replace",
+   "opacity": 1,
+   "clip": false,
+   "region": {
+    "min": 0,
+    "max": 1,
+    "soft": 0,
+    "invert": false
+   },
+   "regionX": {
+    "min": 0,
+    "max": 1,
+    "soft": 0
+   },
+   "timeShift": {
+    "y": 0,
+    "x": 0,
+    "quantize": false
+   },
+   "params": {
+    "hue": 4.962785081192851,
+    "hueCycle": 0,
+    "saturation": 0.9166349815577268,
+    "contrast": 1.1350322758406401,
+    "gain": 1.4791051828302444,
+    "tint": "#fff3f5",
+    "tintAmount": 0.018144111335277557,
+    "gradientMap": true,
+    "mapA": "#010304",
+    "mapB": "#24757a",
+    "mapC": "#cffffe",
+    "mapRange": 3.164720738711767
+   }
+  }
+ ],
+ "audio": {
+  "routes": []
+ }
+}

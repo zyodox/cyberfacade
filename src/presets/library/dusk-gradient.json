@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "id": "dusk-gradient",
+  "name": "Dusk Gradient",
+  "category": "Minimal/Soft Club",
+  "tags": ["minimal", "pixels", "gradient", "amber", "mauve", "indigo", "soft"],
+  "description": "An LED pixel skin washed in a muted dusk — amber at the base through mauve to deep indigo — with a slow tide of light and a faint shimmer.",
+  "seed": 8888,
+  "architecture": { "floors": 80, "bays": 40, "facades": 1, "slab": 0.22, "mullion": 0.22, "symmetry": "none" },
+  "animation": { "duration": 15, "speed": 1 },
+  "look": { "emission": 1, "exposure": 0, "tonemap": "agx" },
+  "output": { "width": 1024, "height": 2048 },
+  "layers": [
+    {
+      "id": "pixels",
+      "generator": "windows",
+      "name": "LED pixels",
+      "params": {
+        "winWidth": 1, "winHeight": 1, "sillAlign": 0.5, "panes": 1, "frame": 0, "unitWidth": 1,
+        "occupancy": 1, "floorBias": 0, "roomVariation": 0, "warmColor": "#ffffff", "coolColor": "#ffffff", "coolRatio": 0, "tempVariation": 0,
+        "intensity": 1, "brightnessVar": 0, "spill": 0, "unlit": 0,
+        "ceiling": 0, "lamps": 0, "fixtures": 0, "blinds": 0, "curtains": 0, "furniture": 0, "toggleRate": 0, "tvRatio": 0
+      }
+    },
+    {
+      "id": "dusk",
+      "generator": "gradient",
+      "name": "Dusk",
+      "blend": "multiply",
+      "clip": true,
+      "params": {
+        "gtype": "linear", "angle": 90, "repeat": 1, "wrap": "clamp", "quantize": "floors",
+        "colorA": "#c8893f", "colorB": "#8a5a7a", "colorC": "#1a2340", "useC": true, "midpoint": 0.45, "intensity": 1.2, "scroll": 0, "output": "emit"
+      }
+    },
+    {
+      "id": "tide",
+      "generator": "wave",
+      "name": "Tide",
+      "blend": "multiply",
+      "params": { "shape": "linear", "direction": "up", "profile": "sine", "waves": 0.6, "rate": 0.067, "sharpness": 1, "depth": 0.45, "quantize": "floors", "output": "modulate" }
+    },
+    {
+      "id": "shimmer",
+      "generator": "noise",
+      "name": "Shimmer",
+      "blend": "multiply",
+      "clip": true,
+      "params": { "noiseType": "fbm", "scale": 12, "octaves": 2, "quantize": "cells", "contrast": 1.5, "evolve": 0.33, "output": "modulate", "amount": 0.25 }
+    }
+  ]
+}

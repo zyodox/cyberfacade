@@ -1,0 +1,63 @@
+{
+ "schema": 1,
+ "id": "firefly-field",
+ "name": "Firefly Field",
+ "category": "Living Light",
+ "tags": [
+  "particles",
+  "fireflies",
+  "twinkle",
+  "warm"
+ ],
+ "description": "A few hundred fireflies drifting and blinking across a dark tower.",
+ "seed": 11,
+ "architecture": {
+  "floors": 48,
+  "bays": 12,
+  "facades": 1,
+  "slab": 0.2,
+  "mullion": 0.06,
+  "symmetry": "none"
+ },
+ "animation": {
+  "duration": 12,
+  "speed": 1
+ },
+ "look": {
+  "emission": 1,
+  "exposure": 0,
+  "tonemap": "agx"
+ },
+ "output": {
+  "width": 1024,
+  "height": 2048
+ },
+ "layers": [
+  {
+   "id": "ff",
+   "generator": "particles",
+   "name": "Fireflies",
+   "params": {
+    "sprite": "dot",
+    "emitter": "facade",
+    "count": 420,
+    "life": 6,
+    "lifeVar": 0.4,
+    "speed": 0.015,
+    "spread": 360,
+    "turbulence": 0.7,
+    "turbScale": 3,
+    "size": 4,
+    "sizeVar": 0.5,
+    "sizeEnd": 1,
+    "glow": 1.4,
+    "colorA": "#ffe08a",
+    "colorB": "#c8ff6a",
+    "intensity": 4,
+    "fadeIn": 0.3,
+    "fadeOut": 0.4,
+    "twinkle": 0.85
+   }
+  }
+ ]
+}

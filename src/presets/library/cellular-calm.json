@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "id": "cellular-calm",
+  "name": "Cellular Calm",
+  "category": "Minimal/Soft Club",
+  "tags": ["minimal", "pixels", "voronoi", "slate", "mosaic", "slow"],
+  "description": "A dark pixel network of slowly drifting cell borders in pale ice; a few cells glow softly in slate.",
+  "seed": 5555,
+  "architecture": { "floors": 96, "bays": 48, "facades": 1, "slab": 0.2, "mullion": 0.2, "symmetry": "none" },
+  "animation": { "duration": 15, "speed": 1 },
+  "look": { "emission": 1, "exposure": 0, "tonemap": "agx" },
+  "output": { "width": 1024, "height": 2048 },
+  "layers": [
+    {
+      "id": "pixels",
+      "generator": "windows",
+      "name": "LED pixels",
+      "params": {
+        "winWidth": 1, "winHeight": 1, "sillAlign": 0.5, "panes": 1, "frame": 0, "unitWidth": 1,
+        "occupancy": 1, "floorBias": 0, "roomVariation": 0, "warmColor": "#ffffff", "coolColor": "#ffffff", "coolRatio": 0, "tempVariation": 0,
+        "intensity": 0.25, "brightnessVar": 0, "spill": 0, "unlit": 0,
+        "ceiling": 0, "lamps": 0, "fixtures": 0, "blinds": 0, "curtains": 0, "furniture": 0, "toggleRate": 0, "tvRatio": 0
+      }
+    },
+    {
+      "id": "cells",
+      "generator": "voronoi",
+      "name": "Cells",
+      "blend": "multiply",
+      "clip": true,
+      "params": { "mode": "cells", "scale": 2.4, "jitter": 0.9, "quantize": "cells", "drift": 0.067, "density": 0.3, "brightnessVar": 1, "output": "modulate", "amount": 1 }
+    },
+    {
+      "id": "borders",
+      "generator": "voronoi",
+      "name": "Borders",
+      "clip": true,
+      "params": { "mode": "edges", "scale": 2.4, "jitter": 0.9, "quantize": "cells", "edgeWidth": 0.018, "drift": 0.067, "density": 1, "brightnessVar": 0, "colorA": "#ffffff", "colorMix": 0, "intensity": 2.4, "output": "emit" }
+    },
+    {
+      "id": "grade",
+      "generator": "color",
+      "name": "Slate map",
+      "params": { "gradientMap": true, "mapA": "#020405", "mapB": "#1d353d", "mapC": "#cfe8ec", "mapRange": 3.6, "gain": 1 }
+    }
+  ]
+}

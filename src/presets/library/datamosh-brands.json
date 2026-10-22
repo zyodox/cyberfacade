@@ -1,0 +1,106 @@
+{
+ "schema": 1,
+ "id": "datamosh-brands",
+ "name": "Datamosh Brands",
+ "category": "Ad Screens",
+ "tags": [
+  "glitch",
+  "datamosh",
+  "brands"
+ ],
+ "description": "Brand names breaking apart in bursts of datamosh and broken compression between clean holds.",
+ "seed": 21,
+ "architecture": {
+  "floors": 48,
+  "bays": 12,
+  "facades": 1,
+  "slab": 0.2,
+  "mullion": 0.06,
+  "symmetry": "none"
+ },
+ "animation": {
+  "duration": 12,
+  "speed": 1
+ },
+ "look": {
+  "emission": 1,
+  "exposure": 0,
+  "tonemap": "agx"
+ },
+ "output": {
+  "width": 1024,
+  "height": 2048
+ },
+ "layers": [
+  {
+   "id": "win",
+   "generator": "windows",
+   "name": "Few windows",
+   "params": {
+    "occupancy": 0.05,
+    "clustering": 0.15,
+    "winWidth": 0.55,
+    "winHeight": 0.6,
+    "intensity": 1,
+    "spill": 0.03,
+    "unlit": 0.008,
+    "toggleRate": 0
+   }
+  },
+  {
+   "id": "b",
+   "generator": "sign",
+   "name": "Brands",
+   "params": {
+    "text": "{Arial Black, #ff2d6f} VOLTEX\n{Segoe UI, bold, #35d4ff} KAZEMI\n{Georgia, #ffd9a0} Aurelia",
+    "messages": true,
+    "hold": 2,
+    "transition": "pixel",
+    "transTime": 0.5,
+    "style": "solid",
+    "size": 0.12,
+    "posY": 0.6,
+    "intensity": 4.5,
+    "glow": 0.6,
+    "plate": 1,
+    "plateColor": "#050507",
+    "padding": 0.6
+   }
+  },
+  {
+   "id": "dm",
+   "generator": "distort",
+   "name": "Datamosh",
+   "region": {
+    "min": 0.45,
+    "max": 0.75,
+    "soft": 0,
+    "invert": false
+   },
+   "params": {
+    "mode": "datamosh",
+    "amount": 70,
+    "chance": 0.22,
+    "rate": 2,
+    "pixelSize": 10
+   }
+  },
+  {
+   "id": "cp",
+   "generator": "distort",
+   "name": "Compression",
+   "region": {
+    "min": 0.45,
+    "max": 0.75,
+    "soft": 0,
+    "invert": false
+   },
+   "params": {
+    "mode": "compression",
+    "pixelSize": 12,
+    "chance": 0.3,
+    "rate": 3
+   }
+  }
+ ]
+}

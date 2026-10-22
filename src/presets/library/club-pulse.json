@@ -1,0 +1,91 @@
+{
+ "schema": 1,
+ "id": "club-pulse",
+ "name": "Club Pulse",
+ "category": "Living Light",
+ "tags": [
+  "music",
+  "equalizer",
+  "beat",
+  "audio",
+  "club"
+ ],
+ "description": "Kick rings from the crown and thin LED equalizer bars along the podium, locked to 124 BPM. Load a track in Audio to drive it for real.",
+ "seed": 11,
+ "architecture": {
+  "floors": 48,
+  "bays": 12,
+  "facades": 1,
+  "slab": 0.2,
+  "mullion": 0.06,
+  "symmetry": "none"
+ },
+ "animation": {
+  "duration": 12,
+  "speed": 1
+ },
+ "look": {
+  "emission": 1,
+  "exposure": 0,
+  "tonemap": "agx"
+ },
+ "output": {
+  "width": 1024,
+  "height": 2048
+ },
+ "layers": [
+  {
+   "id": "kick",
+   "generator": "living",
+   "name": "Kick pulse",
+   "params": {
+    "pattern": "beat",
+    "bpm": 124,
+    "originY": 0.72,
+    "reach": 0.25,
+    "softness": 0.4,
+    "detail": 0.35,
+    "scale": 3,
+    "colorA": "#a88cff",
+    "colorB": "#0c0620",
+    "intensity": 0.8,
+    "base": 0
+   }
+  },
+  {
+   "id": "eq",
+   "generator": "living",
+   "name": "Equalizer",
+   "params": {
+    "pattern": "equalizer",
+    "bpm": 124,
+    "count": 28,
+    "segments": 22,
+    "originY": 0.03,
+    "reach": 0.24,
+    "softness": 0.2,
+    "detail": 0.6,
+    "colorA": "#ffffff",
+    "colorB": "#3a22b0",
+    "intensity": 1.1,
+    "base": 0
+   }
+  }
+ ],
+ "audio": {
+  "routes": [
+   {
+    "id": "r1",
+    "band": "bass",
+    "target": "kick.intensity",
+    "amount": 0.12
+   },
+   {
+    "id": "r2",
+    "band": "mid",
+    "target": "eq.reach",
+    "amount": 0.15
+   }
+  ]
+ }
+}

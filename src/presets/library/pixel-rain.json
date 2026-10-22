@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "id": "pixel-rain",
+  "name": "Pixel Rain",
+  "category": "LED Media Facades",
+  "tags": ["minimal", "pixels", "silver", "monochrome", "rain", "posterize"],
+  "description": "A fine silver LED matrix with long vertical streaks of posterized light falling slowly down the tower. Monochrome, quiet, precise.",
+  "seed": 4444,
+  "architecture": { "floors": 128, "bays": 64, "facades": 1, "slab": 0.18, "mullion": 0.18, "symmetry": "none" },
+  "animation": { "duration": 12, "speed": 1 },
+  "look": { "emission": 1, "exposure": 0, "tonemap": "agx" },
+  "output": { "width": 1024, "height": 2048 },
+  "layers": [
+    {
+      "id": "pixels",
+      "generator": "windows",
+      "name": "LED pixels",
+      "params": {
+        "winWidth": 1, "winHeight": 1, "sillAlign": 0.5, "panes": 1, "frame": 0, "unitWidth": 1,
+        "occupancy": 1, "floorBias": 0, "roomVariation": 0, "warmColor": "#ffffff", "coolColor": "#ffffff", "coolRatio": 0, "tempVariation": 0,
+        "intensity": 1, "brightnessVar": 0, "spill": 0, "unlit": 0,
+        "ceiling": 0, "lamps": 0, "fixtures": 0, "blinds": 0, "curtains": 0, "furniture": 0, "toggleRate": 0, "tvRatio": 0
+      }
+    },
+    {
+      "id": "rain",
+      "generator": "noise",
+      "name": "Rain",
+      "blend": "multiply",
+      "clip": true,
+      "params": { "noiseType": "fbm", "scale": 7, "octaves": 2, "stretch": 0.1, "quantize": "cells", "contrast": 3.4, "bias": -0.75, "evolve": 0.05, "drift": "down", "driftRate": 0.25, "output": "modulate", "amount": 1 }
+    },
+    {
+      "id": "poster",
+      "generator": "threshold",
+      "name": "Posterize",
+      "params": { "source": "luminance", "threshold": 0.5, "levels": 4, "output": "mask" }
+    },
+    {
+      "id": "silver",
+      "generator": "color",
+      "name": "Silver map",
+      "params": { "gradientMap": true, "mapA": "#030405", "mapB": "#2e3640", "mapC": "#eef2f6", "mapRange": 1, "gain": 1.2 }
+    }
+  ]
+}

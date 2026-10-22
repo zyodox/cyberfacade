@@ -1,0 +1,128 @@
+{
+ "schema": 1,
+ "id": "kanji-columns",
+ "name": "Kanji Columns",
+ "category": "Ad Screens",
+ "tags": [
+  "kanji",
+  "vertical",
+  "decode",
+  "neon"
+ ],
+ "description": "Three vertical kanji signs decoding through random kanji — red, white and cyan — over a dark tower.",
+ "seed": 21,
+ "architecture": {
+  "floors": 48,
+  "bays": 12,
+  "facades": 1,
+  "slab": 0.2,
+  "mullion": 0.06,
+  "symmetry": "none"
+ },
+ "animation": {
+  "duration": 12,
+  "speed": 1
+ },
+ "look": {
+  "emission": 1,
+  "exposure": 0,
+  "tonemap": "agx"
+ },
+ "output": {
+  "width": 1024,
+  "height": 2048
+ },
+ "layers": [
+  {
+   "id": "win",
+   "generator": "windows",
+   "name": "Few windows",
+   "params": {
+    "occupancy": 0.05,
+    "clustering": 0.15,
+    "winWidth": 0.55,
+    "winHeight": 0.6,
+    "intensity": 1,
+    "spill": 0.03,
+    "unlit": 0.008,
+    "toggleRate": 0
+   }
+  },
+  {
+   "id": "k1",
+   "generator": "sign",
+   "name": "Column 1",
+   "params": {
+    "text": "電気\n未来都市\n夜光",
+    "font": "Yu Gothic",
+    "weight": "bold",
+    "vertical": true,
+    "messages": true,
+    "hold": 2.8,
+    "transition": "scramble",
+    "transTime": 1,
+    "charset": "kanji",
+    "stagger": 0.6,
+    "style": "neon",
+    "size": 0.1,
+    "posX": 0.18,
+    "posY": 0.62,
+    "color": "#ff3a4a",
+    "intensity": 5,
+    "glow": 0.8
+   }
+  },
+  {
+   "id": "k2",
+   "generator": "sign",
+   "name": "Column 2",
+   "params": {
+    "text": "東京\n薬局\n銀行",
+    "font": "Yu Mincho",
+    "weight": "regular",
+    "vertical": true,
+    "messages": true,
+    "hold": 3.4,
+    "transition": "scramble",
+    "transTime": 1.2,
+    "charset": "kanji",
+    "stagger": 0.5,
+    "style": "outline",
+    "tube": 0.03,
+    "size": 0.12,
+    "posX": 0.52,
+    "posY": 0.7,
+    "color": "#f2f6ff",
+    "intensity": 5,
+    "glow": 0.9
+   }
+  },
+  {
+   "id": "k3",
+   "generator": "sign",
+   "name": "Column 3",
+   "params": {
+    "text": "ラーメン\n映画館\n酒場",
+    "font": "Yu Gothic",
+    "weight": "bold",
+    "vertical": true,
+    "messages": true,
+    "hold": 2.4,
+    "transition": "flap",
+    "transTime": 1,
+    "charset": "katakana",
+    "stagger": 0.6,
+    "style": "solid",
+    "size": 0.075,
+    "posX": 0.84,
+    "posY": 0.55,
+    "color": "#35d4ff",
+    "intensity": 4,
+    "glow": 0.7,
+    "plate": 1,
+    "plateColor": "#050608",
+    "padding": 0.3
+   }
+  }
+ ]
+}

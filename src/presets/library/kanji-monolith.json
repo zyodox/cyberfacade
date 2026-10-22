@@ -1,0 +1,8 @@
+{"schema":1,"id":"kanji-monolith","name":"Kanji Monolith","category":"Noir Brutalist","tags":["neon","kanji","vertical sign","ribbon windows","blue hour","cyberpunk"],"description":"A dark tower of thin cool ribbon windows with one enormous vertical white-neon glyph down its face — hot tube cores, soft glow, the odd faulty flicker.","seed":77,
+ "architecture":{"floors":64,"bays":16,"facades":1,"slab":0.3,"mullion":0.04,"symmetry":"none"},
+ "animation":{"duration":12,"speed":1},"output":{"width":1024,"height":2048},
+ "layers":[
+  {"id":"slits","generator":"windows","name":"Ribbon slits","params":{"winWidth":0.97,"winHeight":0.13,"sillAlign":1,"panes":1,"frame":0,"unitWidth":2,"occupancy":0.55,"clustering":0.45,"clusterScale":6,"coolRatio":1,"coolColor":"#a9c4ff","tempVariation":0.35,"intensity":1.3,"brightnessVar":0.65,"spill":0,"unlit":0.004,"unlitColor":"#1a2440","ceiling":0,"lamps":0,"fixtures":0,"blinds":0,"curtains":0,"furniture":0,"tvRatio":0,"toggleAmount":0.08}},
+  {"id":"glyph","generator":"sign","name":"Vertical neon","params":{"text":"未来","vertical":true,"style":"neon","weight":"light","size":0.4,"posX":0.5,"posY":0.47,"color":"#eef4ff","intensity":5,"core":0.5,"glow":0.8,"glowRadius":0.5,"anim":"flicker","flickerAmt":0.2,"rate":0.1}},
+  {"id":"beacons","generator":"lights","name":"Beacons","params":{"mode":"beacons","color":"#ff2a1c","size":2,"intensity":12,"halo":0.8,"haloSize":7,"rate":0.5,"duty":0.1,"cellY":0.4}}
+ ]}

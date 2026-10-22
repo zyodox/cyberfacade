@@ -1,0 +1,9 @@
+{"schema":1,"id":"ledge-noir","name":"Ledge Noir","category":"Noir Brutalist","tags":["concrete","ledge light","minimal","dark","brutalist"],"description":"Near-black concrete with a linear washer under every eighth ledge, a few corner lamps and almost no windows — expensive restraint.","seed":808,
+ "architecture":{"floors":48,"bays":10,"facades":1,"slab":0.2,"mullion":0.1,"symmetry":"none"},
+ "animation":{"duration":12,"speed":1},"output":{"width":1024,"height":2048},
+ "layers":[
+  {"id":"win","generator":"windows","name":"A few windows","params":{"occupancy":0.05,"clustering":0.05,"winWidth":0.22,"winHeight":0.42,"panes":1,"intensity":1.1,"spill":0,"unlit":0.003,"blinds":0.5,"toggleAmount":0.05,"warmColor":"#ffcf9c","coolRatio":0}},
+  {"id":"dots","generator":"lights","name":"Corner lamps","params":{"mode":"dots","density":0.35,"everyX":5,"everyY":6,"cellX":0.02,"cellY":0.6,"size":0.9,"intensity":6,"color":"#fff0d8","colorVar":0,"brightVar":0.2,"halo":0.35,"haloSize":5,"twinkle":0}},
+  {"id":"beacons","generator":"lights","name":"Beacons","params":{"mode":"beacons","color":"#ff2a1c","size":2,"intensity":10,"halo":0.8,"haloSize":7,"rate":0.4,"duty":0.08,"cellY":0.3}},
+  {"id":"concrete","generator":"concrete","name":"Concrete","params":{"albedo":"#6f6e6a","fixture":"ledge","fixEveryX":1,"fixEveryY":8,"fixOffsetY":0.05,"reach":0.7,"fixIntensity":0.9,"fixKelvin":3600,"fixDensity":1,"panelsX":2,"panelsY":1,"tieHoles":2,"stains":0.75,"ledges":0.6,"spill":1.2}}
+ ]}

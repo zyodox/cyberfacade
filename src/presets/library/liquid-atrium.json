@@ -1,0 +1,76 @@
+{
+  "schema": 1,
+  "id": "liquid-atrium",
+  "name": "Liquid Atrium",
+  "category": "Luxury/Futuristic",
+  "tags": ["interiors", "media spine", "gold", "liquid", "glass", "sophisticated"],
+  "description": "A central atrium spine of screen rooms plays liquid gold silk, framed by two gold shafts; either side, warm residences and offices glow behind bronze glass that bends every pane of the image.",
+  "seed": 8181,
+  "architecture": { "floors": 40, "bays": 21, "facades": 1, "slab": 0.17, "mullion": 0.07, "symmetry": "mirror" },
+  "animation": { "duration": 12, "speed": 1 },
+  "look": { "emission": 1, "exposure": 0, "tonemap": "agx" },
+  "output": { "width": 1024, "height": 2048 },
+  "layers": [
+    {
+      "id": "silk",
+      "generator": "noise",
+      "name": "Film · gold silk",
+      "blend": "add",
+      "timeShift": { "y": 0.35 },
+      "params": { "noiseType": "ridged", "scale": 2.2, "octaves": 3, "stretch": 1.2, "contrast": 1.4, "evolve": 0.083, "drift": "up", "driftRate": 0.083, "output": "emit", "colorA": "#040201", "colorB": "#f2c77a", "intensity": 1.4, "amount": 1 }
+    },
+    {
+      "id": "liquid",
+      "generator": "distort",
+      "name": "Liquid",
+      "params": { "mode": "liquid", "amount": 30, "scale": 1.6, "rate": 0.083 }
+    },
+    {
+      "id": "spine",
+      "generator": "interiors",
+      "name": "Atrium screens",
+      "blend": "replace",
+      "regionX": { "min": 0.333, "max": 0.667, "soft": 0 },
+      "params": {
+        "winWidth": 0.92, "winHeight": 0.93, "sillAlign": 0, "panes": 2, "frame": 0.02, "unitWidth": 7,
+        "depth": 1.2, "eyeX": 0.5, "eyeY": 0.3, "eyeDist": 1.8,
+        "occupancy": 0.3, "floorBias": 0, "officeRatio": 0, "homeRatio": 0, "screenRatio": 1, "screenGain": 1.4, "screenSpill": 0.5,
+        "intensity": 0.6, "ambient": 0.01, "furniture": 0, "people": 0, "blinds": 0, "artwork": 0, "reflection": 0.02
+      }
+    },
+    {
+      "id": "rooms",
+      "generator": "interiors",
+      "name": "Residences & offices",
+      "blend": "replace",
+      "region": { "min": 0, "max": 1, "soft": 0, "invert": true },
+      "regionX": { "min": 0.333, "max": 0.667, "soft": 0 },
+      "params": {
+        "winWidth": 0.92, "winHeight": 0.93, "sillAlign": 0, "panes": 2, "frame": 0.02, "unitWidth": 3,
+        "depth": 2.4, "eyeX": 0.5, "eyeY": 0.3, "eyeDist": 1.3,
+        "occupancy": 0.55, "floorBias": 0.2, "toggleRate": 0.06, "toggleAmount": 0.12,
+        "officeRatio": 0.3, "homeRatio": 0.55, "screenRatio": 0,
+        "warmColor": "#ffc488", "coolColor": "#eaf0ff", "intensity": 1.1, "brightnessVar": 0.45, "ambient": 0.015,
+        "furniture": 0.8, "people": 0.4, "peopleMotion": 0.05, "blinds": 0.2, "artwork": 0.7,
+        "reflection": 0.03
+      }
+    },
+    {
+      "id": "glass",
+      "generator": "glass",
+      "name": "Bronze glass",
+      "clip": true,
+      "params": { "panesX": 2, "panesY": 2, "refraction": 4, "zoom": 0.04, "warp": 2, "warpScale": 10, "warpRate": 0.05, "dispersion": 0.8, "tint": "#d8c2a0", "tintAmount": 0.22, "edgeShade": 0.35, "reflection": 0.05, "reflectColor": "#9aa6c0", "reflectAngle": 40, "streaks": 2.5 }
+    },
+    {
+      "id": "shafts",
+      "generator": "stripes",
+      "name": "Gold shafts",
+      "params": {
+        "orientation": "vertical", "align": "count", "count": 3, "every": 1, "anchor": "edge", "width": 0.004,
+        "segments": "continuous", "colorA": "#ffd58a", "intensity": 3, "glow": 0.1, "glowWidth": 0.02,
+        "anim": "pulse", "rate": 0.083, "sync": 1, "depth": 0.5, "sharpness": 1.2
+      }
+    }
+  ]
+}

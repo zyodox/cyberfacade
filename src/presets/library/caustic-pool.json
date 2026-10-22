@@ -1,0 +1,55 @@
+{
+ "schema": 1,
+ "id": "caustic-pool",
+ "name": "Caustic Pool",
+ "category": "Living Light",
+ "tags": [
+  "water",
+  "caustics",
+  "cyan",
+  "calm",
+  "smooth"
+ ],
+ "description": "Water caustics rippling over the whole facade, as if the tower stood at the bottom of a pool.",
+ "seed": 11,
+ "architecture": {
+  "floors": 48,
+  "bays": 12,
+  "facades": 1,
+  "slab": 0.2,
+  "mullion": 0.06,
+  "symmetry": "none"
+ },
+ "animation": {
+  "duration": 12,
+  "speed": 1
+ },
+ "look": {
+  "emission": 1,
+  "exposure": 0,
+  "tonemap": "agx"
+ },
+ "output": {
+  "width": 1024,
+  "height": 2048
+ },
+ "layers": [
+  {
+   "id": "ca",
+   "generator": "living",
+   "name": "Caustics",
+   "params": {
+    "pattern": "caustics",
+    "scale": 2.2,
+    "rate": 0.08,
+    "sharpness": 2.6,
+    "softness": 0.4,
+    "detail": 0.5,
+    "colorA": "#9ff0ff",
+    "colorB": "#02121a",
+    "intensity": 0.5,
+    "base": 0
+   }
+  }
+ ]
+}

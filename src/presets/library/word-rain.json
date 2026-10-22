@@ -1,0 +1,68 @@
+{
+ "schema": 1,
+ "id": "word-rain",
+ "name": "Word Rain",
+ "category": "Kinetic Type",
+ "tags": [
+  "particles",
+  "kanji",
+  "rain",
+  "falling words"
+ ],
+ "description": "Soft blue kanji drifting down the facade like rain.",
+ "seed": 11,
+ "architecture": {
+  "floors": 48,
+  "bays": 12,
+  "facades": 1,
+  "slab": 0.2,
+  "mullion": 0.06,
+  "symmetry": "none"
+ },
+ "animation": {
+  "duration": 12,
+  "speed": 1
+ },
+ "look": {
+  "emission": 1,
+  "exposure": 0,
+  "tonemap": "agx"
+ },
+ "output": {
+  "width": 1024,
+  "height": 2048
+ },
+ "layers": [
+  {
+   "id": "wr",
+   "generator": "particles",
+   "name": "Word rain",
+   "params": {
+    "sprite": "words",
+    "text": "雨\n夜\n光\n東京\n静",
+    "font": "Yu Gothic",
+    "weight": "regular",
+    "emitter": "line",
+    "posY": 1.03,
+    "emitW": 1,
+    "direction": 270,
+    "spread": 3,
+    "speed": 0.11,
+    "speedVar": 0.4,
+    "count": 160,
+    "life": 10,
+    "lifeVar": 0.2,
+    "size": 36,
+    "sizeVar": 0.6,
+    "sizeEnd": 1,
+    "turbulence": 0.04,
+    "glow": 0.8,
+    "colorA": "#9fd8ff",
+    "colorB": "#ffffff",
+    "intensity": 2.5,
+    "fadeIn": 0.05,
+    "fadeOut": 0.15
+   }
+  }
+ ]
+}

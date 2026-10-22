@@ -1,0 +1,80 @@
+{
+ "schema": 1,
+ "id": "launch-countdown",
+ "name": "Launch Countdown",
+ "category": "Ad Screens",
+ "tags": [
+  "countdown",
+  "hud",
+  "minimal",
+  "live"
+ ],
+ "description": "A single huge countdown on a black tower, framed by a reticle HUD with a scan line — minimal, cold, precise.",
+ "seed": 21,
+ "architecture": {
+  "floors": 48,
+  "bays": 12,
+  "facades": 1,
+  "slab": 0.2,
+  "mullion": 0.06,
+  "symmetry": "none"
+ },
+ "animation": {
+  "duration": 12,
+  "speed": 1
+ },
+ "look": {
+  "emission": 1,
+  "exposure": 0,
+  "tonemap": "agx"
+ },
+ "output": {
+  "width": 1024,
+  "height": 2048
+ },
+ "layers": [
+  {
+   "id": "cd",
+   "generator": "sign",
+   "name": "Countdown",
+   "params": {
+    "text": "T−{countdown 00:12}",
+    "font": "Segoe UI Light",
+    "weight": "light",
+    "style": "solid",
+    "size": 0.12,
+    "posY": 0.62,
+    "color": "#e9f3ff",
+    "intensity": 3,
+    "glow": 0.5
+   }
+  },
+  {
+   "id": "hud",
+   "generator": "hud",
+   "name": "HUD",
+   "params": {
+    "posX": 0.5,
+    "posY": 0.62,
+    "sizeW": 0.86,
+    "sizeH": 0.22,
+    "text": "\nORBITAL · PAD 39A\n",
+    "labelSize": 0.1,
+    "corners": true,
+    "frame": false,
+    "ticks": true,
+    "crosshair": true,
+    "reticleX": 0.9,
+    "reticleY": 0.5,
+    "barcode": false,
+    "data": true,
+    "progress": true,
+    "scan": true,
+    "color": "#cfe3ff",
+    "accent": "#ff5a36",
+    "intensity": 1.6,
+    "rate": 0.083
+   }
+  }
+ ]
+}

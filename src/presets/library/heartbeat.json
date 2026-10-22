@@ -1,0 +1,73 @@
+{
+ "schema": 1,
+ "id": "heartbeat",
+ "name": "Heartbeat",
+ "category": "Living Light",
+ "tags": [
+  "pulse",
+  "heart",
+  "minimal",
+  "red",
+  "smooth"
+ ],
+ "description": "One soft lub-dub leaving the core of the building at 60 BPM, with a faint monitor trace low on the facade.",
+ "seed": 11,
+ "architecture": {
+  "floors": 48,
+  "bays": 12,
+  "facades": 1,
+  "slab": 0.2,
+  "mullion": 0.06,
+  "symmetry": "none"
+ },
+ "animation": {
+  "duration": 12,
+  "speed": 1
+ },
+ "look": {
+  "emission": 1,
+  "exposure": 0,
+  "tonemap": "agx"
+ },
+ "output": {
+  "width": 1024,
+  "height": 2048
+ },
+ "layers": [
+  {
+   "id": "beat",
+   "generator": "living",
+   "name": "Heartbeat",
+   "params": {
+    "pattern": "heartbeat",
+    "bpm": 60,
+    "originY": 0.58,
+    "reach": 0.2,
+    "softness": 0.9,
+    "sharpness": 3,
+    "colorA": "#ff3346",
+    "colorB": "#2a0006",
+    "intensity": 1.1,
+    "base": 0
+   }
+  },
+  {
+   "id": "ecg",
+   "generator": "living",
+   "name": "Monitor line",
+   "params": {
+    "pattern": "ecg",
+    "bpm": 60,
+    "count": 2,
+    "originY": 0.22,
+    "reach": 0.4,
+    "softness": 0.3,
+    "sharpness": 2,
+    "colorA": "#ff5a66",
+    "colorB": "#300008",
+    "intensity": 1.4,
+    "base": 0
+   }
+  }
+ ]
+}

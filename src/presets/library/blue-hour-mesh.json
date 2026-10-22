@@ -1,0 +1,9 @@
+{"schema":1,"id":"blue-hour-mesh","name":"Blue Hour Mesh","category":"Noir Brutalist","tags":["led mesh","media facade","blue","dots","minimal"],"description":"The whole skin is a fine blue LED mesh; soft bands of light rise through it floor by floor, with scattered specks and roof beacons.","seed":1204,
+ "architecture":{"floors":70,"bays":18,"facades":1,"slab":0.2,"mullion":0.1,"symmetry":"none"},
+ "animation":{"duration":12,"speed":1},"output":{"width":1024,"height":2048},
+ "layers":[
+  {"id":"bands","generator":"stripes","name":"Rising bands","params":{"orientation":"horizontal","align":"arch","anchor":"center","width":1,"segments":"continuous","colorA":"#6f94ff","colorB":"#a9c2ff","gradient":"random","intensity":0.55,"glow":0,"anim":"wave","rate":0.083,"sync":1,"depth":0.8,"waves":2,"sharpness":7}},
+  {"id":"mesh","generator":"ledmesh","name":"LED mesh","params":{"align":"free","pitch":3.2,"shape":"square","dotSize":0.55,"gain":1.3,"threshold":0.05,"offLevel":0.008,"offColor":"#5d7fc8"}},
+  {"id":"specks","generator":"lights","name":"Specks","params":{"mode":"specks","density":0.04,"size":0.8,"intensity":3,"color":"#dfe8ff","coolColor":"#ffcf9a","colorVar":0.2,"halo":0.15,"twinkle":0.2}},
+  {"id":"beacons","generator":"lights","name":"Beacons","params":{"mode":"beacons","color":"#ff2a1c","size":2,"intensity":12,"halo":0.8,"haloSize":7,"rate":0.5,"duty":0.1,"cellY":0.1}}
+ ]}

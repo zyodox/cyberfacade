@@ -1,0 +1,64 @@
+{
+ "schema": 1,
+ "id": "decode-board",
+ "name": "Decode Board",
+ "category": "Kinetic Type",
+ "tags": [
+  "scramble",
+  "decode",
+  "monospace",
+  "departures",
+  "messages"
+ ],
+ "description": "Cool white monospace messages that scramble and decode letter by letter.",
+ "seed": 11,
+ "architecture": {
+  "floors": 48,
+  "bays": 12,
+  "facades": 1,
+  "slab": 0.2,
+  "mullion": 0.06,
+  "symmetry": "none"
+ },
+ "animation": {
+  "duration": 12,
+  "speed": 1
+ },
+ "look": {
+  "emission": 1,
+  "exposure": 0,
+  "tonemap": "agx"
+ },
+ "output": {
+  "width": 1024,
+  "height": 2048
+ },
+ "layers": [
+  {
+   "id": "db",
+   "generator": "sign",
+   "name": "Board",
+   "params": {
+    "text": "ARRIVALS\n23:40 TOKYO\nGATE 12\nON TIME",
+    "font": "Consolas",
+    "weight": "bold",
+    "messages": true,
+    "hold": 2.5,
+    "transition": "scramble",
+    "transTime": 1.1,
+    "stagger": 0.7,
+    "charset": "latin",
+    "style": "solid",
+    "size": 0.07,
+    "posY": 0.62,
+    "color": "#e8f1ff",
+    "accent": "#7fd8ff",
+    "intensity": 3,
+    "glow": 0.4,
+    "plate": 1,
+    "plateColor": "#040506",
+    "padding": 0.5
+   }
+  }
+ ]
+}

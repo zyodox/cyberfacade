@@ -1,0 +1,197 @@
+{
+ "schema": 1,
+ "id": "brutalist-nocturne111",
+ "name": "Brutalist Nocturne111",
+ "category": "Noir Brutalist",
+ "description": "Board-formed concrete with tie holes and rain stains, washed by small warm grazing uplights; rare slot windows glow and spill onto the surface; red beacons on the roof.",
+ "seed": 1234459561,
+ "architecture": {
+  "floors": 44,
+  "bays": 12,
+  "facades": 1,
+  "slab": 0.2,
+  "mullion": 0.1,
+  "symmetry": "none"
+ },
+ "animation": {
+  "duration": 12,
+  "speed": 1
+ },
+ "look": {
+  "emission": 1,
+  "exposure": 0,
+  "tonemap": "agx"
+ },
+ "output": {
+  "width": 1024,
+  "height": 2048
+ },
+ "layers": [
+  {
+   "id": "slots",
+   "generator": "windows",
+   "name": "Slot windows",
+   "enabled": true,
+   "blend": "add",
+   "opacity": 1,
+   "clip": false,
+   "region": {
+    "min": 0,
+    "max": 1,
+    "soft": 0,
+    "invert": false
+   },
+   "regionX": {
+    "min": 0,
+    "max": 1,
+    "soft": 0
+   },
+   "timeShift": {
+    "y": 0,
+    "x": 0,
+    "quantize": false
+   },
+   "params": {
+    "winWidth": 0.20509913129359483,
+    "winHeight": 0.7865255403928458,
+    "sillAlign": 0.44559254455380143,
+    "panes": 1,
+    "frame": 0.01878778450191021,
+    "unitWidth": 1,
+    "occupancy": 0.06347578348591924,
+    "floorBias": 0.2761146743781865,
+    "clustering": 0.21657841575797648,
+    "clusterScale": 3.9809201369062066,
+    "heightBias": -0.02964328266680241,
+    "roomVariation": 0.3813751309644431,
+    "warmColor": "#ffdd86",
+    "coolColor": "#e8ebff",
+    "coolRatio": 0.06446868626400828,
+    "tempVariation": 0.44600476492196317,
+    "intensity": 1.8120150998234748,
+    "brightnessVar": 0.3421735990326852,
+    "spill": 0.04203941426239908,
+    "unlit": 0.005218110683839768,
+    "unlitColor": "#36445f",
+    "ceiling": 0.5730348751880229,
+    "lamps": 0.40949807200580834,
+    "fixtures": 0.03482205648906529,
+    "fixtureCount": 2,
+    "blinds": 0,
+    "curtains": 0.07244689553976058,
+    "furniture": 0.308901967741549,
+    "toggleRate": 0.16236970522440972,
+    "toggleAmount": 0.07637997143901884,
+    "tvRatio": 0.0721279912814498,
+    "tvColor": "#8394ff",
+    "flicker": 0
+   }
+  },
+  {
+   "id": "beacons",
+   "generator": "lights",
+   "name": "Beacons",
+   "enabled": true,
+   "blend": "add",
+   "opacity": 1,
+   "clip": false,
+   "region": {
+    "min": 0,
+    "max": 1,
+    "soft": 0,
+    "invert": false
+   },
+   "regionX": {
+    "min": 0,
+    "max": 1,
+    "soft": 0
+   },
+   "timeShift": {
+    "y": 0,
+    "x": 0,
+    "quantize": false
+   },
+   "params": {
+    "mode": "beacons",
+    "density": 0.07767238905653358,
+    "subdiv": 2,
+    "everyX": 1,
+    "everyY": 1,
+    "cellX": 0.5,
+    "cellY": 0.4,
+    "orientation": "horizontal",
+    "spacing": 6,
+    "corners": true,
+    "size": 2.828859466011636,
+    "color": "#ff2820",
+    "coolColor": "#d0e4ff",
+    "colorVar": 0.4063313596416265,
+    "intensity": 13.970727963373065,
+    "brightVar": 0.6583139704540372,
+    "halo": 0.8247997544705868,
+    "haloSize": 6.3063473595771935,
+    "twinkle": 0.07386424737051128,
+    "rate": 0.3293655495913699,
+    "duty": 0.1
+   }
+  },
+  {
+   "id": "concrete",
+   "generator": "concrete",
+   "name": "Concrete",
+   "enabled": true,
+   "blend": "behind",
+   "opacity": 1,
+   "clip": false,
+   "region": {
+    "min": 0,
+    "max": 1,
+    "soft": 0,
+    "invert": false
+   },
+   "regionX": {
+    "min": 0,
+    "max": 1,
+    "soft": 0
+   },
+   "timeShift": {
+    "y": 0,
+    "x": 0,
+    "quantize": false
+   },
+   "params": {
+    "albedo": "#8c8a88",
+    "variation": 0.37214202322065826,
+    "panelsX": 1,
+    "panelsY": 1,
+    "joint": 1.4,
+    "jointDepth": 0.5225451636593789,
+    "tieHoles": 3,
+    "grain": 0.23279452719725668,
+    "stains": 0.609731516847387,
+    "ledges": 0.4744092211127281,
+    "ambient": 0.009663607081398368,
+    "skyColor": "#5a64a8",
+    "cityGlow": 0.004547031044960022,
+    "cityColor": "#ffb35d",
+    "spill": 1.399052068963647,
+    "spillRadius": 37.76327816806734,
+    "fixture": "uplight",
+    "fixEveryX": 3,
+    "fixEveryY": 7,
+    "fixOffsetY": 0.08,
+    "beam": 0.4234792101494968,
+    "reach": 1.1468245483096688,
+    "fixKelvin": 2856.5204894077033,
+    "fixTint": "#ffffff",
+    "fixIntensity": 0.04557707197964156,
+    "fixDensity": 0.8098813115153461,
+    "fixFlicker": 0,
+    "lampSize": 0.890321019012481
+   }
+  }
+ ],
+ "audio": {
+  "routes": []
+ }
+}

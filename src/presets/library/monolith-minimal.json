@@ -1,0 +1,81 @@
+{
+ "schema": 1,
+ "id": "monolith-minimal",
+ "name": "Monolith",
+ "category": "Ad Screens",
+ "tags": [
+  "minimal",
+  "corporate",
+  "hud"
+ ],
+ "description": "A black monolith with one thin line of light: a corporate name fading in and out, four corner brackets and a slow scan — sterile, expensive, silent.",
+ "seed": 21,
+ "architecture": {
+  "floors": 48,
+  "bays": 12,
+  "facades": 1,
+  "slab": 0.2,
+  "mullion": 0.06,
+  "symmetry": "none"
+ },
+ "animation": {
+  "duration": 12,
+  "speed": 1
+ },
+ "look": {
+  "emission": 1,
+  "exposure": 0,
+  "tonemap": "agx"
+ },
+ "output": {
+  "width": 1024,
+  "height": 2048
+ },
+ "layers": [
+  {
+   "id": "name",
+   "generator": "sign",
+   "name": "Name",
+   "params": {
+    "text": "AURELIA",
+    "font": "Segoe UI Light",
+    "weight": "thin",
+    "spacing": 0.9,
+    "style": "solid",
+    "size": 0.06,
+    "posY": 0.5,
+    "color": "#f4f1ea",
+    "intensity": 2.2,
+    "glow": 0.5,
+    "anim": "pulse",
+    "rate": 0.083
+   }
+  },
+  {
+   "id": "hud",
+   "generator": "hud",
+   "name": "Brackets",
+   "params": {
+    "posX": 0.5,
+    "posY": 0.5,
+    "sizeW": 0.8,
+    "sizeH": 0.12,
+    "text": "​",
+    "corners": true,
+    "frame": false,
+    "ticks": false,
+    "barcode": false,
+    "label": false,
+    "data": false,
+    "progress": false,
+    "scan": true,
+    "cornerLen": 0.25,
+    "lineWidth": 1,
+    "color": "#f4f1ea",
+    "accent": "#f4f1ea",
+    "intensity": 1.2,
+    "rate": 0.083
+   }
+  }
+ ]
+}

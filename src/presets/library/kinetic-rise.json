@@ -1,0 +1,60 @@
+{
+ "schema": 1,
+ "id": "kinetic-rise",
+ "name": "Kinetic Rise",
+ "category": "Kinetic Type",
+ "tags": [
+  "kinetic type",
+  "rise",
+  "minimal",
+  "white",
+  "messages"
+ ],
+ "description": "Thin white words rising letter by letter out of a masked line, holding, and leaving upward.",
+ "seed": 11,
+ "architecture": {
+  "floors": 48,
+  "bays": 12,
+  "facades": 1,
+  "slab": 0.2,
+  "mullion": 0.06,
+  "symmetry": "none"
+ },
+ "animation": {
+  "duration": 12,
+  "speed": 1
+ },
+ "look": {
+  "emission": 1,
+  "exposure": 0,
+  "tonemap": "agx"
+ },
+ "output": {
+  "width": 1024,
+  "height": 2048
+ },
+ "layers": [
+  {
+   "id": "kr",
+   "generator": "sign",
+   "name": "Kinetic type",
+   "params": {
+    "text": "MOVE\nSTILL\nNIGHT\nLIGHT",
+    "font": "Segoe UI Light",
+    "weight": "light",
+    "messages": true,
+    "hold": 3,
+    "transition": "cut",
+    "anim": "rise",
+    "stagger": 0.6,
+    "spacing": 0.25,
+    "style": "solid",
+    "size": 0.11,
+    "posY": 0.55,
+    "color": "#f4f1ea",
+    "intensity": 2.4,
+    "glow": 0.35
+   }
+  }
+ ]
+}

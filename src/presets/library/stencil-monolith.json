@@ -1,0 +1,69 @@
+{
+ "schema": 1,
+ "id": "stencil-monolith",
+ "name": "Stencil Monolith",
+ "category": "Kinetic Type",
+ "tags": [
+  "cut-out",
+  "reveal",
+  "minimal",
+  "big type",
+  "caustics"
+ ],
+ "description": "The whole tower is dark except one enormous vertical word, cut out of it and full of moving water light.",
+ "seed": 11,
+ "architecture": {
+  "floors": 48,
+  "bays": 12,
+  "facades": 1,
+  "slab": 0.2,
+  "mullion": 0.06,
+  "symmetry": "none"
+ },
+ "animation": {
+  "duration": 12,
+  "speed": 1
+ },
+ "look": {
+  "emission": 1,
+  "exposure": 0,
+  "tonemap": "agx"
+ },
+ "output": {
+  "width": 1024,
+  "height": 2048
+ },
+ "layers": [
+  {
+   "id": "ca",
+   "generator": "living",
+   "name": "Caustics",
+   "params": {
+    "pattern": "caustics",
+    "scale": 2.5,
+    "rate": 0.08,
+    "sharpness": 2.2,
+    "colorA": "#bff4ff",
+    "colorB": "#031a26",
+    "intensity": 1.2,
+    "base": 0
+   }
+  },
+  {
+   "id": "st",
+   "generator": "sign",
+   "name": "Stencil",
+   "params": {
+    "text": "静",
+    "font": "Yu Gothic",
+    "weight": "bold",
+    "style": "solid",
+    "size": 0.8,
+    "posY": 0.5,
+    "output": "revealFull",
+    "revealGain": 1.4,
+    "glow": 0
+   }
+  }
+ ]
+}

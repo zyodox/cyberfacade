@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "id": "pixel-matrix",
+  "name": "Pixel Matrix",
+  "category": "LED Media Facades",
+  "tags": ["pixels", "plasma", "posterize", "teal", "led matrix"],
+  "description": "A 32×64 grid of square LED pixels showing a flowing, posterized plasma in teal and white.",
+  "seed": 1024,
+  "architecture": { "floors": 64, "bays": 32, "facades": 1, "slab": 0.12, "mullion": 0.12, "symmetry": "none" },
+  "animation": { "duration": 10, "speed": 1 },
+  "look": { "emission": 1, "exposure": 0, "tonemap": "agx" },
+  "output": { "width": 1024, "height": 2048 },
+  "layers": [
+    {
+      "id": "pixels",
+      "generator": "windows",
+      "name": "LED pixels",
+      "params": {
+        "winWidth": 0.85, "winHeight": 0.85, "sillAlign": 0.5, "panes": 1, "frame": 0, "unitWidth": 1,
+        "occupancy": 1, "floorBias": 0, "roomVariation": 0, "warmColor": "#ffffff", "coolColor": "#ffffff", "coolRatio": 0, "tempVariation": 0,
+        "intensity": 1, "brightnessVar": 0, "spill": 0, "unlit": 0.01,
+        "ceiling": 0, "lamps": 0, "fixtures": 0, "blinds": 0, "curtains": 0, "furniture": 0, "toggleRate": 0, "tvRatio": 0
+      }
+    },
+    {
+      "id": "plasma",
+      "generator": "noise",
+      "name": "Plasma",
+      "blend": "multiply",
+      "clip": true,
+      "params": { "noiseType": "fbm", "scale": 2.5, "octaves": 2, "roughness": 0.5, "quantize": "cells", "contrast": 2.2, "bias": 0.25, "evolve": 0.15, "drift": "up", "driftRate": 0.1, "output": "modulate", "amount": 1 }
+    },
+    {
+      "id": "poster",
+      "generator": "threshold",
+      "name": "Posterize",
+      "params": { "source": "luminance", "threshold": 0.5, "levels": 5, "output": "mask" }
+    },
+    {
+      "id": "grade",
+      "generator": "color",
+      "name": "Teal map",
+      "params": { "gradientMap": true, "mapA": "#002a2e", "mapB": "#00c2a8", "mapC": "#e6fff8", "mapRange": 1.1, "gain": 1.6 }
+    }
+  ]
+}

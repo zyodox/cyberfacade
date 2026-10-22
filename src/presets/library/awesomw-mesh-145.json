@@ -1,0 +1,473 @@
+{
+ "schema": 1,
+ "id": "awesomw-mesh-145",
+ "name": "awesomw Mesh 145",
+ "category": "Sci-Fi",
+ "description": "A fine dot mesh carrying thin, slowly folding aurora curtains in deep teal and pale mint.",
+ "seed": 331248635,
+ "architecture": {
+  "floors": 87,
+  "bays": 43,
+  "facades": 1,
+  "slab": 0,
+  "mullion": 0,
+  "symmetry": "none"
+ },
+ "animation": {
+  "duration": 6.5,
+  "speed": 1
+ },
+ "look": {
+  "emission": 1,
+  "exposure": 0,
+  "tonemap": "agx"
+ },
+ "output": {
+  "width": 509,
+  "height": 1900
+ },
+ "layers": [
+  {
+   "id": "mesh",
+   "generator": "grid",
+   "name": "Dot mesh",
+   "enabled": true,
+   "blend": "add",
+   "opacity": 0.152,
+   "clip": false,
+   "region": {
+    "min": 0,
+    "max": 1,
+    "soft": 0,
+    "invert": false
+   },
+   "regionX": {
+    "min": 0,
+    "max": 1,
+    "soft": 0
+   },
+   "timeShift": {
+    "y": 0,
+    "x": 0,
+    "quantize": false
+   },
+   "params": {
+    "source": "arch",
+    "countX": 56,
+    "countY": 32,
+    "lines": "none",
+    "everyX": 1,
+    "everyY": 1,
+    "offsetY": 0,
+    "widthX": 0.06341155443927274,
+    "widthY": 0.09621981538794935,
+    "color": "#014cff",
+    "intensity": 30,
+    "glow": 2,
+    "glowWidth": 1,
+    "nodes": 0.8844345859214664,
+    "nodeSize": 0.01,
+    "edges": 27.04512073639408,
+    "edgeWidth": 4.426933566597291,
+    "anim": "none",
+    "rate": 0.135295589864254,
+    "sync": 0.42803858511615545,
+    "depth": 0.7979816504754126,
+    "traceLength": 0.2792564770183526
+   }
+  },
+  {
+   "id": "sign-r66bk",
+   "generator": "sign",
+   "name": "Ticker",
+   "enabled": true,
+   "blend": "normal",
+   "opacity": 1,
+   "clip": false,
+   "region": {
+    "min": 0,
+    "max": 1,
+    "soft": 0,
+    "invert": false
+   },
+   "regionX": {
+    "min": 0,
+    "max": 1,
+    "soft": 0
+   },
+   "timeShift": {
+    "y": 0,
+    "x": 0,
+    "quantize": false
+   },
+   "params": {
+    "text": "WELCOME TO THE NIGHT CITY   ",
+    "font": "Yu Gothic",
+    "weight": "bold",
+    "vertical": false,
+    "spacing": 0.08,
+    "lineHeight": 1.2,
+    "style": "led",
+    "output": "light",
+    "revealGain": 1.0518560314550995,
+    "tube": 0.035,
+    "ledPitch": 2.2,
+    "posX": 0.5161,
+    "posY": 0.7567,
+    "size": 0.05,
+    "color": "#fe55fa",
+    "intensity": 3.0555577781051397,
+    "core": 0.45850116219371556,
+    "glow": 0.24917950658127666,
+    "glowRadius": 0.4708413246553391,
+    "unlit": 0.015,
+    "plate": 1,
+    "plateColor": "#ff52f1",
+    "plateLight": 0.5009102229960263,
+    "padding": 0.3,
+    "border": 0.2361282636411488,
+    "anim": "scroll",
+    "rate": 0.33761495143454523,
+    "amount": 0.852125299628824,
+    "stagger": 0.4636596090625972,
+    "flickerAmt": 0.261501707136631,
+    "accent": "#fff7f8",
+    "charset": "latin",
+    "tickerWidth": 0,
+    "scrollSpeed": 3.7140428122505544,
+    "tickerGap": 3,
+    "wrapAround": false,
+    "messages": false,
+    "hold": 1.4916307472810149,
+    "transition": "glitch",
+    "transTime": 0.8537632598122582
+   }
+  },
+  {
+   "id": "flicker-e1vef",
+   "generator": "flicker",
+   "name": "Flicker",
+   "enabled": true,
+   "blend": "multiply",
+   "opacity": 1,
+   "clip": false,
+   "region": {
+    "min": 0,
+    "max": 1,
+    "soft": 0,
+    "invert": false
+   },
+   "regionX": {
+    "min": 0,
+    "max": 1,
+    "soft": 0
+   },
+   "timeShift": {
+    "y": 0,
+    "x": 0,
+    "quantize": false
+   },
+   "params": {
+    "scope": "windows",
+    "unitWidth": 3,
+    "style": "buzz",
+    "fraction": 0.39090634053573015,
+    "rate": 2.800879744812846,
+    "depth": 0.886593811493367,
+    "duty": 0.4644791976902634,
+    "sync": 0
+   }
+  },
+  {
+   "id": "wave-d0um1",
+   "generator": "wave",
+   "name": "Wave",
+   "enabled": true,
+   "blend": "multiply",
+   "opacity": 1,
+   "clip": false,
+   "region": {
+    "min": 0,
+    "max": 1,
+    "soft": 0,
+    "invert": false
+   },
+   "regionX": {
+    "min": 0,
+    "max": 1,
+    "soft": 0
+   },
+   "timeShift": {
+    "y": 0,
+    "x": 0,
+    "quantize": false
+   },
+   "params": {
+    "shape": "linear",
+    "direction": "up",
+    "profile": "sine",
+    "waves": 0.25,
+    "rate": 0.8467002972960473,
+    "sharpness": 0.25,
+    "depth": 0.8754515790380538,
+    "centerX": 0.5,
+    "centerY": 0.5,
+    "quantize": "none",
+    "output": "modulate",
+    "colorA": "#0e124a",
+    "colorB": "#7ef3ff",
+    "intensity": 1.5601213215850294
+   }
+  },
+  {
+   "id": "sign-478rm",
+   "generator": "sign",
+   "name": "Vertical neon",
+   "enabled": true,
+   "blend": "normal",
+   "opacity": 1,
+   "clip": false,
+   "region": {
+    "min": 0,
+    "max": 1,
+    "soft": 0,
+    "invert": false
+   },
+   "regionX": {
+    "min": 0,
+    "max": 1,
+    "soft": 0
+   },
+   "timeShift": {
+    "y": 0,
+    "x": 0,
+    "quantize": false
+   },
+   "params": {
+    "text": "未来",
+    "font": "Yu Gothic",
+    "weight": "light",
+    "vertical": true,
+    "spacing": 0.08,
+    "lineHeight": 1.2,
+    "style": "neon",
+    "output": "light",
+    "revealGain": 1.3126381041482091,
+    "tube": 0.035,
+    "ledPitch": 3,
+    "posX": 0.5,
+    "posY": 0.55,
+    "size": 0.61,
+    "color": "#ff079c",
+    "intensity": 5.322122102603316,
+    "core": 0.46236367588862776,
+    "glow": 0.8047584406100213,
+    "glowRadius": 0.42807971606962386,
+    "unlit": 0.015,
+    "plate": 0,
+    "plateColor": "#101114",
+    "plateLight": 0,
+    "padding": 0.3,
+    "border": 0,
+    "anim": "flicker",
+    "rate": 0.02,
+    "amount": 0.8850629076361656,
+    "stagger": 0.5136078063864261,
+    "flickerAmt": 0.18646497605368495,
+    "accent": "#fffafa",
+    "charset": "latin",
+    "tickerWidth": 0,
+    "scrollSpeed": 5.430164987752214,
+    "tickerGap": 3,
+    "wrapAround": false,
+    "messages": false,
+    "hold": 1.4918175845127553,
+    "transition": "glitch",
+    "transTime": 0.9060059180064127
+   }
+  },
+  {
+   "id": "sign-7fgpc",
+   "generator": "sign",
+   "name": "Neon word",
+   "enabled": true,
+   "blend": "normal",
+   "opacity": 1,
+   "clip": false,
+   "region": {
+    "min": 0,
+    "max": 1,
+    "soft": 0,
+    "invert": false
+   },
+   "regionX": {
+    "min": 0,
+    "max": 1,
+    "soft": 0
+   },
+   "timeShift": {
+    "y": 0,
+    "x": 0,
+    "quantize": false
+   },
+   "params": {
+    "text": "ホテル",
+    "font": "Yu Gothic",
+    "weight": "regular",
+    "vertical": false,
+    "spacing": 0.08,
+    "lineHeight": 1.2,
+    "style": "neon",
+    "output": "light",
+    "revealGain": 1.0903480183333158,
+    "tube": 0.035,
+    "ledPitch": 3,
+    "posX": 0.5015,
+    "posY": 0.2083,
+    "size": 0.206,
+    "color": "#ff00fd",
+    "intensity": 4.847210542298853,
+    "core": 0.48646721318364144,
+    "glow": 1.1213451388292015,
+    "glowRadius": 0.4037984336260706,
+    "unlit": 0.015,
+    "plate": 0.8,
+    "plateColor": "#0c0a0d",
+    "plateLight": 0.9733602977357805,
+    "padding": 0.3,
+    "border": 0.6555005982518196,
+    "anim": "flicker",
+    "rate": 0.11958672006987035,
+    "amount": 0.9095176937058568,
+    "stagger": 0.524396347720176,
+    "flickerAmt": 0.29458599067293106,
+    "accent": "#ffffff",
+    "charset": "latin",
+    "tickerWidth": 0,
+    "scrollSpeed": 1.7043750166520475,
+    "tickerGap": 3,
+    "wrapAround": false,
+    "messages": false,
+    "hold": 2.3250108953146262,
+    "transition": "glitch",
+    "transTime": 0.3487685678363777
+   }
+  },
+  {
+   "id": "sign-vg6vn",
+   "generator": "sign",
+   "name": "Crown sign",
+   "enabled": true,
+   "blend": "normal",
+   "opacity": 1,
+   "clip": false,
+   "region": {
+    "min": 0,
+    "max": 1,
+    "soft": 0,
+    "invert": false
+   },
+   "regionX": {
+    "min": 0,
+    "max": 1,
+    "soft": 0
+   },
+   "timeShift": {
+    "y": 0,
+    "x": 0,
+    "quantize": false
+   },
+   "params": {
+    "text": "太陽島",
+    "font": "Yu Gothic",
+    "weight": "bold",
+    "vertical": true,
+    "spacing": 0.08,
+    "lineHeight": 1.2,
+    "style": "solid",
+    "output": "light",
+    "revealGain": 1.3556792540475726,
+    "tube": 0.035,
+    "ledPitch": 3,
+    "posX": 0.7938,
+    "posY": 0.8789,
+    "size": 0.19,
+    "color": "#ff00d8",
+    "intensity": 2.544050564058125,
+    "core": 0.4936705044470728,
+    "glow": 0.6412900854833424,
+    "glowRadius": 0.47725527801085266,
+    "unlit": 0.015,
+    "plate": 1,
+    "plateColor": "#140606",
+    "plateLight": 0.05380746806040404,
+    "padding": 0.3,
+    "border": 1.125836878363043,
+    "anim": "none",
+    "rate": 0.02,
+    "amount": 1.198122549802065,
+    "stagger": 0.4610466320533305,
+    "flickerAmt": 0.2189235247205943,
+    "accent": "#fffaf9",
+    "charset": "latin",
+    "tickerWidth": 0,
+    "scrollSpeed": 0.9631087207142266,
+    "tickerGap": 3,
+    "wrapAround": false,
+    "messages": false,
+    "hold": 2.525094029060565,
+    "transition": "glitch",
+    "transTime": 0.3761243160045705
+   }
+  },
+  {
+   "id": "aurora",
+   "generator": "noise",
+   "name": "Aurora curtains",
+   "enabled": true,
+   "blend": "multiply",
+   "opacity": 1,
+   "clip": false,
+   "region": {
+    "min": 0,
+    "max": 1,
+    "soft": 0,
+    "invert": false
+   },
+   "regionX": {
+    "min": 0,
+    "max": 1,
+    "soft": 0
+   },
+   "timeShift": {
+    "y": 0,
+    "x": 0,
+    "quantize": false
+   },
+   "params": {
+    "noiseType": "ridged",
+    "scale": 2.7883097224403173,
+    "octaves": 3,
+    "roughness": 0.3771752934157848,
+    "stretch": 4.872195515050553,
+    "quantize": "none",
+    "contrast": 0.6464713899418711,
+    "bias": -0.02299615573137998,
+    "threshold": 0.8022596147656441,
+    "softness": 0.07742004427975044,
+    "invert": false,
+    "evolve": 0.18721567765623331,
+    "drift": "up",
+    "driftRate": 0,
+    "output": "modulate",
+    "amount": 0.933056300925091,
+    "colorA": "#15143a",
+    "colorB": "#84b5ff",
+    "intensity": 2.3571755500510334
+   }
+  }
+ ],
+ "audio": {
+  "routes": []
+ }
+}

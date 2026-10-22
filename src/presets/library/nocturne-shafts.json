@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "id": "nocturne-shafts",
+  "name": "Nocturne Shafts",
+  "category": "Minimal/Soft Club",
+  "tags": ["shafts", "stacked video", "muted", "mauve", "indigo", "minimal", "ghost windows"],
+  "description": "Twenty-four barely-there shafts over ghost glazing; two soft video bands drift sideways in muted mauve and indigo like slow colour films.",
+  "seed": 2424,
+  "architecture": { "floors": 40, "bays": 24, "facades": 1, "slab": 0.15, "mullion": 0.06, "symmetry": "none" },
+  "animation": { "duration": 15, "speed": 1 },
+  "look": { "emission": 1, "exposure": 0, "tonemap": "agx" },
+  "output": { "width": 1024, "height": 2048 },
+  "layers": [
+    {
+      "id": "ghost",
+      "generator": "windows",
+      "name": "Ghost glazing",
+      "params": {
+        "winWidth": 0.95, "winHeight": 0.95, "sillAlign": 0, "panes": 1, "frame": 0.01, "unitWidth": 2,
+        "occupancy": 0.3, "floorBias": 0.3, "coolRatio": 0.4, "intensity": 0.004, "brightnessVar": 0.3, "spill": 0, "unlit": 0.001,
+        "ceiling": 0.3, "lamps": 0, "fixtures": 0, "blinds": 0, "curtains": 0, "furniture": 0, "toggleRate": 0, "tvRatio": 0
+      }
+    },
+    {
+      "id": "film-1",
+      "generator": "noise",
+      "name": "Video · mauve drift",
+      "blend": "replace",
+      "region": { "min": 0.34, "max": 0.46, "soft": 0.003 },
+      "params": { "noiseType": "fbm", "scale": 2, "octaves": 3, "stretch": 3, "contrast": 1.3, "evolve": 0.067, "drift": "right", "driftRate": 0.067, "output": "emit", "colorA": "#0a0610", "colorB": "#b98aa6", "intensity": 1, "amount": 1 }
+    },
+    {
+      "id": "film-2",
+      "generator": "noise",
+      "name": "Video · indigo drift",
+      "blend": "replace",
+      "region": { "min": 0.54, "max": 0.66, "soft": 0.003 },
+      "params": { "noiseType": "fbm", "scale": 2, "octaves": 3, "stretch": 3, "contrast": 1.3, "evolve": 0.067, "drift": "left", "driftRate": 0.067, "output": "emit", "colorA": "#04060f", "colorB": "#7f8fd6", "intensity": 1, "amount": 1 }
+    },
+    {
+      "id": "shafts",
+      "generator": "stripes",
+      "name": "Faint shafts",
+      "params": {
+        "orientation": "vertical", "align": "count", "count": 24, "every": 1, "anchor": "center", "width": 0.02,
+        "segments": "continuous", "colorA": "#e6dcef", "intensity": 1.2, "glow": 0, "anim": "wave", "rate": 0.067, "sync": 1, "depth": 0.7, "waves": 1, "sharpness": 2
+      }
+    }
+  ]
+}

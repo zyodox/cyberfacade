@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "id": "ice-scan",
+  "name": "Ice Scan",
+  "category": "Luxury/Futuristic",
+  "tags": ["minimal", "hairlines", "ice", "scan", "luxury"],
+  "description": "Hundreds of ice-white hairlines barely visible on black; a soft scan brightens them as it passes up the tower. A fine perimeter frames the facade.",
+  "seed": 2222,
+  "architecture": { "floors": 64, "bays": 16, "facades": 1, "slab": 0, "mullion": 0, "symmetry": "none" },
+  "animation": { "duration": 10, "speed": 1 },
+  "look": { "emission": 1, "exposure": 0, "tonemap": "agx" },
+  "output": { "width": 1024, "height": 2048 },
+  "layers": [
+    {
+      "id": "hairlines",
+      "generator": "stripes",
+      "name": "Hairlines",
+      "params": {
+        "orientation": "horizontal", "align": "count", "count": 160, "every": 1, "anchor": "center", "width": 0.1,
+        "segments": "continuous", "colorA": "#dbe8ff", "intensity": 0.22, "glow": 0, "anim": "none"
+      }
+    },
+    {
+      "id": "scan",
+      "generator": "stripes",
+      "name": "Scan",
+      "params": {
+        "orientation": "horizontal", "align": "count", "count": 160, "every": 1, "anchor": "center", "width": 0.1,
+        "segments": "continuous", "colorA": "#e6efff", "intensity": 3.2, "glow": 0.15, "glowWidth": 0.2,
+        "anim": "scan", "rate": 0.1, "sync": 1, "depth": 1, "sharpness": 2.6
+      }
+    },
+    {
+      "id": "frame",
+      "generator": "grid",
+      "name": "Perimeter",
+      "params": { "source": "arch", "lines": "none", "color": "#dbe8ff", "intensity": 1, "edges": 1.1, "edgeWidth": 1.4, "anim": "none" }
+    }
+  ]
+}

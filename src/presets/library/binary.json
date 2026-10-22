@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "id": "binary",
+  "name": "Binary",
+  "category": "LED Media Facades",
+  "tags": ["minimal", "pixels", "binary", "data", "cool white"],
+  "description": "Cool-white LED pixels switch strictly on or off as a slow data field drifts sideways; off pixels stay faintly visible.",
+  "seed": 1010,
+  "architecture": { "floors": 64, "bays": 32, "facades": 1, "slab": 0.16, "mullion": 0.16, "symmetry": "none" },
+  "animation": { "duration": 10, "speed": 1 },
+  "look": { "emission": 1, "exposure": 0, "tonemap": "agx" },
+  "output": { "width": 1024, "height": 2048 },
+  "layers": [
+    {
+      "id": "pixels",
+      "generator": "windows",
+      "name": "LED pixels",
+      "params": {
+        "winWidth": 1, "winHeight": 1, "sillAlign": 0.5, "panes": 1, "frame": 0, "unitWidth": 1,
+        "occupancy": 1, "floorBias": 0, "roomVariation": 0, "warmColor": "#eef4ff", "coolColor": "#eef4ff", "coolRatio": 0, "tempVariation": 0,
+        "intensity": 1.1, "brightnessVar": 0, "spill": 0, "unlit": 0,
+        "ceiling": 0, "lamps": 0, "fixtures": 0, "blinds": 0, "curtains": 0, "furniture": 0, "toggleRate": 0, "tvRatio": 0
+      }
+    },
+    {
+      "id": "data",
+      "generator": "noise",
+      "name": "Data field",
+      "blend": "multiply",
+      "clip": true,
+      "params": { "noiseType": "fbm", "scale": 10, "octaves": 2, "stretch": 5, "quantize": "cells", "contrast": 1.4, "threshold": 0.66, "softness": 0.001, "evolve": 0.2, "drift": "left", "driftRate": 0.1, "output": "modulate", "amount": 1 }
+    },
+    {
+      "id": "off",
+      "generator": "windows",
+      "name": "Off pixels",
+      "params": {
+        "winWidth": 1, "winHeight": 1, "sillAlign": 0.5, "panes": 1, "frame": 0,
+        "occupancy": 1, "roomVariation": 0, "warmColor": "#eef4ff", "coolRatio": 0, "tempVariation": 0,
+        "intensity": 0.004, "brightnessVar": 0, "spill": 0, "unlit": 0,
+        "ceiling": 0, "lamps": 0, "fixtures": 0, "blinds": 0, "curtains": 0, "furniture": 0, "toggleRate": 0, "tvRatio": 0
+      }
+    }
+  ]
+}

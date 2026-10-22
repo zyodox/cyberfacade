@@ -1,0 +1,122 @@
+{
+ "schema": 1,
+ "id": "ribbon-tower",
+ "name": "Ribbon Tower",
+ "category": "Ad Screens",
+ "tags": [
+  "ticker",
+  "3d",
+  "wrap"
+ ],
+ "description": "Three ticker ribbons running around the whole building at different speeds — made for the 3D view (Convert to 3D).",
+ "seed": 21,
+ "architecture": {
+  "floors": 48,
+  "bays": 12,
+  "facades": 1,
+  "slab": 0.2,
+  "mullion": 0.06,
+  "symmetry": "none"
+ },
+ "animation": {
+  "duration": 12,
+  "speed": 1
+ },
+ "look": {
+  "emission": 1,
+  "exposure": 0,
+  "tonemap": "agx"
+ },
+ "output": {
+  "width": 1024,
+  "height": 2048
+ },
+ "layers": [
+  {
+   "id": "win",
+   "generator": "windows",
+   "name": "Few windows",
+   "params": {
+    "occupancy": 0.06,
+    "clustering": 0.15,
+    "winWidth": 0.55,
+    "winHeight": 0.6,
+    "intensity": 1,
+    "spill": 0.03,
+    "unlit": 0.008,
+    "toggleRate": 0
+   }
+  },
+  {
+   "id": "t1",
+   "generator": "sign",
+   "name": "Ribbon 1",
+   "params": {
+    "text": "VOLTEX · KAZEMI OPTICS · VOLTA COLA · OPEN 24H · ",
+    "font": "Segoe UI",
+    "weight": "bold",
+    "style": "solid",
+    "size": 0.035,
+    "posY": 0.94,
+    "anim": "scroll",
+    "tickerWidth": 1,
+    "scrollSpeed": 5,
+    "tickerGap": 2,
+    "wrapAround": true,
+    "color": "#ffd23a",
+    "intensity": 4,
+    "glow": 0.35,
+    "plate": 1,
+    "plateColor": "#040302",
+    "padding": 0.3
+   }
+  },
+  {
+   "id": "t2",
+   "generator": "sign",
+   "name": "Ribbon 2",
+   "params": {
+    "text": "ORBITAL · AURELIA · NOVAKINE · ",
+    "font": "Segoe UI Light",
+    "weight": "light",
+    "spacing": 0.3,
+    "style": "solid",
+    "size": 0.03,
+    "posY": 0.7,
+    "anim": "scroll",
+    "tickerWidth": 1,
+    "scrollSpeed": 2.5,
+    "tickerGap": 2,
+    "wrapAround": true,
+    "color": "#7fe8ff",
+    "intensity": 3,
+    "glow": 0.35
+   }
+  },
+  {
+   "id": "t3",
+   "generator": "sign",
+   "name": "Ribbon 3",
+   "params": {
+    "text": "{price 1,204.10 22.00} ORB · {price 66.35 2.10} AUR · {price 9.87 0.45} NVK · ",
+    "font": "Consolas",
+    "weight": "bold",
+    "style": "led",
+    "ledPitch": 1.8,
+    "size": 0.028,
+    "posY": 0.4,
+    "anim": "scroll",
+    "tickerWidth": 1,
+    "scrollSpeed": 4,
+    "tickerGap": 1,
+    "wrapAround": true,
+    "color": "#9dff7a",
+    "intensity": 3,
+    "glow": 0.4,
+    "plate": 1,
+    "plateColor": "#030503",
+    "padding": 0.3
+   }
+  }
+ ]
+}

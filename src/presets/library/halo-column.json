@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "halo-column",
+  "name": "Halo Column",
+  "category": "Luxury/Futuristic",
+  "tags": ["minimal", "beam", "hairline", "ivory", "luxury", "architectural"],
+  "description": "Almost nothing: one ivory beam down the centre of each face breathing slowly, a hairline perimeter and a whisper of dot texture.",
+  "seed": 1313,
+  "architecture": { "floors": 96, "bays": 48, "facades": 1, "slab": 0, "mullion": 0, "symmetry": "none" },
+  "animation": { "duration": 12, "speed": 1 },
+  "look": { "emission": 1, "exposure": 0, "tonemap": "agx" },
+  "output": { "width": 1024, "height": 2048 },
+  "layers": [
+    {
+      "id": "dots",
+      "generator": "grid",
+      "name": "Dot texture",
+      "params": { "source": "arch", "lines": "none", "nodes": 0.22, "nodeSize": 0.06, "color": "#f6efe2", "intensity": 1, "edges": 0, "anim": "none" }
+    },
+    {
+      "id": "beam",
+      "generator": "stripes",
+      "name": "Beam",
+      "params": {
+        "orientation": "vertical", "align": "count", "count": 1, "every": 1, "anchor": "center", "width": 0.004,
+        "segments": "continuous", "colorA": "#f6efe2", "intensity": 5, "glow": 0.1, "glowWidth": 0.012, "taper": -0.35,
+        "anim": "pulse", "rate": 0.083, "sync": 1, "depth": 0.5, "sharpness": 1
+      }
+    },
+    {
+      "id": "frame",
+      "generator": "grid",
+      "name": "Perimeter",
+      "params": { "source": "arch", "lines": "none", "color": "#f6efe2", "intensity": 1, "edges": 0.9, "edgeWidth": 1.2, "anim": "none" }
+    }
+  ]
+}

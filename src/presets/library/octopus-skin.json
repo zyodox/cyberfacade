@@ -1,0 +1,55 @@
+{
+ "schema": 1,
+ "id": "octopus-skin",
+ "name": "Octopus Skin",
+ "category": "Living Light",
+ "tags": [
+  "organic",
+  "chromatophores",
+  "cuttlefish",
+  "minimal",
+  "smooth"
+ ],
+ "description": "Chromatophores opening and closing under slow passing dark clouds — a cuttlefish's skin stretched over a tower.",
+ "seed": 11,
+ "architecture": {
+  "floors": 48,
+  "bays": 12,
+  "facades": 1,
+  "slab": 0.2,
+  "mullion": 0.06,
+  "symmetry": "none"
+ },
+ "animation": {
+  "duration": 12,
+  "speed": 1
+ },
+ "look": {
+  "emission": 1,
+  "exposure": 0,
+  "tonemap": "agx"
+ },
+ "output": {
+  "width": 1024,
+  "height": 2048
+ },
+ "layers": [
+  {
+   "id": "skin",
+   "generator": "living",
+   "name": "Octopus skin",
+   "params": {
+    "pattern": "chroma",
+    "scale": 5,
+    "rate": 0.08,
+    "sharpness": 1.4,
+    "detail": 0.6,
+    "softness": 0.35,
+    "colorA": "#e0692e",
+    "colorB": "#0e2a30",
+    "intensity": 0.9,
+    "base": 0
+   }
+  }
+ ]
+}

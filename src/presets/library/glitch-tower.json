@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "id": "glitch-tower",
+  "name": "Glitch Tower",
+  "category": "Glitch",
+  "tags": ["glitch", "datamosh", "rgb split", "corrupted", "blocks"],
+  "description": "An office tower whose facade is corrupting: cyan/magenta data blocks flash, whole floors tear sideways, blocks of pixels shift with RGB split and floors drop out.",
+  "seed": 404,
+  "architecture": { "floors": 40, "bays": 12, "facades": 1, "slab": 0.18, "mullion": 0.06, "symmetry": "none" },
+  "animation": { "duration": 6, "speed": 1 },
+  "look": { "emission": 1, "exposure": 0, "tonemap": "agx-punchy" },
+  "output": { "width": 1024, "height": 2048 },
+  "layers": [
+    {
+      "id": "offices",
+      "generator": "windows",
+      "name": "Offices",
+      "params": {
+        "winWidth": 1, "winHeight": 1, "sillAlign": 0, "panes": 1, "frame": 0.02, "unitWidth": 3,
+        "occupancy": 0.6, "floorBias": 0.6, "coolColor": "#e6f0ff", "coolRatio": 0.8, "intensity": 1.3,
+        "ceiling": 0.8, "lamps": 0, "fixtures": 0.7, "blinds": 0.3, "curtains": 0, "furniture": 0.2, "spill": 0.3, "toggleRate": 0, "tvRatio": 0
+      }
+    },
+    {
+      "id": "data",
+      "generator": "blocks",
+      "name": "Data blocks",
+      "params": {
+        "source": "custom", "countX": 24, "countY": 96, "blockW": 3, "blockH": 2, "splits": 2, "gap": 0, "style": "solid",
+        "colorA": "#00ffd0", "colorB": "#ff00a8", "colorMix": 0.5, "brightnessVar": 0.5, "intensity": 4,
+        "density": 0.12, "rate": 2, "duty": 0.3, "fade": 0.001, "output": "emit"
+      }
+    },
+    {
+      "id": "blockglitch",
+      "generator": "distort",
+      "name": "Block glitch",
+      "params": { "mode": "blockGlitch", "amount": 40, "scale": 6, "direction": "horizontal", "rate": 4, "chance": 0.2, "rgbSplit": 4 }
+    },
+    {
+      "id": "tear",
+      "generator": "distort",
+      "name": "Floor tear",
+      "params": { "mode": "floorShift", "amount": 60, "direction": "horizontal", "rate": 2, "chance": 0.15, "rgbSplit": 0 }
+    },
+    {
+      "id": "dropouts",
+      "generator": "flicker",
+      "name": "Dropouts",
+      "params": { "scope": "floors", "style": "dropout", "fraction": 0.4, "rate": 4, "depth": 1, "duty": 0.8 }
+    }
+  ]
+}

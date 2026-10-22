@@ -1,0 +1,98 @@
+{
+ "schema": 1,
+ "id": "cutout-ticker",
+ "name": "Cut-out Ticker",
+ "category": "Kinetic Type",
+ "tags": [
+  "ticker",
+  "cut-out",
+  "reveal",
+  "marquee",
+  "long text"
+ ],
+ "description": "The facade stays black; a long line of text travels across it, its letters cut out to show a moving colour field. A quieter light ticker runs beneath.",
+ "seed": 11,
+ "architecture": {
+  "floors": 48,
+  "bays": 12,
+  "facades": 1,
+  "slab": 0.2,
+  "mullion": 0.06,
+  "symmetry": "none"
+ },
+ "animation": {
+  "duration": 12,
+  "speed": 1
+ },
+ "look": {
+  "emission": 1,
+  "exposure": 0,
+  "tonemap": "agx"
+ },
+ "output": {
+  "width": 1024,
+  "height": 2048
+ },
+ "layers": [
+  {
+   "id": "film",
+   "generator": "noise",
+   "name": "Film",
+   "blend": "add",
+   "params": {
+    "noiseType": "fbm",
+    "scale": 2.5,
+    "octaves": 4,
+    "stretch": 1.6,
+    "contrast": 1.6,
+    "evolve": 0.1,
+    "drift": "right",
+    "driftRate": 0.1,
+    "output": "emit",
+    "colorA": "#12061e",
+    "colorB": "#ff7ad0",
+    "intensity": 1.1,
+    "amount": 1
+   }
+  },
+  {
+   "id": "tk",
+   "generator": "sign",
+   "name": "Ticker",
+   "params": {
+    "text": "OPEN ALL NIGHT — NOODLES · SAKE · VINYL · CINEMA — THE CITY NEVER SLEEPS —",
+    "font": "Arial Black",
+    "style": "solid",
+    "size": 0.06,
+    "posY": 0.5,
+    "anim": "scroll",
+    "tickerWidth": 1,
+    "scrollSpeed": 2.5,
+    "tickerGap": 3,
+    "output": "revealFull",
+    "revealGain": 1.8,
+    "glow": 0
+   }
+  },
+  {
+   "id": "tk2",
+   "generator": "sign",
+   "name": "Ticker 2",
+   "params": {
+    "text": "東京 · 大阪 · 京都 · 札幌 · 福岡 · ",
+    "font": "Yu Gothic",
+    "weight": "bold",
+    "style": "solid",
+    "size": 0.045,
+    "posY": 0.42,
+    "anim": "scroll",
+    "tickerWidth": 1,
+    "scrollSpeed": 1.6,
+    "tickerGap": 1,
+    "color": "#e9ecf2",
+    "intensity": 1.4,
+    "glow": 0.3
+   }
+  }
+ ]
+}

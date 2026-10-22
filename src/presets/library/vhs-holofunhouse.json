@@ -1,0 +1,95 @@
+{
+ "schema": 1,
+ "id": "vhs-holofunhouse",
+ "name": "Holo Funhouse",
+ "category": "Ad Screens",
+ "tags": [
+  "hologram",
+  "vhs",
+  "retro",
+  "glitch"
+ ],
+ "description": "Old-generation holographic signs: pink and cyan names on VHS tracking noise, interlaced fields and colour bleed — the worn hologram look.",
+ "seed": 21,
+ "architecture": {
+  "floors": 48,
+  "bays": 12,
+  "facades": 1,
+  "slab": 0.2,
+  "mullion": 0.06,
+  "symmetry": "none"
+ },
+ "animation": {
+  "duration": 12,
+  "speed": 1
+ },
+ "look": {
+  "emission": 1,
+  "exposure": 0,
+  "tonemap": "agx"
+ },
+ "output": {
+  "width": 1024,
+  "height": 2048
+ },
+ "layers": [
+  {
+   "id": "win",
+   "generator": "windows",
+   "name": "Few windows",
+   "params": {
+    "occupancy": 0.04,
+    "clustering": 0.15,
+    "winWidth": 0.55,
+    "winHeight": 0.6,
+    "intensity": 1,
+    "spill": 0.03,
+    "unlit": 0.008,
+    "toggleRate": 0
+   }
+  },
+  {
+   "id": "s1",
+   "generator": "sign",
+   "name": "Sign",
+   "params": {
+    "text": "{#ff7ad0} STARLIGHT\n{#7fe8ff} DANCE HALL\n{#fff3b0} TONIGHT",
+    "font": "Georgia",
+    "weight": "bold",
+    "messages": true,
+    "hold": 2.5,
+    "transition": "blur",
+    "transTime": 0.6,
+    "style": "neon",
+    "size": 0.1,
+    "posY": 0.62,
+    "intensity": 5,
+    "glow": 1
+   }
+  },
+  {
+   "id": "vhs",
+   "generator": "distort",
+   "name": "VHS",
+   "params": {
+    "mode": "vhs",
+    "amount": 28,
+    "rate": 0.4,
+    "chance": 0.5
+   }
+  },
+  {
+   "id": "il",
+   "generator": "distort",
+   "name": "Interlace",
+   "params": {
+    "mode": "interlace",
+    "amount": 10,
+    "pixelSize": 8,
+    "scale": 3,
+    "rate": 1,
+    "chance": 0.3
+   }
+  }
+ ]
+}

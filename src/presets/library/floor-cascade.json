@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "id": "floor-cascade",
+  "name": "Floor Cascade",
+  "category": "LED Media Facades",
+  "tags": ["cascade", "sequence", "amber", "build-up"],
+  "description": "The tower lights up floor by floor from the base: an amber slab line flashes first, the glazing follows, the whole building holds, then fades to start again.",
+  "seed": 60120,
+  "architecture": { "floors": 36, "bays": 10, "facades": 1, "slab": 0.2, "mullion": 0.07, "symmetry": "none" },
+  "animation": { "duration": 8, "speed": 1 },
+  "look": { "emission": 1, "exposure": 0, "tonemap": "agx" },
+  "output": { "width": 1024, "height": 2048 },
+  "layers": [
+    {
+      "id": "panels",
+      "generator": "windows",
+      "name": "Floor panels",
+      "params": {
+        "winWidth": 0.98, "winHeight": 0.98, "sillAlign": 0, "panes": 1, "frame": 0.015, "unitWidth": 1,
+        "occupancy": 1, "floorBias": 1, "roomVariation": 0, "warmColor": "#ffc27a", "coolRatio": 0, "tempVariation": 0.1,
+        "intensity": 1.4, "brightnessVar": 0.1, "spill": 0, "unlit": 0.03,
+        "ceiling": 0.5, "lamps": 0, "fixtures": 0.3, "blinds": 0, "curtains": 0, "furniture": 0, "toggleRate": 0, "tvRatio": 0
+      }
+    },
+    {
+      "id": "cascade",
+      "generator": "wave",
+      "name": "Cascade",
+      "blend": "multiply",
+      "params": { "shape": "linear", "direction": "up", "profile": "cascade", "waves": 1, "rate": 0.125, "depth": 0.97, "quantize": "floors", "output": "modulate", "depth": 1 }
+    },
+    {
+      "id": "slabs",
+      "generator": "stripes",
+      "name": "Slab cascade",
+      "params": {
+        "orientation": "horizontal", "align": "arch", "every": 1, "anchor": "slabTop", "width": 0.04,
+        "segments": "continuous", "colorA": "#ffb347", "intensity": 8, "glow": 0.2, "glowWidth": 0.03,
+        "anim": "cascade", "rate": 0.125, "sync": 1, "depth": 1
+      }
+    },
+    {
+      "id": "edges",
+      "generator": "grid",
+      "name": "Corner lines",
+      "params": { "source": "arch", "lines": "none", "color": "#ffc27a", "intensity": 1, "edges": 1.5, "edgeWidth": 2, "anim": "none" }
+    }
+  ]
+}

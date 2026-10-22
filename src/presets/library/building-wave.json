@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "id": "building-wave",
+  "name": "Building Wave",
+  "category": "Sci-Fi",
+  "tags": ["wave", "ripple", "cyan", "data", "window pixels"],
+  "description": "Every window is a pixel: a diagonal swell rolls across the tower while cyan ripples radiate from a point on the facade and a scan line climbs the mullions.",
+  "seed": 4401,
+  "architecture": { "floors": 44, "bays": 16, "facades": 1, "slab": 0.16, "mullion": 0.1, "symmetry": "none" },
+  "animation": { "duration": 10, "speed": 1 },
+  "look": { "emission": 1, "exposure": 0, "tonemap": "agx" },
+  "output": { "width": 1024, "height": 2048 },
+  "layers": [
+    {
+      "id": "cells",
+      "generator": "windows",
+      "name": "Window cells",
+      "params": {
+        "winWidth": 0.86, "winHeight": 0.8, "sillAlign": 0.5, "panes": 1, "frame": 0.02, "unitWidth": 1,
+        "occupancy": 1, "floorBias": 0, "roomVariation": 0, "warmColor": "#bfe6ff", "coolColor": "#bfe6ff", "coolRatio": 1, "tempVariation": 0.1,
+        "intensity": 1.1, "brightnessVar": 0.15, "spill": 0, "unlit": 0.02,
+        "ceiling": 0.3, "lamps": 0, "fixtures": 0, "blinds": 0, "curtains": 0, "furniture": 0, "toggleRate": 0, "tvRatio": 0
+      }
+    },
+    {
+      "id": "swell",
+      "generator": "wave",
+      "name": "Diagonal swell",
+      "blend": "multiply",
+      "params": { "shape": "diagonal", "profile": "pulse", "waves": 1.5, "rate": 0.2, "sharpness": 1.5, "depth": 0.95, "quantize": "cells", "output": "modulate" }
+    },
+    {
+      "id": "ripple",
+      "generator": "wave",
+      "name": "Radial ripple",
+      "blend": "add",
+      "clip": true,
+      "params": {
+        "shape": "radial", "profile": "sine", "waves": 6, "rate": 0.3, "sharpness": 3, "depth": 1,
+        "centerX": 0.5, "centerY": 0.35, "quantize": "cells", "output": "emit", "colorA": "#001a33", "colorB": "#33ccff", "intensity": 1.4
+      }
+    },
+    {
+      "id": "scan",
+      "generator": "grid",
+      "name": "Mullion scan",
+      "params": {
+        "source": "arch", "lines": "vertical", "everyX": 4, "widthX": 0.06, "color": "#7fd4ff", "intensity": 2.5,
+        "glow": 0.3, "glowWidth": 0.03, "anim": "scan", "rate": 0.1, "depth": 0.85, "traceLength": 0.06
+      }
+    }
+  ]
+}

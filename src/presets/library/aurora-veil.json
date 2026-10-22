@@ -1,0 +1,57 @@
+{
+ "schema": 1,
+ "id": "aurora-veil",
+ "name": "Aurora Veil",
+ "category": "Living Light",
+ "tags": [
+  "aurora",
+  "curtains",
+  "green",
+  "violet",
+  "smooth"
+ ],
+ "description": "Aurora curtains hanging from the crown, drifting slowly; violet fading into green.",
+ "seed": 11,
+ "architecture": {
+  "floors": 48,
+  "bays": 12,
+  "facades": 1,
+  "slab": 0.2,
+  "mullion": 0.06,
+  "symmetry": "none"
+ },
+ "animation": {
+  "duration": 12,
+  "speed": 1
+ },
+ "look": {
+  "emission": 1,
+  "exposure": 0,
+  "tonemap": "agx"
+ },
+ "output": {
+  "width": 1024,
+  "height": 2048
+ },
+ "layers": [
+  {
+   "id": "au",
+   "generator": "living",
+   "name": "Aurora",
+   "params": {
+    "pattern": "sway",
+    "flip": true,
+    "count": 5,
+    "reach": 0.85,
+    "rate": 0.05,
+    "softness": 0.95,
+    "sharpness": 1.2,
+    "detail": 0.5,
+    "colorA": "#6effc4",
+    "colorB": "#3a1a8a",
+    "intensity": 0.55,
+    "base": 0
+   }
+  }
+ ]
+}

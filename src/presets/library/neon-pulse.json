@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "id": "neon-pulse",
+  "name": "Neon Pulse",
+  "category": "Neon",
+  "tags": ["neon", "outline", "diamonds", "pink", "blue", "pulse"],
+  "description": "Pink neon tubes outline the facade structure and corners, while stacked blue and pink diamonds pulse in staggered time.",
+  "seed": 808,
+  "architecture": { "floors": 30, "bays": 10, "facades": 1, "slab": 0.2, "mullion": 0.08, "symmetry": "mirror" },
+  "animation": { "duration": 8, "speed": 1 },
+  "look": { "emission": 1, "exposure": 0, "tonemap": "agx-punchy" },
+  "output": { "width": 1024, "height": 2048 },
+  "layers": [
+    {
+      "id": "glass",
+      "generator": "windows",
+      "name": "Dark glazing",
+      "params": {
+        "winWidth": 0.9, "winHeight": 0.85, "sillAlign": 0.3, "panes": 1, "frame": 0.03,
+        "occupancy": 0.08, "intensity": 0.6, "spill": 0.05, "unlit": 0.025, "unlitColor": "#2a1a40",
+        "lamps": 0.3, "toggleRate": 0, "tvRatio": 0
+      }
+    },
+    {
+      "id": "outline",
+      "generator": "grid",
+      "name": "Neon outline",
+      "params": {
+        "source": "arch", "lines": "both", "everyX": 5, "everyY": 6, "widthX": 0.05, "widthY": 0.07,
+        "color": "#ff2e88", "intensity": 7, "glow": 0.6, "glowWidth": 0.04, "edges": 8, "edgeWidth": 3,
+        "anim": "pulse", "rate": 0.5, "sync": 0.2, "depth": 0.85
+      }
+    },
+    {
+      "id": "diamonds",
+      "generator": "shapes",
+      "name": "Pulse diamonds",
+      "params": {
+        "shape": "diamond", "arrangement": "tiled", "countX": 2, "countY": 5, "size": 0.55, "thickness": 0.12,
+        "colorA": "#36c9ff", "colorB": "#ff2e88", "colorMode": "alternate",
+        "pulse": 0.5, "pulseAmount": 0.2, "stagger": 0.5, "glow": 0.5, "glowWidth": 0.02, "intensity": 6
+      }
+    },
+    {
+      "id": "glow",
+      "generator": "blur",
+      "name": "Neon glow",
+      "params": { "mode": "glow", "radius": 10, "direction": "both", "taps": 32, "threshold": 0.8, "intensity": 0.7 }
+    }
+  ]
+}

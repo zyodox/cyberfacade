@@ -1,0 +1,82 @@
+{
+  "schema": 1,
+  "id": "stacked-screens",
+  "name": "Stacked Screens",
+  "category": "LED Media Facades",
+  "tags": ["stacked video", "screens", "shafts", "hairline frames", "ghost windows"],
+  "description": "Five stacked LED screens framed by hairlines, each looping its own video — colour field, flashing cells, flowing ribbons, light pulses, a data ticker — over ghost glazing, with thin shafts running the full height.",
+  "seed": 5050,
+  "architecture": { "floors": 50, "bays": 25, "facades": 1, "slab": 0.15, "mullion": 0.08, "symmetry": "none" },
+  "animation": { "duration": 10, "speed": 1 },
+  "look": { "emission": 1, "exposure": 0, "tonemap": "agx" },
+  "output": { "width": 1024, "height": 2048 },
+  "layers": [
+    {
+      "id": "ghost",
+      "generator": "windows",
+      "name": "Ghost glazing",
+      "params": {
+        "winWidth": 0.95, "winHeight": 0.95, "sillAlign": 0, "panes": 1, "frame": 0.01, "unitWidth": 2,
+        "occupancy": 0.35, "floorBias": 0.3, "coolRatio": 0.5, "intensity": 0.004, "brightnessVar": 0.3, "spill": 0, "unlit": 0.001,
+        "ceiling": 0.3, "lamps": 0, "fixtures": 0, "blinds": 0, "curtains": 0, "furniture": 0, "toggleRate": 0, "tvRatio": 0
+      }
+    },
+    {
+      "id": "screen-1",
+      "generator": "gradient",
+      "name": "Screen 1 · colour field",
+      "blend": "replace",
+      "region": { "min": 0.1, "max": 0.2, "soft": 0 },
+      "params": { "gtype": "linear", "angle": 0, "repeat": 1, "wrap": "mirror", "colorA": "#07142b", "colorB": "#2f7fe0", "colorC": "#bfeaff", "useC": true, "midpoint": 0.5, "intensity": 1, "scroll": 0.1, "output": "emit" }
+    },
+    {
+      "id": "screen-2",
+      "generator": "voronoi",
+      "name": "Screen 2 · cells",
+      "blend": "replace",
+      "region": { "min": 0.3, "max": 0.4, "soft": 0 },
+      "params": { "mode": "distance", "scale": 12, "jitter": 0.85, "drift": 0.15, "density": 0.85, "flashRate": 0.4, "duty": 0.6, "colorA": "#ff9d5c", "colorB": "#ffe2b8", "colorMix": 0.4, "brightnessVar": 0.5, "intensity": 1.6, "output": "emit" }
+    },
+    {
+      "id": "screen-3",
+      "generator": "noise",
+      "name": "Screen 3 · ribbons",
+      "blend": "replace",
+      "region": { "min": 0.5, "max": 0.6, "soft": 0 },
+      "params": { "noiseType": "ridged", "scale": 4, "octaves": 3, "stretch": 3, "contrast": 1.4, "evolve": 0.1, "drift": "left", "driftRate": 0.1, "output": "emit", "colorA": "#000000", "colorB": "#7ff0d8", "intensity": 1.4, "amount": 1 }
+    },
+    {
+      "id": "screen-4",
+      "generator": "wave",
+      "name": "Screen 4 · pulses",
+      "blend": "replace",
+      "region": { "min": 0.7, "max": 0.8, "soft": 0 },
+      "params": { "shape": "linear", "direction": "right", "profile": "pulse", "waves": 3, "rate": 0.3, "sharpness": 3, "depth": 1, "output": "emit", "colorA": "#050505", "colorB": "#ffffff", "intensity": 1.5 }
+    },
+    {
+      "id": "screen-5",
+      "generator": "noise",
+      "name": "Screen 5 · data ticker",
+      "blend": "replace",
+      "region": { "min": 0.9, "max": 1, "soft": 0 },
+      "params": { "noiseType": "fbm", "scale": 12, "octaves": 1, "stretch": 5, "quantize": "cells", "contrast": 1.2, "threshold": 0.62, "softness": 0.001, "evolve": 0.1, "drift": "left", "driftRate": 0.2, "output": "emit", "colorA": "#000000", "colorB": "#e8f0ff", "intensity": 1.2, "amount": 1 }
+    },
+    {
+      "id": "frames",
+      "generator": "grid",
+      "name": "Screen frames",
+      "region": { "min": 0.09, "max": 1, "soft": 0 },
+      "params": { "source": "custom", "countX": 1, "countY": 10, "lines": "horizontal", "everyY": 1, "widthY": 0.012, "color": "#e8e4dc", "intensity": 1.2, "glow": 0, "edges": 0, "anim": "none" }
+    },
+    {
+      "id": "shafts",
+      "generator": "stripes",
+      "name": "Light shafts",
+      "params": {
+        "orientation": "vertical", "align": "count", "count": 8, "every": 1, "anchor": "center", "width": 0.015,
+        "segments": "continuous", "colorA": "#ffffff", "intensity": 1.8, "glow": 0.1, "glowWidth": 0.05,
+        "anim": "chase", "rate": 0.15, "sync": 0.5, "depth": 0.85, "waves": 1, "sharpness": 1.5
+      }
+    }
+  ]
+}

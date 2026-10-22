@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "id": "vertical-led-strips",
+  "name": "Vertical LED Strips",
+  "category": "LED Media Facades",
+  "tags": ["pixels", "mullion", "chase", "warm gradient"],
+  "description": "Pixel-pitched LED bars on every mullion; comets race up the tower at staggered phases through a magenta-to-amber gradient.",
+  "seed": 5150,
+  "architecture": { "floors": 40, "bays": 16, "facades": 1, "slab": 0.14, "mullion": 0.12, "symmetry": "none" },
+  "animation": { "duration": 8, "speed": 1 },
+  "look": { "emission": 1, "exposure": 0, "tonemap": "agx-punchy" },
+  "output": { "width": 1024, "height": 2048 },
+  "layers": [
+    {
+      "id": "glass",
+      "generator": "windows",
+      "name": "Dim interiors",
+      "params": {
+        "winWidth": 0.9, "winHeight": 0.9, "sillAlign": 0.2, "panes": 1, "frame": 0.02,
+        "occupancy": 0.22, "floorBias": 0.2, "intensity": 1.0, "spill": 0.1, "coolRatio": 0.4,
+        "unlit": 0.04, "unlitColor": "#241a33", "ceiling": 0.6, "blinds": 0.2, "curtains": 0.1, "furniture": 0.1,
+        "toggleRate": 0, "tvRatio": 0
+      }
+    },
+    {
+      "id": "bars",
+      "generator": "stripes",
+      "name": "LED bars",
+      "params": {
+        "orientation": "vertical", "align": "arch", "every": 1, "anchor": "edge", "width": 0.09,
+        "segments": "pixels", "pitch": 6, "gap": 0.25, "colorA": "#ff2f6d", "colorB": "#ffcf5a", "gradient": "along",
+        "intensity": 6, "glow": 0.35, "glowWidth": 0.08,
+        "anim": "chase", "rate": 0.4, "sync": 0.15, "depth": 0.9, "waves": 2, "sharpness": 3
+      }
+    }
+  ]
+}

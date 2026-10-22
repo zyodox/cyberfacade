@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "id": "hotel-tower",
+  "name": "Hotel Tower",
+  "category": "Realistic Buildings",
+  "tags": ["hotel", "lamps", "sheer curtains", "lobby", "crown", "realistic"],
+  "description": "A symmetric hotel tower late in the evening: lamp-lit guest rooms behind sheer curtains, TVs, a glowing double-height lobby and a softly lit crown.",
+  "seed": 1905,
+  "architecture": { "floors": 34, "bays": 12, "facades": 1, "slab": 0.24, "mullion": 0.2, "symmetry": "mirror" },
+  "animation": { "duration": 12, "speed": 1 },
+  "look": { "emission": 1, "exposure": 0, "tonemap": "agx" },
+  "output": { "width": 1024, "height": 2048 },
+  "layers": [
+    {
+      "id": "rooms",
+      "generator": "windows",
+      "name": "Guest rooms",
+      "params": {
+        "winWidth": 0.84, "winHeight": 0.8, "sillAlign": 0.3, "panes": 2, "frame": 0.04, "unitWidth": 1,
+        "occupancy": 0.42, "floorBias": 0.02, "clustering": 0.1, "roomVariation": 0.1,
+        "warmColor": "#ffbd7a", "coolColor": "#eaf2ff", "coolRatio": 0.12, "tempVariation": 0.4,
+        "intensity": 1.6, "brightnessVar": 0.5, "spill": 0.15, "unlit": 0.03,
+        "ceiling": 0.4, "lamps": 0.6, "fixtures": 0, "blinds": 0.05, "curtains": 0.7, "furniture": 0.3,
+        "toggleRate": 0.12, "toggleAmount": 0.2, "tvRatio": 0.12, "flicker": 0
+      }
+    },
+    {
+      "id": "lobby",
+      "generator": "grid",
+      "name": "Lobby glow",
+      "region": { "min": 0, "max": 0.06, "soft": 0.005 },
+      "params": { "source": "arch", "lines": "horizontal", "everyY": 1, "offsetY": 0.6, "widthY": 0.8, "color": "#ffcf8f", "intensity": 1.3, "glow": 0, "edges": 0, "anim": "none" }
+    },
+    {
+      "id": "crown",
+      "generator": "grid",
+      "name": "Crown",
+      "region": { "min": 0.94, "max": 1, "soft": 0.01 },
+      "params": { "source": "arch", "lines": "horizontal", "everyY": 1, "offsetY": 0.1, "widthY": 0.12, "color": "#ffdca8", "intensity": 2, "glow": 0.2, "glowWidth": 0.05, "edges": 3, "edgeWidth": 2.5, "anim": "none" }
+    }
+  ]
+}

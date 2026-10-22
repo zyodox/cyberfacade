@@ -1,0 +1,30 @@
+import type { SVGProps } from "react";
+
+type P = SVGProps<SVGSVGElement>;
+const base = (p: P) => ({ width: 14, height: 14, viewBox: "0 0 16 16", fill: "none", stroke: "currentColor", strokeWidth: 1.5, strokeLinecap: "round" as const, strokeLinejoin: "round" as const, ...p });
+
+export const IconPlay = (p: P) => (<svg {...base(p)}><path d="M5 3.5v9l7-4.5z" fill="currentColor" stroke="none" /></svg>);
+export const IconPause = (p: P) => (<svg {...base(p)}><path d="M5 3.5v9M11 3.5v9" strokeWidth={2.2} /></svg>);
+export const IconLoop = (p: P) => (<svg {...base(p)}><path d="M3 7a4 4 0 0 1 4-4h5l-2-2M13 9a4 4 0 0 1-4 4H4l2 2" /></svg>);
+export const IconLock = (p: P) => (<svg {...base(p)}><rect x="3.5" y="7" width="9" height="6.5" rx="1.2" /><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2" /></svg>);
+export const IconUnlock = (p: P) => (<svg {...base(p)}><rect x="3.5" y="7" width="9" height="6.5" rx="1.2" /><path d="M5.5 7V5a2.5 2.5 0 0 1 4.8-1" /></svg>);
+export const IconStar = ({ filled, ...p }: P & { filled?: boolean }) => (<svg {...base(p)}><path d="M8 2.2l1.8 3.7 4 .6-2.9 2.8.7 4L8 11.4l-3.6 1.9.7-4L2.2 6.5l4-.6z" fill={filled ? "currentColor" : "none"} /></svg>);
+export const IconEye = (p: P) => (<svg {...base(p)}><path d="M1.5 8S4 3.5 8 3.5 14.5 8 14.5 8 12 12.5 8 12.5 1.5 8 1.5 8z" /><circle cx="8" cy="8" r="2" /></svg>);
+export const IconEyeOff = (p: P) => (<svg {...base(p)}><path d="M2 2l12 12M6.5 4a6.6 6.6 0 0 1 1.5-.5c4 0 6.5 4.5 6.5 4.5a11 11 0 0 1-1.7 2.2M10 11.9a5.6 5.6 0 0 1-2 .6C4 12.5 1.5 8 1.5 8a11 11 0 0 1 2.4-2.8" /></svg>);
+export const IconUp = (p: P) => (<svg {...base(p)}><path d="M4 10l4-4 4 4" /></svg>);
+export const IconDown = (p: P) => (<svg {...base(p)}><path d="M4 6l4 4 4-4" /></svg>);
+export const IconDice = (p: P) => (<svg {...base(p)}><rect x="2.5" y="2.5" width="11" height="11" rx="2" /><circle cx="5.7" cy="5.7" r=".9" fill="currentColor" stroke="none" /><circle cx="10.3" cy="10.3" r=".9" fill="currentColor" stroke="none" /><circle cx="8" cy="8" r=".9" fill="currentColor" stroke="none" /></svg>);
+export const IconSearch = (p: P) => (<svg {...base(p)}><circle cx="7" cy="7" r="4.2" /><path d="M10.2 10.2l3.3 3.3" /></svg>);
+export const IconFit = (p: P) => (<svg {...base(p)}><path d="M2.5 6V2.5H6M10 2.5h3.5V6M13.5 10v3.5H10M6 13.5H2.5V10" /></svg>);
+export const IconTile = (p: P) => (<svg {...base(p)}><rect x="1.5" y="3.5" width="4" height="9" /><rect x="6" y="3.5" width="4" height="9" /><rect x="10.5" y="3.5" width="4" height="9" /></svg>);
+export const IconReset = (p: P) => (<svg {...base(p)}><path d="M3 8a5 5 0 1 0 1.5-3.5M3 2.5V5h2.5" /></svg>);
+export const IconChevron = ({ open, ...p }: P & { open?: boolean }) => (<svg {...base(p)} style={{ transform: open ? "rotate(90deg)" : undefined, transition: "transform .12s" }}><path d="M6 4l4 4-4 4" /></svg>);
+export const IconUndo = (p: P) => (<svg {...base(p)}><path d="M5.5 3.5L2.5 6.5l3 3" /><path d="M2.5 6.5h7a4 4 0 0 1 0 8H7" /></svg>);
+export const IconRedo = (p: P) => (<svg {...base(p)}><path d="M10.5 3.5l3 3-3 3" /><path d="M13.5 6.5h-7a4 4 0 0 0 0 8H9" /></svg>);
+export const IconBookmark = (p: P) => (<svg {...base(p)}><path d="M4.5 2.5h7v11L8 11l-3.5 2.5z" /></svg>);
+export const IconImport = (p: P) => (<svg {...base(p)}><path d="M8 2.5v7M5 6.5l3 3 3-3M2.5 11v2.5h11V11" /></svg>);
+export const IconSave = (p: P) => (<svg {...base(p)}><path d="M3 2.5h8l2.5 2.5v8.5H3z" /><path d="M5.5 2.5v3h5v-3M5.5 13.5V9.5h5v4" /></svg>);
+export const IconPlus =(p: P) => (<svg {...base(p)}><path d="M8 3v10M3 8h10" /></svg>);
+export const IconTrash = (p: P) => (<svg {...base(p)}><path d="M3 4.5h10M6.5 4.5V3h3v1.5M4.5 4.5l.6 8.5h5.8l.6-8.5" /></svg>);
+export const IconCopy = (p: P) => (<svg {...base(p)}><rect x="5.5" y="5.5" width="8" height="8" rx="1.2" /><path d="M10.5 5.5V3.7c0-.7-.5-1.2-1.2-1.2H3.7c-.7 0-1.2.5-1.2 1.2v5.6c0 .7.5 1.2 1.2 1.2h1.8" /></svg>);
+export const IconSparkle = (p: P) => (<svg {...base(p)}><path d="M8 1.8l1.3 4.1 4.1 1.3-4.1 1.3L8 12.6 6.7 8.5 2.6 7.2l4.1-1.3z" fill="currentColor" stroke="none" /><path d="M13 11.5l.5 1.5 1.5.5-1.5.5-.5 1.5-.5-1.5L11 13.5l1.5-.5z" fill="currentColor" stroke="none" /></svg>);

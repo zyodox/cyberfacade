@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>CyberFacade — User Guide</title>
+<style>
+  @page { size: A4; margin: 16mm 16mm 18mm 16mm; }
+  @page :first { margin: 0; }
+  :root {
+    --ink: #16181a;
+    --ink2: #4a5157;
+    --faint: #8a9197;
+    --line: #dde1e4;
+    --accent: #5f9600;
+    --accent-hi: #76b900;
+    --panel: #f4f6f7;
+    --dark: #0b0c0d;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { margin: 0; font: 10pt/1.55 "Segoe UI", "Segoe UI Variable", Arial, sans-serif; color: var(--ink); background: #fff; }
+  h1, h2, h3, h4 { font-weight: 600; line-height: 1.25; margin: 0; color: var(--ink); }
+  h2 { font-size: 19pt; letter-spacing: -0.01em; margin: 0 0 4mm; padding-top: 1mm; }
+  h2 .num { color: var(--accent-hi); font-weight: 300; margin-right: 8px; }
+  h3 { font-size: 12pt; margin: 6mm 0 2mm; }
+  h4 { font-size: 10pt; margin: 4mm 0 1mm; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink2); }
+  p { margin: 0 0 2.5mm; }
+  ul, ol { margin: 0 0 3mm; padding-left: 5mm; }
+  li { margin: 0 0 1.2mm; }
+  b { font-weight: 600; }
+  .ui { font-weight: 600; color: #000; background: #eef3e4; border: 1px solid #d7e5bd; border-radius: 3px; padding: 0 4px; white-space: nowrap; font-size: 9pt; }
+  kbd { font: 600 8.5pt Consolas, monospace; background: #f0f2f3; border: 1px solid #cfd4d8; border-bottom-width: 2px; border-radius: 3px; padding: 0 4px; white-space: nowrap; }
+  .chapter { break-before: page; }
+  .lead { font-size: 11pt; color: var(--ink2); margin-bottom: 5mm; }
+  .note { background: var(--panel); border-left: 3px solid var(--accent-hi); padding: 2.5mm 4mm; margin: 3mm 0 4mm; border-radius: 0 4px 4px 0; font-size: 9.5pt; }
+  .note b:first-child { color: var(--accent); }
+  .tip { background: #0f1112; color: #d8dcdf; padding: 3mm 4mm; border-radius: 5px; margin: 3mm 0 4mm; font-size: 9.5pt; }
+  .tip b { color: var(--accent-hi); }
+  figure { margin: 3mm 0 5mm; break-inside: avoid; }
+  figure img { display: block; width: 100%; border-radius: 5px; border: 1px solid #22262a; background: var(--dark); }
+  figcaption { font-size: 8.5pt; color: var(--faint); margin-top: 1.5mm; }
+  table { width: 100%; border-collapse: collapse; margin: 2mm 0 5mm; font-size: 9pt; break-inside: auto; }
+  th { text-align: left; font-weight: 600; font-size: 8pt; text-transform: uppercase; letter-spacing: 0.07em; color: var(--ink2); border-bottom: 1.5px solid var(--ink); padding: 1.5mm 2mm; }
+  td { border-bottom: 1px solid var(--line); padding: 1.6mm 2mm; vertical-align: top; }
+  tr { break-inside: avoid; }
+  td:first-child { font-weight: 600; white-space: nowrap; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
+  .side { display: grid; grid-template-columns: 50mm 1fr; gap: 6mm; align-items: start; }
+  .side figure img { max-height: 118mm; object-fit: cover; object-position: top; }
+  .steps { counter-reset: s; list-style: none; padding: 0; }
+  .steps > li { counter-increment: s; position: relative; padding-left: 10mm; margin-bottom: 3mm; break-inside: avoid; }
+  .steps > li::before { content: counter(s); position: absolute; left: 0; top: 0; width: 6.5mm; height: 6.5mm; border-radius: 50%; background: var(--ink); color: #fff; font-weight: 600; font-size: 9pt; display: flex; align-items: center; justify-content: center; }
+
+  /* Cover */
+  .cover { height: 297mm; width: 210mm; background: var(--dark); color: #e8ebed; position: relative; overflow: hidden; }
+  .cover .art { position: absolute; right: 0; top: 0; height: 100%; width: 100mm; object-fit: cover; opacity: 0.95; }
+  .cover .fade { position: absolute; inset: 0; background: linear-gradient(90deg, #0b0c0d 45%, rgba(11,12,13,0.55) 70%, rgba(11,12,13,0) 100%); }
+  .cover .content { position: absolute; left: 20mm; top: 34mm; width: 110mm; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: 0.22em; font-size: 10pt; color: #fff; }
+  .brand i { width: 12px; height: 12px; background: var(--accent-hi); display: inline-block; border-radius: 2px; }
+  .cover h1 { color: #fff; font-size: 38pt; font-weight: 300; letter-spacing: -0.02em; margin: 18mm 0 4mm; line-height: 1.05; }
+  .cover h1 b { font-weight: 600; }
+  .cover p { color: #a9b0b6; font-size: 11pt; line-height: 1.6; }
+  .cover .meta { position: absolute; left: 20mm; bottom: 22mm; color: #6d757b; font-size: 8.5pt; letter-spacing: 0.08em; text-transform: uppercase; }
+
+  /* Contents */
+  .toc { list-style: none; padding: 0; margin: 4mm 0; columns: 1; }
+  .toc li { display: flex; gap: 6mm; padding: 2.2mm 0; border-bottom: 1px solid var(--line); font-size: 10.5pt; }
+  .toc li span { color: var(--accent-hi); width: 8mm; font-weight: 300; }
+  .toc li em { margin-left: auto; font-style: normal; color: var(--faint); font-size: 9pt; }
+
+  /* Annotated screenshot */
+  .anno { position: relative; }
+  .anno .dot { position: absolute; width: 5.2mm; height: 5.2mm; margin: -2.6mm 0 0 -2.6mm; border-radius: 50%; background: #ff3d7f; color: #fff; font: 700 7.5pt/5.2mm "Segoe UI", sans-serif; text-align: center; box-shadow: 0 0 0 1.5px #fff, 0 1px 4px rgba(0,0,0,0.6); }
+  .legend { columns: 2; column-gap: 8mm; font-size: 9pt; padding: 0; list-style: none; margin: 2mm 0 0; }
+  .legend li { break-inside: avoid; display: flex; gap: 3mm; margin-bottom: 1.6mm; }
+  .legend li span { flex: none; width: 5mm; height: 5mm; border-radius: 50%; background: #ff3d7f; color: #fff; font: 700 7.5pt/5mm "Segoe UI", sans-serif; text-align: center; }
+
+  .swatch-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; }
+  .recipe { border: 1px solid var(--line); border-radius: 5px; padding: 2.2mm 4mm; break-inside: avoid; margin-bottom: 2.6mm; }
+  .recipe li { margin-bottom: 0.6mm; }
+  .recipe h3 { margin: 0 0 1.5mm; }
+  .recipe ol { margin: 0; }
+  .pill { display: inline-block; font-size: 7.5pt; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); border: 1px solid #cfe2a8; border-radius: 99px; padding: 0 6px; margin-left: 6px; vertical-align: middle; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================ COVER -->
+<section class="cover">
+  <img class="art" src="guide-assets/kanji.png" alt="" />
+  <div class="fade"></div>
+  <div class="content">
+    <div class="brand"><i></i>CYBERFACADE</div>
+    <h1>User <b>Guide</b></h1>
+    <p>Design animated night-time facades on the GPU: concrete, windows, neon signs, LED skins, your own photos, videos and fonts. Export them as seamless loops for any 3D app, compositor or game engine.</p>
+  </div>
+  <div class="meta">Version 0.1 · Windows · WebGPU</div>
+</section>
+
+<!-- ============================================================ CONTENTS -->
+<section class="chapter">
+  <h2>Contents</h2>
+  <ol class="toc">
+    <li><span>01</span>What CyberFacade makes</li>
+    <li><span>02</span>The window at a glance</li>
+    <li><span>03</span>Quick start: your first building from scratch</li>
+    <li><span>04</span>How layers work</li>
+    <li><span>05</span>The element library</li>
+    <li><span>06</span>Layer types in depth</li>
+    <li><span>07</span>Importing photos, videos and fonts</li>
+    <li><span>08</span>Building, look and animation settings</li>
+    <li><span>09</span>Previewing: texture, 3D and Graph</li>
+    <li><span>10</span>Presets, Randomize and saving your own work</li><li><span>11</span>Audio reactivity</li><li><span>12</span>Exporting</li><li><span>13</span>Projects and files</li><li><span>14</span>Shortcuts</li><li><span>15</span>Recipes for the minimal cyberpunk look</li><li><span>16</span>Troubleshooting</li>
+  </ol>
+</section>
+
+<!-- ============================================================ 1 -->
+<section class="chapter">
+  <h2><span class="num">01</span>What CyberFacade makes</h2>
+  <p class="lead">CyberFacade makes <b>emission textures</b>: images of a building's lights at night that you put on a 3D model's emissive channel. A plain box then reads as an inhabited tower of concrete, glass, neon and screens.</p>
+  <p>Everything animates, and every animation is a <b>seamless loop</b>. The last frame flows straight into the first, so the texture can play forever in Blender, Unreal, Unity, After Effects or a game engine.</p>
+
+  <h3>How the texture maps onto a building</h3>
+  <ul>
+    <li><b>Left → right</b> runs around the building. With <span class="ui">Facades in texture</span> = 4, one texture wraps all four sides, and it tiles seamlessly at the edges.</li>
+    <li><b>Bottom → top</b> is the ground floor to the roof.</li>
+    <li>Every layer snaps to a shared <b>architectural grid</b> of floors and bays. That's why windows, signs, lights and LED meshes line up with each other.</li>
+  </ul>
+
+  <h3>Vocabulary</h3>
+  <table>
+    <tr><th>Term</th><th>Meaning</th></tr>
+    <tr><td>Floor</td><td>One storey. <span class="ui">Floors</span> sets how many fit into the texture height.</td></tr>
+    <tr><td>Bay</td><td>One window column on a facade. <span class="ui">Bays per facade</span> sets how many across.</td></tr>
+    <tr><td>Slab / spandrel</td><td>The solid band between floors, as a fraction of floor height.</td></tr>
+    <tr><td>Mullion</td><td>The vertical divider between bays, as a fraction of bay width.</td></tr>
+    <tr><td>Layer</td><td>One ingredient of the design (concrete, windows, a sign, a video…). Layers stack into the final image.</td></tr>
+    <tr><td>Element</td><td>A ready-made layer from the Build library: a layer type with tasteful settings already dialled in.</td></tr>
+    <tr><td>Emission</td><td>Light energy. It's stored in high dynamic range, so a neon core can be many times brighter than a lit window.</td></tr>
+    <tr><td>Loop</td><td>The animation length (2–15 s). All motion repeats exactly once or a whole number of times per loop.</td></tr>
+  </table>
+  <div class="note"><b>GPU-first.</b> Every layer is computed on the graphics card; a 1024×2048 frame renders in about 4 ms on an RTX 3060. The preview uses a lighter proxy resolution while you drag sliders and refines itself when you stop.</div>
+</section>
+
+<!-- ============================================================ 2 -->
+<section class="chapter">
+  <h2><span class="num">02</span>The window at a glance</h2>
+  <figure>
+    <div class="anno">
+    <img src="guide-assets/main.png" alt="CyberFacade main window" />
+    <span class="dot" style="left:10.5%;top:2.3%">1</span>
+    <span class="dot" style="left:14%;top:2.3%">2</span>
+    <span class="dot" style="left:77.4%;top:2.3%">3</span>
+    <span class="dot" style="left:90.1%;top:2.3%">4</span>
+    <span class="dot" style="left:8.7%;top:7.2%">5</span>
+    <span class="dot" style="left:8.7%;top:32.5%">6</span>
+    <span class="dot" style="left:21.6%;top:7%">7</span>
+    <span class="dot" style="left:33.3%;top:7%">8</span>
+    <span class="dot" style="left:44.4%;top:66%">9</span>
+    <span class="dot" style="left:98%;top:11.5%">10</span>
+    <span class="dot" style="left:98%;top:69.5%">11</span>
+    <span class="dot" style="left:49.5%;top:93.5%">12</span>
+    <span class="dot" style="left:98.5%;top:94.7%">13</span>
+    <span class="dot" style="left:88.8%;top:7.2%">14</span>
+    </div>
+    <figcaption>The Night Market Wall preset, with the “Pink neon” sign selected.</figcaption>
+  </figure>
+  <ol class="legend">
+    <li><span>1</span><div><b>File menu</b> — New blank building, open/save projects, import files, preset files, export.</div></li>
+    <li><span>2</span><div><b>Undo / Redo</b> — every edit, preset load and randomize can be undone.</div></li>
+    <li><span>3</span><div><b>Import · Save preset · Export</b> — bring in files, save the design as your own preset, render images/video.</div></li>
+    <li><span>4</span><div><b>Randomize</b> — a new variation of the current design (respects locks).</div></li>
+    <li><span>5</span><div><b>Library tabs</b> — Build (elements), Assets (your files), Presets.</div></li>
+    <li><span>6</span><div><b>Element library</b> — click an element to add it as a layer.</div></li>
+    <li><span>7</span><div><b>View modes</b> — Texture, Graph (node view).</div></li>
+    <li><span>8</span><div><b>Channels</b> — Color, HDR Emission heat map, Mask, Alpha.</div></li>
+    <li><span>9</span><div><b>Placement handles</b> — drag / resize the selected sign, photo or video.</div></li>
+    <li><span>10</span><div><b>Design · Look · Architecture</b> — name, seed, exposure, tonemap and the building grid.</div></li>
+    <li><span>11</span><div><b>Layers</b> — the stack. Select a layer to edit it below the list.</div></li>
+    <li><span>12</span><div><b>Timeline</b> — play/pause, loop, scrub. Shows the loop phase.</div></li>
+    <li><span>13</span><div><b>Duration · Speed</b> — loop length and global animation speed.</div></li>
+    <li><span>14</span><div><b>Facade panel</b> — design, look, architecture, layers and audio.</div></li>
+  </ol>
+</section>
+
+<!-- ============================================================ 3 -->
+<section class="chapter">
+  <h2><span class="num">03</span>Quick start: your first building from scratch</h2>
+  <p class="lead">A ten-minute walk-through: a dark concrete tower with a few lit rooms, a vertical neon sign and roof beacons.</p>
+  <ol class="steps">
+    <li><b>Start blank.</b> Press <kbd>Ctrl+N</kbd> (or <span class="ui">File ▸ New blank design</span>, or <span class="ui">New blank</span> in the Build tab). You get an empty stack on a default 40-floor, 14-bay tower.</li>
+    <li><b>Shape the building.</b> In <span class="ui">Architecture</span> set <span class="ui">Floors</span> and <span class="ui">Bays per facade</span>. Taller, narrower grids read as skyscrapers; fewer floors read as street-level buildings. Set <span class="ui">Facades in texture</span> to 4 if one texture should wrap the whole building.</li>
+    <li><b>Add the material.</b> In <span class="ui">Build ▸ Structure</span> click <span class="ui">Concrete, uplit</span>. The tower becomes board-formed concrete washed by small warm uplights. Its blend mode is <b>Behind</b>, so it fills whatever the other layers leave empty. It can stay at the bottom of the list.</li>
+    <li><b>Add life.</b> Click <span class="ui">A few windows</span> (or <span class="ui">Slot windows</span>). Only a handful of rooms light up; the rest stay as dark glass in the concrete.</li>
+    <li><b>Add a sign.</b> In <span class="ui">Signage</span> click <span class="ui">Vertical neon</span>. In the layer editor, type your own text in <span class="ui">Text</span>, pick a <span class="ui">Font</span>, then drag the green handles in the 2D view to place and size it.</li>
+    <li><b>Add small lights.</b> Click <span class="ui">Aviation beacons</span> for red roof blinkers and <span class="ui">Scattered specks</span> for tiny distant lights.</li>
+    <li><b>Save it.</b> Press <span class="ui">Save preset</span> in the top bar. Your design appears under <span class="ui">Presets ▸ My presets</span>.</li>
+    <li><b>Export.</b> Press <kbd>Ctrl+E</kbd>, choose a folder and enable <span class="ui">Emission (EXR)</span> or an <span class="ui">MP4</span> video. See chapter 12.</li>
+  </ol>
+  <div class="tip"><b>Taste rule:</b> keep the darks near black. The tonemapper lifts dark values, so an unlit surface at just 1–2 % already reads as grey. Minimal, expensive facades come from a few small, bright things in a lot of darkness.</div>
+</section>
+
+<!-- ============================================================ 4 -->
+<section class="chapter">
+  <h2><span class="num">04</span>How layers work</h2>
+  <p class="lead">A design is a stack of layers. The list is processed <b>top to bottom</b>: the first layer is drawn first, and every later layer blends into everything before it.</p>
+
+  <div class="side">
+    <figure style="margin-top:0"><img src="guide-assets/editor.png" alt="Layer editor" /><figcaption>The layer editor for a Sign / Text layer.</figcaption></figure>
+    <div>
+      <h3 style="margin-top:0">In the layer list</h3>
+      <ul>
+        <li><b>Eye</b>: enable or disable a layer.</li>
+        <li><b>▲ ▼</b>: change the order. The badge shows the blend mode.</li>
+        <li><span class="ui">+ Add element</span> adds a ready-made element after the selected layer. <span class="ui">Raw…</span> adds a bare layer type with default settings.</li>
+      </ul>
+      <h3>In the layer editor</h3>
+      <ul>
+        <li>Click the name to rename the layer.</li>
+        <li><b>Bookmark</b> saves the layer to <b>My layers</b> (reuse it in any design from the Build tab).</li>
+        <li><b>Copy</b> duplicates it; <b>trash</b> deletes it.</li>
+        <li><b>Compositing</b>: opacity, blend mode, clipping and regions (below).</li>
+        <li><b>Time displacement</b>: slit-scan offsets (below).</li>
+        <li>After that come the layer type's own parameter groups.</li>
+      </ul>
+      <h3>Sliders</h3>
+      <ul>
+        <li>Click or drag anywhere on a bar to set the value.</li>
+        <li><kbd>Shift</kbd>+drag for fine adjustment; arrow keys nudge.</li>
+        <li>Click the number to type an exact value.</li>
+        <li>The <b>lock</b> icon (appears on hover) protects a value from Randomize.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Blend modes</h3>
+  <table>
+    <tr><th>Mode</th><th>What it does</th><th>Typical use</th></tr>
+    <tr><td>Normal</td><td>Covers what's below where the layer has coverage.</td><td>Signs, billboards, windows</td></tr>
+    <tr><td>Add</td><td>Adds its light on top. Nothing gets darker.</td><td>Lights, strips, films, holograms</td></tr>
+    <tr><td>Multiply</td><td>Darkens the result below by the layer.</td><td>Noise used as a dimming mask</td></tr>
+    <tr><td>Screen</td><td>Soft brightening without clipping.</td><td>Gentle glows</td></tr>
+    <tr><td>Max</td><td>Keeps the brighter of the two.</td><td>Overlapping light sources</td></tr>
+    <tr><td>Mask</td><td>Keeps what's below only where this layer has coverage.</td><td>Cut a film to the window shapes</td></tr>
+    <tr><td>Replace</td><td>Replaces everything below.</td><td>Modifiers like Glass, LED Mesh, Distortion</td></tr>
+    <tr><td>Subtract</td><td>Removes light.</td><td>Carving dark patterns</td></tr>
+    <tr><td>Behind <span class="pill">new</span></td><td>Draws <i>underneath</i> everything already there, filling only empty areas.</td><td>Concrete: the building material under all its lights</td></tr>
+  </table>
+
+  <h3>Compositing controls</h3>
+  <ul>
+    <li><b>Opacity</b> fades the layer in or out.</li>
+    <li><b>Clip to layers below</b> restricts the layer to what already exists, e.g. glass only over the windows.</li>
+    <li><b>Region bottom / top</b> and <b>Region left / right</b> limit the layer to a rectangle of the building, with soft edges. <b>Invert region</b> flips it: “everything except the central spine”.</li>
+    <li><b>Time displacement</b> offsets the layer's animation per floor or per bay. Upper floors run ahead or behind in time (slit-scan). <b>Step per floor / bay</b> makes each floor a clean step. Loops stay seamless.</li>
+  </ul>
+  <div class="note"><b>Tip.</b> In <span class="ui">Graph</span> mode, <span class="ui">view here</span> on a node shows the stack only up to that layer. It's a fast way to understand or debug a complex design.</div>
+</section>
+
+<!-- ============================================================ 5 -->
+<section class="chapter">
+  <h2><span class="num">05</span>The element library</h2>
+  <div class="side">
+    <figure style="margin-top:0"><img src="guide-assets/build.png" alt="Build tab" /><figcaption>Build tab. Click a tile to add that element after the selected layer.</figcaption></figure>
+    <div>
+      <p class="lead">Elements are the building blocks for designing from scratch. Each one is a layer type with good settings already dialled in. Everything stays fully editable afterwards.</p>
+      <p>Elements marked <i>asks for a file</i> open a file picker first. The photo or video you choose goes straight onto the new layer.</p>
+      <p><b>My layers</b> appears at the top of the Build tab once you've saved a layer with the bookmark icon. It's your personal element library.</p>
+    </div>
+  </div>
+
+  <table>
+    <tr><th>Category</th><th>Elements</th><th>For</th></tr>
+    <tr><td>Structure</td><td>Concrete (uplit, dark, sconces) · A few windows · Slot windows · Visible interiors · Glass skin · Structure lines</td><td>What the building is made of, and its openings</td></tr>
+    <tr><td>Light</td><td>Scattered specks · Aviation beacons · Ledge light strings · Floor lines · Vertical shafts · Dot grid</td><td>Small lights, lines and blinkers</td></tr>
+    <tr><td>Media</td><td>Photo billboard · Video screen · LED billboard · Hologram · Media facade · Screen of layers below</td><td>Your photos and videos on the facade</td></tr>
+    <tr><td>Signage</td><td>Vertical neon · Neon word · Lightbox sign · Red kanji panels · LED ticker · Rooftop letters</td><td>Typography in any font</td></tr>
+    <tr><td>Pattern</td><td>Liquid film · Ripple rings · Cells · Gradient · Random blocks · Wave</td><td>Procedural films and motifs</td></tr>
+    <tr><td>Modify</td><td>LED mesh · Glow · Distortion · Colour grade · Threshold · Flicker</td><td>Treatments applied to the layers below</td></tr>
+  </table>
+</section>
+
+<!-- ============================================================ 6 -->
+<section class="chapter">
+  <h2><span class="num">06</span>Layer types in depth</h2>
+
+  <h3>Concrete <span class="pill">Behind</span></h3>
+  <p>A brutalist surface with its night lighting baked in. Put it anywhere in the stack (usually last). It fills only what signs, windows and screens leave empty, and it is lit by them.</p>
+  <ul>
+    <li><b>Surface</b>
+      <ul>
+        <li>Concrete colour and panel tone variation.</li>
+        <li>Panels per bay / floor, joint width and shadow.</li>
+        <li>Tie holes, board-form grain, rain stains, floor ledges.</li>
+      </ul>
+    </li>
+    <li><b>Ambient</b>
+      <ul>
+        <li><i>Sky light</i> and <i>City glow</i> (warm light from the street, stronger on low floors).</li>
+        <li><b>Spill from signs</b>: light from everything listed before this layer washing onto the concrete. <i>Spill radius</i> sets how far it travels.</li>
+      </ul>
+    </li>
+    <li><b>Fixtures</b>
+      <ul>
+        <li>Types: uplights, downlights, up + down, small sconces or ledge washers.</li>
+        <li>Placement: every N bays / floors, height within the floor.</li>
+        <li>Light: beam spread, reach (in floors), colour temperature, intensity.</li>
+        <li><i>Fixtures lit</i> for gaps, <i>Faulty fixtures</i> that flicker, and <i>Lamp size</i> for the visible lamp point.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3>Sign / Text</h3>
+  <ul>
+    <li><b>Text</b>
+      <ul>
+        <li>Multi-line text in any font: system fonts such as Yu Gothic, Meiryo or Bahnschrift, an imported font, or “Other installed font…”.</li>
+        <li>Weight, letter and line spacing.</li>
+        <li><i>Vertical</i> stacks letters top to bottom, CJK style; extra lines become columns running right to left.</li>
+      </ul>
+    </li>
+    <li><b>Style</b>
+      <ul>
+        <li><i>Neon tube</i>: hot white core and glow. Light and thin weights look most like real tubes.</li>
+        <li><i>Neon outline</i>: a tube traced around each letter; set its width with <i>Outline width</i>.</li>
+        <li><i>Lit letters</i>, <i>Lightbox</i> (glowing panel, dark letters), and <i>LED dot letters</i> (set the dot spacing with <i>LED pitch</i>).</li>
+      </ul>
+    </li>
+    <li><b>Placement</b>: centre X / Y and letter size. Easiest with the drag handles in 2D.</li>
+    <li><b>Light</b>: colour, intensity, hot core, glow and glow radius. <i>Unlit tube</i> keeps a faint glass trace of letters that are switched off.</li>
+    <li><b>Panel</b>: backing plate, box colour, box light (lightbox brightness), padding, border tube.</li>
+    <li><b>Animation</b>
+      <ul>
+        <li><i>Faulty flicker</i>: some letters misbehave; <i>Faulty letters</i> sets how many.</li>
+        <li><i>Letter sequence</i>, <i>Type on / off</i>, <i>Breathe</i>, <i>Scroll (marquee)</i>.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3>Image / Video</h3>
+  <ul>
+    <li><b>Source</b>: an imported file, or <i>Layers below (in place)</i>, which applies the display treatment to whatever is underneath. For example, turn a film into an LED panel.</li>
+    <li><b>Placement</b>
+      <ul>
+        <li>Fit: keep proportions, fill (crop), stretch, or tile.</li>
+        <li>Centre, width and height; <i>Snap to bays &amp; floors</i>.</li>
+        <li><i>Scroll</i>: whole numbers loop seamlessly.</li>
+      </ul>
+    </li>
+    <li><b>Display</b>
+      <ul>
+        <li><i>Direct</i> billboard, <i>LED dots</i>, <i>LED lines</i>.</li>
+        <li><i>Window pixels</i>: the whole facade as a screen, one pixel per window.</li>
+        <li><i>Hologram</i>: scanlines, flicker, glitch slices, colour split; best with the Add blend and Backing panel 0.</li>
+      </ul>
+    </li>
+    <li><b>Colour</b>
+      <ul>
+        <li>Brightness, contrast, saturation, hue shift.</li>
+        <li><i>Black cut</i> crushes greys to true black; use it to avoid flat grey panels.</li>
+        <li><i>Monochrome tint</i> or <i>Duotone</i> for a restrained palette.</li>
+      </ul>
+    </li>
+    <li><b>Frame</b>: backing panel (0 = the picture adds light, no panel); frame light, colour and width.</li>
+    <li><b>Video</b>
+      <ul>
+        <li>Speed and start offset.</li>
+        <li>Loop timing: <i>Seamless (whole repeats)</i> is the default and adjusts speed slightly so the clip fits the loop exactly. <i>Stretch clip to loop</i> plays the clip exactly once per loop. <i>Native speed</i> doesn't adjust, so the loop may jump.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3>Small Lights</h3>
+  <p>Types: <i>Scattered specks</i> (tiny random lights), <i>Aviation beacons</i> (synchronised red blink on the roof corners), <i>Light strings</i> (rows of lamps along ledges or mullions) and <i>Dot grid</i> (a lamp at a fixed spot every N bays/floors). You control density, size, two colours, brightness variation, halo, twinkle and rate.</p>
+
+  <h3>LED Mesh</h3>
+  <p>Re-displays everything below it through a grid of diodes, the fine dot skin of media towers.</p>
+  <ul>
+    <li><b>Grid</b>: <i>Free pitch</i>, or <i>Aligned to bays &amp; floors</i> (diodes per bay / floor).</li>
+    <li><b>Diodes</b>: round, square or bar shape; size; staggered rows.</li>
+    <li><b>Signal</b>: gain, threshold (dark diodes stay off), brightness steps for a retro look, and faintly visible unlit diodes.</li>
+  </ul>
+  <p>Put a film, gradient or strips before it in the list. The mesh turns them into light.</p>
+
+  <h3>The other layer types</h3>
+  <table>
+    <tr><th>Layer</th><th>What it does</th></tr>
+    <tr><td>Windows</td><td>Occupancy, clustering, warm/cool light, ceiling or lamp-lit rooms, office fixtures, blinds, curtains, silhouettes, TV flicker, faulty tubes. Unlit windows stay as dark glass.</td></tr>
+    <tr><td>Interiors</td><td>Real 3D rooms behind every window, seen in perspective: ceilings, furniture, art, walking people. Back walls can be screens showing the layers below.</td></tr>
+    <tr><td>Glass</td><td>Per-pane refraction, slow warp, dispersion, tint, edge shading and reflection streaks over everything below.</td></tr>
+    <tr><td>LED Strips</td><td>Linear lights on floors or bays: continuous, broken at mullions or as LED pixels. Chase, wave, cascade, pulse, sparkle, scan.</td></tr>
+    <tr><td>Grid</td><td>Structural hairlines: mullions, slabs, building edges, nodes, traces.</td></tr>
+    <tr><td>Random Blocks · Shapes · Noise · Voronoi · Gradient · Wave</td><td>Procedural patterns and films, all loop-safe.</td></tr>
+    <tr><td>Flicker · Colour Grade · Threshold · Blur / Glow · Distortion</td><td>Modifiers for everything below: power flicker, grading, posterize, glow, and warp / glitch / liquid / shear / pixelate / RGB split.</td></tr>
+  </table>
+</section>
+
+<!-- ============================================================ 7 -->
+<section class="chapter">
+  <h2><span class="num">07</span>Importing photos, videos and fonts</h2>
+  <p class="lead">Your own material makes a facade yours. There are three ways to bring it in:</p>
+  <ul>
+    <li><b>Drag and drop</b> files anywhere onto the window.</li>
+    <li>The <span class="ui">Import</span> button in the top bar, or <span class="ui">File ▸ Import photo / video / font</span>.</li>
+    <li>The <span class="ui">Import…</span> button next to any file or font parameter.</li>
+  </ul>
+  <table>
+    <tr><th>Kind</th><th>Formats</th><th>What happens</th></tr>
+    <tr><td>Photo</td><td>PNG, JPG, WebP, GIF, BMP, AVIF</td><td>Into an empty design: a <b>Facade photo</b> filling the texture, with <b>Photo Lights</b> on top (see below). Otherwise a new <b>Photo billboard</b> layer. PNG transparency is respected.</td></tr>
+    <tr><td>Video</td><td>MP4 (H.264), WebM (VP9)</td><td>A new <b>Video screen</b> layer. The clip plays in the preview and is seeked frame-exactly on export.</td></tr>
+    <tr><td>Font</td><td>TTF, OTF, WOFF, WOFF2</td><td>Applied to the selected Sign layer, or a new sign is created in that font.</td></tr>
+  </table>
+  <h3>The Assets tab</h3>
+  <ul>
+    <li>Every imported file lands in the app's library and stays there between sessions.</li>
+    <li>Click an asset to use it again: photos and videos become a new layer, fonts go on the selected sign.</li>
+    <li>The trash icon removes an asset; layers that use it go blank.</li>
+    <li>Importing the same file twice is detected, so it is only stored once.</li>
+  </ul>
+  <h3>Placing media and signs</h3>
+  <p>Select an Image / Video or Sign layer while in <span class="ui">2D</span>. A green frame with handles appears:</p>
+  <ul>
+    <li>Drag an <b>edge</b> or the <b>centre circle</b> to move.</li>
+    <li>Drag a <b>corner</b> to resize. It resizes proportionally for signs and for <i>Keep proportions</i> media; for fill, stretch and tile it changes width and height separately.</li>
+  </ul>
+  <p>Zooming and panning still work everywhere inside the frame.</p>
+  <h3>Bringing a night photo to life: Photo Lights</h3>
+  <p>Drop a night photo of a building into an empty design (or use <span class="ui">Build ▸ Media ▸ Facade photo</span>). The photo fills the texture, the output takes its proportions, and a <b>Photo Lights</b> layer makes every lit window and lamp in it live on its own: rooms switch off and on, tubes flicker, TVs glow blue. On any Image / Video layer, <span class="ui">✦ Animate the lights in this picture</span> adds the same layer.</p>
+  <ul>
+    <li><b>Show detected lights</b> colours each light it found. Every window should be one solid colour. If windows split into pieces, raise <i>Light size</i>; if neighbours merge, lower it.</li>
+    <li><b>Sensitivity</b>: a light is anything clearly brighter than its surroundings, so it works for dark and bright photos alike. Raise it to include dim rooms.</li>
+    <li><b>Behaviour</b>: <i>Mixed</i> gives a realistic night (mostly steady, some rooms switching, a little flicker, the odd TV). <i>Animated share</i>, <i>Switching rate</i>, <i>Time off</i> and <i>Light left when off</i> set how busy and how dark it gets.</li>
+    <li>Everything loops seamlessly, and <i>Randomize</i> / a new seed picks different rooms.</li>
+  </ul>
+  <div class="note"><b>Tip.</b> For holograms, use high-contrast images on a black background. Set <i>Black cut</i> to about 0.1 and use a <i>Monochrome tint</i>, so only the subject glows.</div>
+</section>
+
+<!-- ============================================================ 8 -->
+<section class="chapter">
+  <h2><span class="num">08</span>Building, look and animation settings</h2>
+  <h3>Design</h3>
+  <ul>
+    <li>Type a name for the design.</li>
+    <li><b>Seed</b> drives all randomness: which windows are lit, where specks sit, and so on. The dice button picks a new seed; the same seed always reproduces the same design.</li>
+    <li><b>Randomize</b> makes a variation that stays close to the original preset (locked values are kept). <b>Reset</b> returns to the preset's original values.</li>
+  </ul>
+  <h3>Look</h3>
+  <ul>
+    <li><b>Emission</b> multiplies all light in the output.</li>
+    <li><b>Exposure</b> affects only the preview and the Color export.</li>
+    <li><b>Tonemap</b> sets how HDR light becomes screen colour: <i>AgX</i> (default, filmic), <i>AgX Punchy</i>, <i>ACES</i>, <i>Linear (clamp)</i>.</li>
+  </ul>
+  <h3>Architecture</h3>
+  <ul>
+    <li>Floors, bays per facade, facades in texture, slab / spandrel and mullion.</li>
+    <li><b>Symmetry</b>: <i>None</i>, <i>Mirror in facade</i>, <i>Identical facades</i> or <i>Mirror + identical</i>.</li>
+    <li>Every grid-aware layer follows these values.</li>
+  </ul>
+  <h3>Output size</h3>
+  <p>Set the texture resolution in the top bar: presets like <i>1024 × 2048 · tower</i>, <i>4096 × 1024 · wrap</i>, or custom width × height. Tall ratios suit towers; wide ratios suit wrap-around textures with 4 facades.</p>
+  <h3>Animation</h3>
+  <ul>
+    <li><b>Duration</b> (2–15 s) is the loop length. <b>Speed</b> scales every animation.</li>
+    <li>Rates are rounded to whole cycles per loop, so the loop is always perfectly seamless. Very slow rates settle at exactly one cycle per loop.</li>
+    <li>The timeline shows the current time, frame and loop phase. Drag it to scrub.</li>
+  </ul>
+</section>
+
+<!-- ============================================================ 9 -->
+<section class="chapter">
+  <h2><span class="num">09</span>Previewing: texture, 3D and Graph</h2>
+  <h3>Texture</h3>
+  <ul>
+    <li><b>Navigation</b>: wheel to zoom, drag to pan, double-click to fit. <span class="ui">1:1</span> shows real pixels.</li>
+    <li><span class="ui">Tile</span> repeats the texture sideways to check the seamless wrap.</li>
+    <li><b>Channels</b>: <i>Color</i> (final look), <i>Emission</i> (HDR heat map from −6 to +6 EV, to spot overexposure), <i>Mask</i> (coverage), <i>Alpha</i>.</li>
+    <li><span class="ui">Res</span> limits the preview resolution (Auto, ≤512 … Full res). The top-right readout shows output size, render size and fps.</li>
+  </ul>
+
+  <h3>3D</h3>
+  <p>A preview of the texture on a building, to judge scale and mood. It only looks: nothing you do in 3D changes the design.</p>
+  <ul>
+    <li><b>Building shapes</b>: Cube, Skyscraper, Rectangular, Stepped, Cylindrical.</li>
+    <li><b>Camera</b>: drag to orbit, right-drag (or Shift-drag) to move along the height, wheel to zoom, double-click to reset. <span class="ui">Orbit</span> toggles auto-rotation.</li>
+    <li><span class="ui">Scene…</span>: building skin (Auto picks matte when the design has Concrete), blue-hour or deep-night sky, bloom, wet reflections, fog, lit haze, rain, environment, exposure, field of view, and <i>Match texture proportions</i>.</li>
+  </ul>
+
+  <h3>Graph (advanced)</h3>
+  <figure><img src="guide-assets/graph.png" alt="Graph view" /><figcaption>Graph mode: each layer is a node with a live thumbnail, ending in the Emission output.</figcaption></figure>
+  <ul>
+    <li>Click a node to edit it; drag nodes to reorder.</li>
+    <li><b>+</b> inserts a node at that point.</li>
+    <li>The eye bypasses a node. <span class="ui">view here</span> previews the result up to that node.</li>
+    <li><span class="ui">View texture</span> returns to the texture view.</li>
+  </ul>
+</section>
+
+<!-- ============================================================ 10 -->
+<section class="chapter">
+  <h2><span class="num">10</span>Presets, Randomize and saving your own work</h2>
+  <figure><img src="guide-assets/presets.png" alt="Noir Brutalist presets" /><figcaption>The Noir Brutalist presets: Brutalist Nocturne, Kanji Monolith, Crimson Crown, Blue Hour Mesh, Ledge Noir, Night Market Wall.</figcaption></figure>
+  <ul>
+    <li>The <b>Presets</b> tab opens on <b>My presets</b>. Use the dropdown for all 46 built-in presets, favourites, recent ones or a category. Search matches names, tags and descriptions.</li>
+    <li>Click a preset to load it. It is a normal, fully editable layer stack, so treat presets as starting points or references.</li>
+    <li>The <b>star</b> adds a preset to your favourites; the trash deletes one of your own presets.</li>
+    <li><span class="ui">Save preset</span> (top bar) stores the current design: all layers, seed, building, animation and look. If the design came from one of your presets you can overwrite it or save a new one.</li>
+    <li><b>My layers</b>: the bookmark icon in the layer editor saves a single layer, such as your perfect neon sign or concrete mix, for reuse in any future design.</li>
+    <li><span class="ui">File ▸ Export preset file…</span> writes a <i>.facadepreset</i> to share. Imported photos, videos and fonts are embedded, so it works on another PC. <span class="ui">Import preset file…</span> loads one.</li>
+  </ul>
+  <div class="note"><b>Randomize with locks.</b> Hover a slider and click its lock to keep that value while randomizing everything else. The architecture (floors, bays) and the seed can be locked too.</div>
+</section>
+
+<!-- ============================================================ 11 -->
+<section class="chapter">
+  <h2><span class="num">11</span>Audio reactivity</h2>
+  <p>Open the <span class="ui">Audio reactivity</span> section at the bottom of the right panel.</p>
+  <ol class="steps">
+    <li><b>Load a source.</b> Load a music file (it plays with the timeline), or use the microphone.</li>
+    <li><b>Add a route.</b> Connect a band (<i>Bass</i>, <i>Mid</i>, <i>High</i> or <i>Level</i>) to any numeric parameter of any layer, or to the global emission.</li>
+    <li><b>Set the Amount.</b> From −1 to +1: how much of the parameter's range the band pushes; negative inverts. Example: Bass → a sign's <i>Intensity</i> makes neon pulse to the kick drum.</li>
+  </ol>
+  <p>Audio files are analysed ahead of time, so exports with audio routes are deterministic and match the music frame by frame.</p>
+
+  <h2 style="margin-top:10mm"><span class="num">12</span>Exporting</h2>
+  <div class="side" style="grid-template-columns: 78mm 1fr">
+    <figure style="margin-top:0"><img src="guide-assets/export.png" alt="Export dialog" /><figcaption>Export dialog (<kbd>Ctrl+E</kbd>).</figcaption></figure>
+    <div>
+      <ul>
+        <li><b>Folder, file name, resolution</b>: chips set 512 / 1K / 2K / 4K on the long side, keeping proportions.</li>
+        <li><b>Range</b>: the full loop at 24–60 fps, or a single still at the playhead.</li>
+        <li><b>Color</b>: tonemapped PNG, exactly what you see.</li>
+        <li><b>Emission</b>: <i>EXR half float</i> keeps full HDR for 3D renderers (recommended); a PNG option also exists.</li>
+        <li><b>Mask</b>: coverage as PNG or EXR. <b>Alpha</b>: an emission-derived PNG.</li>
+        <li><b>Video</b>: MP4 (H.264, hardware encoder) or WebM (VP9), with a bitrate.</li>
+      </ul>
+    </div>
+  </div>
+  <p>Image sequences are written to one subfolder per channel, e.g. <i>Name_emission/Name_emission_0001.exr</i>. The loop is seamless: the frame after the last would equal frame 1.</p>
+  <div class="tip"><b>In Blender:</b> use the EXR sequence as an Image Texture (Image Sequence, auto refresh, cyclic) plugged into the <b>Emission</b> input. Set the Emission strength to 1–5 and let bloom or compositing do the rest. The UV layout matches the texture: U wraps around the building, V goes from the ground to the roof.</div>
+</section>
+
+<!-- ============================================================ 13-14 -->
+<section class="chapter">
+  <h2><span class="num">13</span>Projects and files</h2>
+  <ul>
+    <li><span class="ui">Save project</span> (<kbd>Ctrl+S</kbd>) writes a <i>.facade</i> file with the whole document, the preset it came from and your locks. <kbd>Ctrl+Shift+S</kbd> saves as a new file; <kbd>Ctrl+O</kbd> opens one.</li>
+    <li>Imported photos, videos and fonts used by the project are copied into a <i>&lt;project&gt;_assets</i> folder next to the project file. Keep them together when moving the project to another PC.</li>
+    <li>Older projects and presets always open. Missing parameters take their defaults.</li>
+  </ul>
+
+  <h2 style="margin-top:10mm"><span class="num">14</span>Shortcuts</h2>
+  <div class="two">
+    <table>
+      <tr><th>Keys</th><th>Action</th></tr>
+      <tr><td><kbd>Space</kbd></td><td>Play / pause</td></tr>
+      <tr><td><kbd>R</kbd></td><td>Randomize</td></tr>
+      <tr><td><kbd>Ctrl+Z</kbd></td><td>Undo</td></tr>
+      <tr><td><kbd>Ctrl+Y</kbd> / <kbd>Ctrl+Shift+Z</kbd></td><td>Redo</td></tr>
+      <tr><td><kbd>Ctrl+N</kbd></td><td>New blank building</td></tr>
+      <tr><td><kbd>Ctrl+O</kbd></td><td>Open project</td></tr>
+      <tr><td><kbd>Ctrl+S</kbd> / <kbd>Ctrl+Shift+S</kbd></td><td>Save / Save as</td></tr>
+      <tr><td><kbd>Ctrl+E</kbd></td><td>Export</td></tr>
+    </table>
+    <table>
+      <tr><th>Mouse</th><th>Action</th></tr>
+      <tr><td>2D wheel</td><td>Zoom at cursor</td></tr>
+      <tr><td>2D drag</td><td>Pan</td></tr>
+      <tr><td>2D double-click</td><td>Fit</td></tr>
+      <tr><td>Slider + <kbd>Shift</kbd></td><td>Fine adjustment</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================================ 15 -->
+<section class="chapter">
+  <h2><span class="num">15</span>Recipes for the minimal cyberpunk look</h2>
+  <p class="lead">Blade Runner cities aren't glossy everywhere. They're mostly dark mass: concrete with small, deliberate lights, a few windows and one or two strong graphic moments. Start each recipe from <kbd>Ctrl+N</kbd>.</p>
+
+  <div class="recipe">
+    <h3>Brutalist monolith</h3>
+    <ol>
+      <li><span class="ui">Slot windows</span>: set occupancy to about 0.08.</li>
+      <li><span class="ui">Aviation beacons</span>.</li>
+      <li><span class="ui">Concrete, uplit</span>: fixtures every 3 bays / 7 floors, reach 1.3, beam 0.4, <i>Fixtures lit</i> 0.75, spill 1.5.</li>
+    </ol>
+  </div>
+  <div class="recipe">
+    <h3>Kanji tower</h3>
+    <ol>
+      <li><span class="ui">A few windows</span>, reshaped into ribbon slits: window width 0.97, height 0.13, occupancy 0.55, cool colour, cool ratio 1.</li>
+      <li><span class="ui">Vertical neon</span>: 2–3 characters, Light weight, size around 0.4, <i>Faulty flicker</i> at 0.2.</li>
+      <li><span class="ui">Aviation beacons</span>.</li>
+    </ol>
+  </div>
+  <div class="recipe">
+    <h3>Night market wall (street level)</h3>
+    <ol>
+      <li>Set Floors to 12–16.</li>
+      <li>Add <span class="ui">A few windows</span>, <span class="ui">Neon word</span>, <span class="ui">Lightbox sign</span> and <span class="ui">LED ticker</span>.</li>
+      <li>Add <span class="ui">Concrete, sconces</span> with <i>Spill from signs</i> at 1–1.5. The pink neon washes the wall around it.</li>
+    </ol>
+  </div>
+  <div class="recipe">
+    <h3>Media mesh tower</h3>
+    <ol>
+      <li><span class="ui">Raw… ▸ LED Strips</span>: horizontal, width 1, animation Wave, depth 0.8.</li>
+      <li>Add <span class="ui">LED mesh</span>: pitch 3, square diodes.</li>
+      <li>Add <span class="ui">Scattered specks</span>.</li>
+    </ol>
+  </div>
+  <div class="recipe">
+    <h3>Hologram plaza</h3>
+    <ol>
+      <li><span class="ui">Concrete, dark</span> as the base.</li>
+      <li>Drop a portrait photo onto the window.</li>
+      <li>Change that layer's display to <i>Hologram</i>, blend <i>Add</i>, backing panel 0, monochrome tint #7fc4ff.</li>
+    </ol>
+  </div>
+
+  <h3>Rules of taste</h3>
+  <ul>
+    <li><b>Dark first.</b> Most of the facade should be near black. Unlit things at 1 % already look grey after tonemapping.</li>
+    <li><b>One hero.</b> One big sign, hologram or mesh per building. Everything else stays small: specks, beacons, sconces.</li>
+    <li><b>Few colours.</b> Pick one accent (pink, red or ice-blue) on top of warm white and cool white.</li>
+    <li><b>Slow motion.</b> Rates around 0.05–0.2 Hz feel expensive. Fast flicker belongs on one faulty letter, not on everything.</li>
+    <li><b>Let light land.</b> Signs and screens should spill onto concrete. That's what makes them feel physically present.</li>
+  </ul>
+</section>
+
+<!-- ============================================================ 16 -->
+<section class="chapter">
+  <h2><span class="num">16</span>Troubleshooting</h2>
+  <table>
+    <tr><th>Problem</th><th>Fix</th></tr>
+    <tr><td>Everything looks grey or washed out</td><td>Lower intensities, raise <i>Black cut</i> on media, keep unlit levels near 0. Check the <i>Emission</i> channel for overexposed areas.</td></tr>
+    <tr><td>A video won't import</td><td>Use H.264 MP4 or VP9 WebM. Re-encode HEVC / ProRes files first.</td></tr>
+    <tr><td>A video loop jumps</td><td>Set <i>Loop timing</i> to <i>Seamless (whole repeats)</i> or <i>Stretch clip to loop</i>.</td></tr>
+    <tr><td>A font shows boxes instead of kanji</td><td>The font has no Japanese or Chinese glyphs. Pick Yu Gothic, Meiryo or MS Gothic, or import a CJK font.</td></tr>
+    <tr><td>Concrete doesn't show</td><td>Its blend must be <i>Behind</i>, and some layer before it may cover everything (films with full coverage). Put films inside regions, or use Add blend on them.</td></tr>
+    <tr><td>A film layer looks black</td><td>Noise defaults to <i>Multiply</i>. Switch it to <i>Add</i> when it should emit light.</td></tr>
+    <tr><td>A panel shows “hit an error”</td><td>Press <i>Retry</i>. The rest of the app, including the GPU preview, keeps working.</td></tr>
+    <tr><td>Preview feels slow at 4K</td><td>Set <span class="ui">Res</span> to Auto or ≤1024 while designing. Export always renders at full resolution.</td></tr>
+  </table>
+  <p style="margin-top:8mm;color:var(--faint);font-size:8.5pt">CyberFacade · Tauri · React · WebGPU / WGSL. All generation, compositing and export conversion run on the GPU.</p>
+</section>
+
+</body>
+</html>

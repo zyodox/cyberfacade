@@ -1,0 +1,12 @@
+{"schema":1,"id":"night-market-wall","name":"Night Market Wall","category":"Noir Brutalist","tags":["neon","signage","lightbox","ticker","concrete","street"],"description":"A street-level wall: pink katakana neon, a vertical ramen lightbox and an amber LED ticker spilling colour onto stained concrete between sconces and a few lived-in windows.","seed":5150,
+ "architecture":{"floors":14,"bays":8,"facades":1,"slab":0.22,"mullion":0.1,"symmetry":"none"},
+ "animation":{"duration":10,"speed":1},"output":{"width":1024,"height":2048},
+ "layers":[
+  {"id":"win","generator":"windows","name":"A few windows","params":{"occupancy":0.12,"clustering":0.1,"winWidth":0.5,"winHeight":0.55,"intensity":1.2,"spill":0.02,"unlit":0.006,"blinds":0.5,"toggleAmount":0.05,"tvRatio":0.2}},
+  {"id":"hotdog","generator":"sign","name":"Pink neon","params":{"text":"ホットドッグ","style":"neon","weight":"regular","size":0.075,"posX":0.33,"posY":0.3,"color":"#ff3f86","intensity":6,"glow":1.1,"plate":0.9,"plateColor":"#0b090c","anim":"flicker","flickerAmt":0.35}},
+  {"id":"hotdog2","generator":"sign","name":"Pink neon latin","params":{"text":"HOT DOGS","style":"neon","weight":"bold","size":0.05,"spacing":0.12,"posX":0.33,"posY":0.265,"color":"#ff3f86","intensity":5,"glow":0.9,"anim":"flicker","flickerAmt":0.25}},
+  {"id":"ramen","generator":"sign","name":"Lightbox","params":{"text":"ラーメン","vertical":true,"style":"lightbox","weight":"bold","size":0.07,"posX":0.86,"posY":0.55,"color":"#fff3df","plateLight":0.8,"padding":0.3}},
+  {"id":"ticker","generator":"sign","name":"Ticker","params":{"text":"本日の特別 · OPEN ALL NIGHT · ","style":"led","weight":"bold","size":0.035,"posX":0.5,"posY":0.12,"ledPitch":2.2,"color":"#ffb347","intensity":4,"glow":0.4,"anim":"scroll","rate":0.1,"plate":1,"plateColor":"#050403"}},
+  {"id":"specks","generator":"lights","name":"Ledge lights","params":{"mode":"strings","orientation":"horizontal","density":0.2,"everyY":4,"spacing":7,"size":0.8,"intensity":2.5,"color":"#ffe2b8","colorVar":0.1,"halo":0.3,"twinkle":0.05}},
+  {"id":"concrete","generator":"concrete","name":"Concrete","params":{"fixture":"sconce","fixEveryX":3,"fixEveryY":4,"fixOffsetY":0.6,"reach":1,"beam":0.3,"fixIntensity":1.4,"fixKelvin":2600,"fixDensity":0.6,"spill":1.1,"spillRadius":60,"tieHoles":4,"panelsX":1,"panelsY":2}}
+ ]}

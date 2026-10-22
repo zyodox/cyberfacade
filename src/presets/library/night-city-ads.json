@@ -1,0 +1,185 @@
+{
+ "schema": 1,
+ "id": "night-city-ads",
+ "name": "Night City Ad Tower",
+ "category": "Ad Screens",
+ "tags": [
+  "cyberpunk",
+  "ad",
+  "hud",
+  "led",
+  "glitch"
+ ],
+ "description": "A dark tower carrying one big LED ad: brand names cutting with glitches inside a HUD frame, real LED cabinets, a live price and tearing bursts — the in-world ad language of cyberpunk cities.",
+ "seed": 21,
+ "architecture": {
+  "floors": 48,
+  "bays": 12,
+  "facades": 1,
+  "slab": 0.2,
+  "mullion": 0.06,
+  "symmetry": "none"
+ },
+ "animation": {
+  "duration": 12,
+  "speed": 1
+ },
+ "look": {
+  "emission": 1,
+  "exposure": 0,
+  "tonemap": "agx"
+ },
+ "output": {
+  "width": 1024,
+  "height": 2048
+ },
+ "layers": [
+  {
+   "id": "conc",
+   "generator": "concrete",
+   "name": "Concrete",
+   "params": {
+    "fixture": "none",
+    "spill": 1.4,
+    "ambient": 0.006
+   }
+  },
+  {
+   "id": "win",
+   "generator": "windows",
+   "name": "Few windows",
+   "params": {
+    "occupancy": 0.05,
+    "clustering": 0.15,
+    "winWidth": 0.55,
+    "winHeight": 0.6,
+    "intensity": 1,
+    "spill": 0.03,
+    "unlit": 0.008,
+    "toggleRate": 0
+   }
+  },
+  {
+   "id": "ad",
+   "generator": "sign",
+   "name": "Ad",
+   "params": {
+    "text": "{Arial Black, #ff2d6f} VOLTA COLA\n{Segoe UI Light, #7fe8ff} KAZEMI OPTICS\n{Yu Gothic, bold, #ffd23a} 電気 夜市\n{Segoe UI, bold, #f2f6ff} ORBITAL",
+    "messages": true,
+    "hold": 2.2,
+    "transition": "glitch",
+    "transTime": 0.45,
+    "style": "solid",
+    "size": 0.08,
+    "posX": 0.46,
+    "posY": 0.66,
+    "intensity": 4.5,
+    "glow": 0.6,
+    "plate": 1,
+    "plateColor": "#050507",
+    "padding": 0.8
+   }
+  },
+  {
+   "id": "price",
+   "generator": "sign",
+   "name": "Price",
+   "params": {
+    "text": "¥{price 4.20 0.18}",
+    "font": "Consolas",
+    "weight": "bold",
+    "style": "solid",
+    "size": 0.035,
+    "posX": 0.74,
+    "posY": 0.575,
+    "color": "#ffd23a",
+    "intensity": 4,
+    "glow": 0.4
+   }
+  },
+  {
+   "id": "led",
+   "generator": "ledmesh",
+   "name": "LED hardware",
+   "region": {
+    "min": 0.52,
+    "max": 0.8,
+    "soft": 0,
+    "invert": false
+   },
+   "params": {
+    "pitch": 3.5,
+    "cabinetW": 14,
+    "cabinetH": 10,
+    "cabinetVar": 0.12,
+    "seam": 0.5,
+    "deadModules": 0.08,
+    "deadPixels": 0.12,
+    "refresh": 0.2
+   }
+  },
+  {
+   "id": "hud",
+   "generator": "hud",
+   "name": "HUD frame",
+   "params": {
+    "posX": 0.5,
+    "posY": 0.66,
+    "sizeW": 0.9,
+    "sizeH": 0.3,
+    "text": "VOLTA COLA\nNEAREST VENDOR 120M\nLIMITED",
+    "labelSize": 0.08,
+    "barcode": true,
+    "data": true,
+    "progress": true,
+    "callout": false,
+    "intensity": 2,
+    "rate": 0.083
+   }
+  },
+  {
+   "id": "tear",
+   "generator": "distort",
+   "name": "Tearing",
+   "region": {
+    "min": 0.5,
+    "max": 0.82,
+    "soft": 0,
+    "invert": false
+   },
+   "params": {
+    "mode": "tear",
+    "amount": 36,
+    "chance": 0.18,
+    "rate": 2.5,
+    "pixelSize": 10,
+    "rgbSplit": 1.5
+   }
+  },
+  {
+   "id": "tick",
+   "generator": "sign",
+   "name": "Wrap ticker",
+   "params": {
+    "text": "VOLTEX · KAZEMI OPTICS · VOLTA COLA · OPEN 24H · ",
+    "font": "Segoe UI",
+    "weight": "bold",
+    "style": "solid",
+    "size": 0.03,
+    "posY": 0.93,
+    "anim": "scroll",
+    "tickerWidth": 1,
+    "scrollSpeed": 5,
+    "tickerGap": 2,
+    "wrapAround": true,
+    "color": "#ffd23a",
+    "intensity": 4,
+    "glow": 0.35,
+    "plate": 1,
+    "plateColor": "#040302",
+    "plateLight": 0.3,
+    "padding": 0.35
+   }
+  }
+ ]
+}

@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "id": "slit-scan-offices",
+  "name": "Slit-Scan Offices",
+  "category": "Glitch",
+  "tags": ["interiors", "slit-scan", "shear", "time displacement", "dispersion", "sophisticated"],
+  "description": "Office floors whose screens show one ripple film torn apart in time — each floor plays a different moment and the floors shear sideways — seen through glass that splits colour at every pane edge; ice-blue signal shafts race up the mullions.",
+  "seed": 4545,
+  "architecture": { "floors": 42, "bays": 24, "facades": 1, "slab": 0.16, "mullion": 0.07, "symmetry": "none" },
+  "animation": { "duration": 8, "speed": 1 },
+  "look": { "emission": 1, "exposure": 0, "tonemap": "agx" },
+  "output": { "width": 1024, "height": 2048 },
+  "layers": [
+    {
+      "id": "ripple",
+      "generator": "shapes",
+      "name": "Film · ripple (slit-scan)",
+      "timeShift": { "y": 1.5, "quantize": true },
+      "params": { "shape": "circle", "arrangement": "ripple", "size": 0.02, "centerX": 0.5, "centerY": 0.5, "rippleSpacing": 0.07, "thickness": 0.3, "expand": 0.25, "colorA": "#dff0ff", "colorB": "#2a6bd6", "colorMode": "ripple", "intensity": 1.4, "glow": 0, "softness": 0.003 }
+    },
+    {
+      "id": "shear",
+      "generator": "distort",
+      "name": "Floor shear",
+      "params": { "mode": "shear", "amount": 40, "scale": 3, "rate": 0.125 }
+    },
+    {
+      "id": "rooms",
+      "generator": "interiors",
+      "name": "Offices",
+      "params": {
+        "winWidth": 0.95, "winHeight": 0.95, "sillAlign": 0, "panes": 1, "frame": 0.012, "unitWidth": 4,
+        "depth": 2.8, "eyeX": 0.5, "eyeY": 0.3, "eyeDist": 1.1,
+        "occupancy": 0.55, "floorBias": 0.65, "toggleRate": 0.1, "toggleAmount": 0.12,
+        "officeRatio": 0.9, "homeRatio": 0, "screenRatio": 0.6, "screenGain": 1.4, "screenSpill": 0.45,
+        "coolColor": "#e6f0ff", "intensity": 0.95, "brightnessVar": 0.25, "ambient": 0.015,
+        "furniture": 0.85, "people": 0.3, "peopleMotion": 0.1, "blinds": 0.05, "artwork": 0.2, "reflection": 0.03
+      }
+    },
+    {
+      "id": "glass",
+      "generator": "glass",
+      "name": "Dispersive glass",
+      "clip": true,
+      "params": { "panesX": 2, "panesY": 1, "refraction": 5, "zoom": 0.05, "warp": 1, "warpScale": 8, "warpRate": 0.1, "dispersion": 3, "tint": "#d0dcea", "tintAmount": 0.12, "edgeShade": 0.3, "reflection": 0.04, "reflectColor": "#8aa0c8", "reflectAngle": 25, "streaks": 4 }
+    },
+    {
+      "id": "shafts",
+      "generator": "stripes",
+      "name": "Signal shafts",
+      "params": {
+        "orientation": "vertical", "align": "arch", "every": 2, "anchor": "edge", "width": 0.03,
+        "segments": "continuous", "colorA": "#9fd4ff", "colorB": "#ffffff", "gradient": "along", "intensity": 2.4, "glow": 0.1, "glowWidth": 0.06,
+        "anim": "chase", "rate": 0.25, "sync": 0, "depth": 0.9, "waves": 1, "sharpness": 2.2
+      }
+    }
+  ]
+}

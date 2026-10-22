@@ -1,0 +1,56 @@
+{
+ "schema": 1,
+ "id": "signal-ecg",
+ "name": "Signal",
+ "category": "Living Light",
+ "tags": [
+  "ecg",
+  "monitor",
+  "line",
+  "minimal",
+  "mint"
+ ],
+ "description": "A single heart-monitor trace written across a black tower; the beam leaves a fading tail.",
+ "seed": 11,
+ "architecture": {
+  "floors": 48,
+  "bays": 12,
+  "facades": 1,
+  "slab": 0.2,
+  "mullion": 0.06,
+  "symmetry": "none"
+ },
+ "animation": {
+  "duration": 12,
+  "speed": 1
+ },
+ "look": {
+  "emission": 1,
+  "exposure": 0,
+  "tonemap": "agx"
+ },
+ "output": {
+  "width": 1024,
+  "height": 2048
+ },
+ "layers": [
+  {
+   "id": "ecg",
+   "generator": "living",
+   "name": "Monitor line",
+   "params": {
+    "pattern": "ecg",
+    "bpm": 66,
+    "count": 3,
+    "originY": 0.5,
+    "reach": 0.9,
+    "softness": 0.25,
+    "sharpness": 1.6,
+    "colorA": "#7dffc8",
+    "colorB": "#062418",
+    "intensity": 1.8,
+    "base": 0
+   }
+  }
+ ]
+}

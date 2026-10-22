@@ -1,0 +1,68 @@
+{
+  "schema": 1,
+  "id": "chinese-media-facade",
+  "name": "Chinese Media Facade",
+  "category": "Chinese/Asian Megacity",
+  "tags": ["media facade", "red", "gold", "ripple", "led panels", "skyline show"],
+  "description": "A skyline light show on LED window panels: red-to-gold gradients sweep up the tower as golden rings ripple out from its heart, framed by gold perimeter and floor bands.",
+  "seed": 8888,
+  "architecture": { "floors": 60, "bays": 24, "facades": 1, "slab": 0.18, "mullion": 0.14, "symmetry": "mirror" },
+  "animation": { "duration": 10, "speed": 1 },
+  "look": { "emission": 1, "exposure": 0, "tonemap": "agx-punchy" },
+  "output": { "width": 1024, "height": 2048 },
+  "layers": [
+    {
+      "id": "sweep",
+      "generator": "gradient",
+      "name": "Red-gold sweep",
+      "params": {
+        "gtype": "linear", "angle": 90, "repeat": 1.5, "wrap": "mirror", "quantize": "cells",
+        "colorA": "#b00000", "colorB": "#ff3a00", "colorC": "#ffb000", "useC": true, "midpoint": 0.55,
+        "intensity": 0.75, "scroll": 0.2, "output": "emit"
+      }
+    },
+    {
+      "id": "rings",
+      "generator": "shapes",
+      "name": "Golden ripples",
+      "params": {
+        "shape": "circle", "arrangement": "ripple", "centerX": 0.5, "centerY": 0.55, "rippleSpacing": 0.12, "thickness": 0.22,
+        "expand": 0.3, "colorA": "#ffd36b", "colorB": "#ff2a10", "colorMode": "ripple", "quantize": "cells",
+        "glow": 0, "intensity": 1.3
+      }
+    },
+    {
+      "id": "panels",
+      "generator": "windows",
+      "name": "LED panel mask",
+      "blend": "mask",
+      "params": { "winWidth": 0.9, "winHeight": 0.78, "sillAlign": 0.5, "panes": 1, "frame": 0 }
+    },
+    {
+      "id": "offices",
+      "generator": "windows",
+      "name": "Offices behind",
+      "blend": "screen",
+      "opacity": 0.35,
+      "params": {
+        "winWidth": 0.9, "winHeight": 0.78, "sillAlign": 0.5, "panes": 1, "frame": 0,
+        "occupancy": 0.3, "floorBias": 0.6, "intensity": 0.5, "coolRatio": 0.6, "fixtures": 0.6, "lamps": 0, "spill": 0, "toggleRate": 0, "tvRatio": 0
+      }
+    },
+    {
+      "id": "bands",
+      "generator": "stripes",
+      "name": "Gold floor bands",
+      "params": {
+        "orientation": "horizontal", "align": "arch", "every": 10, "anchor": "slabCenter", "width": 0.14,
+        "segments": "continuous", "colorA": "#ffcf6a", "intensity": 4, "glow": 0.3, "glowWidth": 0.06, "anim": "none"
+      }
+    },
+    {
+      "id": "perimeter",
+      "generator": "grid",
+      "name": "Gold perimeter",
+      "params": { "source": "arch", "lines": "none", "color": "#ffd27a", "intensity": 1, "edges": 6, "edgeWidth": 3, "anim": "pulse", "rate": 0.2, "sync": 1, "depth": 0.35 }
+    }
+  ]
+}

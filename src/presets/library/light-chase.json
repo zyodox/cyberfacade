@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "id": "light-chase",
+  "name": "Light Chase",
+  "category": "LED Media Facades",
+  "tags": ["chase", "tracer", "grid", "white", "cyan"],
+  "description": "Light pulses race along the structural grid while pixel LED lines every four floors chase in alternating directions.",
+  "seed": 3131,
+  "architecture": { "floors": 40, "bays": 12, "facades": 1, "slab": 0.18, "mullion": 0.08, "symmetry": "none" },
+  "animation": { "duration": 8, "speed": 1 },
+  "look": { "emission": 1, "exposure": 0, "tonemap": "agx" },
+  "output": { "width": 1024, "height": 2048 },
+  "layers": [
+    {
+      "id": "glass",
+      "generator": "windows",
+      "name": "Dark glazing",
+      "params": {
+        "winWidth": 0.96, "winHeight": 0.96, "sillAlign": 0, "panes": 1, "frame": 0.02, "unitWidth": 3,
+        "occupancy": 0.1, "floorBias": 0.5, "intensity": 0.9, "coolRatio": 0.7, "spill": 0.1, "unlit": 0.03,
+        "ceiling": 0.7, "lamps": 0, "fixtures": 0.5, "blinds": 0.1, "curtains": 0, "furniture": 0, "toggleRate": 0, "tvRatio": 0
+      }
+    },
+    {
+      "id": "tracers",
+      "generator": "grid",
+      "name": "Tracer grid",
+      "params": {
+        "source": "arch", "lines": "both", "everyX": 2, "everyY": 2, "widthX": 0.035, "widthY": 0.05,
+        "color": "#e8f4ff", "intensity": 5, "glow": 0.3, "glowWidth": 0.03, "nodes": 0, "edges": 0,
+        "anim": "trace", "rate": 0.3, "sync": 0.2, "depth": 0.97, "traceLength": 0.25
+      }
+    },
+    {
+      "id": "chase",
+      "generator": "stripes",
+      "name": "Chase lines",
+      "params": {
+        "orientation": "horizontal", "align": "arch", "every": 4, "anchor": "slabCenter", "width": 0.08,
+        "segments": "pixels", "pitch": 3, "gap": 0.3, "colorA": "#36e0ff", "colorB": "#ffffff", "gradient": "along",
+        "intensity": 6, "glow": 0.3, "glowWidth": 0.05,
+        "anim": "chase", "rate": 0.35, "alternate": true, "sync": 0.5, "depth": 0.95, "waves": 2, "sharpness": 5
+      }
+    },
+    {
+      "id": "glow",
+      "generator": "blur",
+      "name": "Glow",
+      "params": { "mode": "glow", "radius": 6, "direction": "both", "taps": 24, "threshold": 0.8, "intensity": 0.5 }
+    }
+  ]
+}

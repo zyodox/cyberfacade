@@ -1,0 +1,88 @@
+{
+  "schema": 1,
+  "id": "luxury-futuristic-facade",
+  "name": "Luxury Futuristic Facade",
+  "category": "Luxury/Futuristic",
+  "tags": ["premium", "tower", "champagne", "fins", "crown", "hero"],
+  "description": "Floor-to-ceiling glazing with champagne slab-edge lines breathing up the tower, cool fin comets, lit corners and a glowing crown.",
+  "seed": 20417,
+  "architecture": { "floors": 32, "bays": 14, "facades": 1, "slab": 0.15, "mullion": 0.05, "symmetry": "none" },
+  "animation": { "duration": 10, "speed": 1 },
+  "look": { "emission": 1, "exposure": 0, "tonemap": "agx" },
+  "output": { "width": 1024, "height": 2048 },
+  "layers": [
+    {
+      "id": "glazing",
+      "generator": "windows",
+      "name": "Glazing",
+      "blend": "add",
+      "params": {
+        "winWidth": 0.96, "winHeight": 0.97, "sillAlign": 0, "panes": 1, "frame": 0.018, "unitWidth": 2,
+        "occupancy": 0.5, "floorBias": 0.4, "clustering": 0.4, "clusterScale": 3, "heightBias": 0.15, "roomVariation": 0.2,
+        "warmColor": "#ffb877", "coolColor": "#e2ecff", "coolRatio": 0.1, "tempVariation": 0.2,
+        "intensity": 1.5, "brightnessVar": 0.35, "spill": 0.3, "unlit": 0.035, "unlitColor": "#2c3d5c",
+        "ceiling": 0.85, "lamps": 0.12, "fixtures": 0.45, "fixtureCount": 1, "blinds": 0.18, "curtains": 0.08, "furniture": 0.15,
+        "toggleRate": 0.08, "toggleAmount": 0.08, "tvRatio": 0, "flicker": 0
+      }
+    },
+    {
+      "id": "variation",
+      "generator": "noise",
+      "name": "Window variation",
+      "blend": "multiply",
+      "clip": true,
+      "params": {
+        "noiseType": "fbm", "scale": 2.2, "octaves": 3, "roughness": 0.5, "stretch": 1.6, "quantize": "cells",
+        "contrast": 1.6, "bias": 0.05, "evolve": 0.1, "drift": "none", "output": "modulate", "amount": 0.5
+      }
+    },
+    {
+      "id": "slab-leds",
+      "generator": "stripes",
+      "name": "Slab edge LEDs",
+      "blend": "add",
+      "params": {
+        "orientation": "horizontal", "align": "arch", "every": 1, "anchor": "slabTop", "offset": -0.012, "width": 0.028,
+        "segments": "continuous", "colorA": "#ffe7c2", "colorB": "#fff6e8", "gradient": "none",
+        "intensity": 7, "taper": 0, "glow": 0.22, "glowWidth": 0.04,
+        "anim": "wave", "rate": 0.1, "reverse": false, "sync": 1, "depth": 0.72, "waves": 0.8, "sharpness": 3
+      }
+    },
+    {
+      "id": "fins",
+      "generator": "stripes",
+      "name": "Fin comets",
+      "blend": "add",
+      "params": {
+        "orientation": "vertical", "align": "arch", "every": 2, "anchor": "edge", "offset": 0, "width": 0.035,
+        "segments": "continuous", "colorA": "#a9c8ff", "colorB": "#e8f1ff", "gradient": "along",
+        "intensity": 3.5, "taper": 0.5, "glow": 0.25, "glowWidth": 0.06,
+        "anim": "chase", "rate": 0.2, "reverse": false, "alternate": false, "sync": 0.35, "depth": 0.85, "waves": 1, "sharpness": 4
+      }
+    },
+    {
+      "id": "corners",
+      "generator": "grid",
+      "name": "Corner lines",
+      "blend": "add",
+      "params": { "source": "arch", "lines": "none", "color": "#fff0dc", "intensity": 1, "glow": 0, "edges": 3.5, "edgeWidth": 2.5, "anim": "none" }
+    },
+    {
+      "id": "crown",
+      "generator": "grid",
+      "name": "Crown",
+      "blend": "add",
+      "region": { "min": 0.9, "max": 1, "soft": 0.03 },
+      "params": {
+        "source": "arch", "lines": "horizontal", "everyY": 1, "offsetY": 0.08, "widthY": 0.05,
+        "color": "#ffe2b8", "intensity": 2.2, "glow": 0.25, "glowWidth": 0.05, "edges": 8, "edgeWidth": 3,
+        "anim": "pulse", "rate": 0.1, "sync": 1, "depth": 0.3
+      }
+    }
+  ],
+  "randomize": {
+    "glazing.occupancy": [0.38, 0.62],
+    "slab-leds.intensity": [4.5, 8],
+    "fins.rate": [0.1, 0.3]
+  }
+}

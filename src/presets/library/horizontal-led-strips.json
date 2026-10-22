@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "id": "horizontal-led-strips",
+  "name": "Horizontal LED Strips",
+  "category": "LED Media Facades",
+  "tags": ["rgb", "slab", "gradient", "wave"],
+  "description": "Every slab edge wrapped in segmented RGB LED line; a cyan-to-violet gradient climbs the tower under a slow travelling swell.",
+  "seed": 991,
+  "architecture": { "floors": 48, "bays": 10, "facades": 1, "slab": 0.2, "mullion": 0.06, "symmetry": "none" },
+  "animation": { "duration": 8, "speed": 1 },
+  "look": { "emission": 1, "exposure": 0, "tonemap": "agx-punchy" },
+  "output": { "width": 1024, "height": 2048 },
+  "layers": [
+    {
+      "id": "glass",
+      "generator": "windows",
+      "name": "Dark glazing",
+      "params": {
+        "winWidth": 1, "winHeight": 1, "sillAlign": 0, "panes": 1, "frame": 0.015, "unitWidth": 2,
+        "occupancy": 0.14, "floorBias": 0.3, "clustering": 0.3,
+        "warmColor": "#ffc890", "coolColor": "#dfe8ff", "coolRatio": 0.5, "intensity": 1.6, "spill": 0.15, "lamps": 0,
+        "unlit": 0.06, "unlitColor": "#1d2a44", "ceiling": 0.7, "fixtures": 0.4, "blinds": 0.2, "curtains": 0, "furniture": 0.1,
+        "toggleRate": 0, "tvRatio": 0
+      }
+    },
+    {
+      "id": "lines",
+      "generator": "stripes",
+      "name": "Slab LED lines",
+      "params": {
+        "orientation": "horizontal", "align": "arch", "every": 1, "anchor": "slabCenter", "width": 0.07,
+        "segments": "bays", "gap": 0.04, "colorA": "#19d3ff", "colorB": "#b04dff", "gradient": "across",
+        "intensity": 7, "glow": 0.35, "glowWidth": 0.06,
+        "anim": "wave", "rate": 0.25, "sync": 1, "depth": 0.85, "waves": 1.5, "sharpness": 2.5
+      }
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+ "schema": 1,
+ "id": "candle-sway",
+ "name": "Candle Sway",
+ "category": "Living Light",
+ "tags": [
+  "flames",
+  "warm",
+  "sway",
+  "flicker",
+  "smooth"
+ ],
+ "description": "Soft amber flames swaying and flickering up the lower floors — no windows, just warm light.",
+ "seed": 11,
+ "architecture": {
+  "floors": 48,
+  "bays": 12,
+  "facades": 1,
+  "slab": 0.2,
+  "mullion": 0.06,
+  "symmetry": "none"
+ },
+ "animation": {
+  "duration": 12,
+  "speed": 1
+ },
+ "look": {
+  "emission": 1,
+  "exposure": 0,
+  "tonemap": "agx"
+ },
+ "output": {
+  "width": 1024,
+  "height": 2048
+ },
+ "layers": [
+  {
+   "id": "fl",
+   "generator": "living",
+   "name": "Flames",
+   "params": {
+    "pattern": "sway",
+    "count": 9,
+    "reach": 0.3,
+    "rate": 0.08,
+    "softness": 0.55,
+    "sharpness": 1.6,
+    "detail": 0.7,
+    "colorA": "#ffc27a",
+    "colorB": "#4a0c02",
+    "intensity": 1.3,
+    "base": 0
+   }
+  }
+ ]
+}

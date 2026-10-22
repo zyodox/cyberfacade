@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "id": "noir-blocks",
+  "name": "Noir Blocks",
+  "category": "Minimal/Soft Club",
+  "tags": ["minimal", "outlines", "mondrian", "architectural", "white"],
+  "description": "Thin white rectangles subdivide the facade like a quiet Mondrian drawing, fading in and out over a barely-there dot grid.",
+  "seed": 9999,
+  "architecture": { "floors": 72, "bays": 24, "facades": 1, "slab": 0, "mullion": 0, "symmetry": "none" },
+  "animation": { "duration": 12, "speed": 1 },
+  "look": { "emission": 1, "exposure": 0, "tonemap": "agx" },
+  "output": { "width": 1024, "height": 2048 },
+  "layers": [
+    {
+      "id": "dots",
+      "generator": "grid",
+      "name": "Dot grid",
+      "params": { "source": "arch", "lines": "none", "nodes": 0.35, "nodeSize": 0.05, "color": "#ffffff", "intensity": 1, "edges": 0, "anim": "none" }
+    },
+    {
+      "id": "outlines",
+      "generator": "blocks",
+      "name": "Outlines",
+      "params": {
+        "source": "arch", "blockW": 8, "blockH": 12, "splits": 2, "gap": 0.6, "style": "outline", "outline": 0.08,
+        "colorA": "#f1efe9", "colorB": "#cfd8e3", "colorMix": 0.3, "brightnessVar": 0.6, "intensity": 1.3,
+        "density": 0.28, "rate": 0.083, "duty": 0.7, "fade": 0.12, "sync": 0, "output": "emit"
+      }
+    }
+  ]
+}

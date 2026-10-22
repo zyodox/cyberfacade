@@ -1,0 +1,79 @@
+{
+ "schema": 1,
+ "id": "neon-wave",
+ "name": "Neon Wave",
+ "category": "Kinetic Type",
+ "tags": [
+  "neon",
+  "wave",
+  "chase",
+  "sign"
+ ],
+ "description": "A pink neon word whose letters bob in a slow wave while a white highlight chases through them.",
+ "seed": 11,
+ "architecture": {
+  "floors": 48,
+  "bays": 12,
+  "facades": 1,
+  "slab": 0.2,
+  "mullion": 0.06,
+  "symmetry": "none"
+ },
+ "animation": {
+  "duration": 12,
+  "speed": 1
+ },
+ "look": {
+  "emission": 1,
+  "exposure": 0,
+  "tonemap": "agx"
+ },
+ "output": {
+  "width": 1024,
+  "height": 2048
+ },
+ "layers": [
+  {
+   "id": "nw",
+   "generator": "sign",
+   "name": "Neon wave",
+   "params": {
+    "text": "Moonlight",
+    "font": "Segoe Script",
+    "weight": "regular",
+    "style": "neon",
+    "anim": "wave",
+    "rate": 0.25,
+    "amount": 0.8,
+    "stagger": 0.5,
+    "size": 0.14,
+    "posY": 0.6,
+    "color": "#ff4f9a",
+    "intensity": 6,
+    "glow": 1,
+    "core": 0.55
+   }
+  },
+  {
+   "id": "nw2",
+   "generator": "sign",
+   "name": "Chase",
+   "params": {
+    "text": "COCKTAILS",
+    "font": "Segoe UI",
+    "weight": "light",
+    "spacing": 0.4,
+    "style": "neon",
+    "anim": "chase",
+    "rate": 0.35,
+    "stagger": 0.5,
+    "accent": "#ffffff",
+    "size": 0.035,
+    "posY": 0.54,
+    "color": "#ff4f9a",
+    "intensity": 5,
+    "glow": 0.7
+   }
+  }
+ ]
+}

@@ -1,0 +1,86 @@
+{
+  "schema": 1,
+  "id": "occupied-screens",
+  "name": "Occupied Screens",
+  "category": "LED Media Facades",
+  "tags": ["interiors", "screens inside", "stacked video", "offices", "glass", "sophisticated"],
+  "description": "Stacked Screens moved indoors: every room's back wall is a display, so the five video bands appear inside the offices — framed by ceilings full of light panels, desks and people — refracted through clear glass, with white hairline shafts outside.",
+  "seed": 5151,
+  "architecture": { "floors": 40, "bays": 20, "facades": 1, "slab": 0.17, "mullion": 0.06, "symmetry": "none" },
+  "animation": { "duration": 10, "speed": 1 },
+  "look": { "emission": 1, "exposure": 0, "tonemap": "agx" },
+  "output": { "width": 1024, "height": 2048 },
+  "layers": [
+    {
+      "id": "band-1",
+      "generator": "gradient",
+      "name": "Video 1 · colour field",
+      "blend": "replace",
+      "region": { "min": 0.08, "max": 0.2, "soft": 0 },
+      "params": { "gtype": "linear", "angle": 0, "repeat": 1, "wrap": "mirror", "colorA": "#07142b", "colorB": "#2f7fe0", "colorC": "#bfeaff", "useC": true, "midpoint": 0.5, "intensity": 1, "scroll": 0.1, "output": "emit" }
+    },
+    {
+      "id": "band-2",
+      "generator": "voronoi",
+      "name": "Video 2 · cells",
+      "blend": "replace",
+      "region": { "min": 0.28, "max": 0.4, "soft": 0 },
+      "params": { "mode": "distance", "scale": 12, "jitter": 0.85, "drift": 0.15, "density": 0.85, "flashRate": 0.4, "duty": 0.6, "colorA": "#ff9d5c", "colorB": "#ffe2b8", "colorMix": 0.4, "brightnessVar": 0.5, "intensity": 1.6, "output": "emit" }
+    },
+    {
+      "id": "band-3",
+      "generator": "noise",
+      "name": "Video 3 · ribbons",
+      "blend": "replace",
+      "region": { "min": 0.48, "max": 0.6, "soft": 0 },
+      "params": { "noiseType": "ridged", "scale": 4, "octaves": 3, "stretch": 3, "contrast": 1.4, "evolve": 0.1, "drift": "left", "driftRate": 0.1, "output": "emit", "colorA": "#000000", "colorB": "#7ff0d8", "intensity": 1.4, "amount": 1 }
+    },
+    {
+      "id": "band-4",
+      "generator": "wave",
+      "name": "Video 4 · pulses",
+      "blend": "replace",
+      "region": { "min": 0.68, "max": 0.8, "soft": 0 },
+      "params": { "shape": "linear", "direction": "right", "profile": "pulse", "waves": 3, "rate": 0.3, "sharpness": 3, "depth": 1, "output": "emit", "colorA": "#050505", "colorB": "#ffffff", "intensity": 1.5 }
+    },
+    {
+      "id": "band-5",
+      "generator": "noise",
+      "name": "Video 5 · data",
+      "blend": "replace",
+      "region": { "min": 0.88, "max": 1, "soft": 0 },
+      "params": { "noiseType": "fbm", "scale": 12, "octaves": 1, "stretch": 5, "contrast": 1.2, "threshold": 0.62, "softness": 0.001, "evolve": 0.1, "drift": "left", "driftRate": 0.2, "output": "emit", "colorA": "#000000", "colorB": "#e8f0ff", "intensity": 1.2, "amount": 1 }
+    },
+    {
+      "id": "rooms",
+      "generator": "interiors",
+      "name": "Offices with screens",
+      "params": {
+        "winWidth": 0.95, "winHeight": 0.96, "sillAlign": 0, "panes": 1, "frame": 0.012, "unitWidth": 4,
+        "depth": 3, "eyeX": 0.5, "eyeY": 0.35, "eyeDist": 1.2,
+        "occupancy": 0.5, "floorBias": 0.6, "toggleRate": 0.05, "toggleAmount": 0.08,
+        "officeRatio": 0.85, "homeRatio": 0, "screenRatio": 1, "screenGain": 1.3, "screenSpill": 0.45,
+        "coolColor": "#eef3ff", "intensity": 0.9, "brightnessVar": 0.25, "ambient": 0.015,
+        "furniture": 0.8, "people": 0.35, "peopleMotion": 0.06, "blinds": 0.05, "artwork": 0.2,
+        "reflection": 0.03
+      }
+    },
+    {
+      "id": "glass",
+      "generator": "glass",
+      "name": "Clear glass",
+      "clip": true,
+      "params": { "panesX": 2, "panesY": 1, "refraction": 2.5, "zoom": 0.02, "warp": 1, "warpScale": 8, "warpRate": 0.05, "tint": "#d6e2ec", "tintAmount": 0.1, "edgeShade": 0.25, "reflection": 0.05, "reflectColor": "#8aa0c8", "reflectAngle": 30, "streaks": 3 }
+    },
+    {
+      "id": "shafts",
+      "generator": "stripes",
+      "name": "Light shafts",
+      "params": {
+        "orientation": "vertical", "align": "count", "count": 5, "every": 1, "anchor": "edge", "width": 0.004,
+        "segments": "continuous", "colorA": "#ffffff", "intensity": 2, "glow": 0.08, "glowWidth": 0.02,
+        "anim": "chase", "rate": 0.15, "sync": 0.5, "depth": 0.85, "waves": 1, "sharpness": 1.5
+      }
+    }
+  ]
+}
